@@ -1,0 +1,19 @@
+# Optional: only needed if you deploy from the command line with `npx wrangler deploy`.
+# The step-by-step guide in README.md uses the Cloudflare dashboard instead.
+name = "stock-alerts"
+main = "worker.js"
+compatibility_date = "2026-10-01"
+
+[triggers]
+crons = ["*/2 * * * *"]
+
+[[kv_namespaces]]
+binding = "KV"
+id = "PASTE_YOUR_KV_NAMESPACE_ID_HERE"
+
+[vars]
+SEC_CONTACT_EMAIL = "you@example.com"
+# GEMINI_MODEL = "gemini-3.1-flash-lite"
+
+[observability]
+enabled = true
