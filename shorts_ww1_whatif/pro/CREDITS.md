@@ -18,4 +18,4 @@ All photographs are public domain or CC0 unless noted. The map is drawn from the
 - **wedding**: [Wedding couple outside Builth Wells baptist church (1294197).jpg](https://commons.wikimedia.org/wiki/File:Wedding_couple_outside_Builth_Wells_baptist_church_%281294197%29.jpg) — Public domain
 - **mehmed**: [Portrait of Sultan Mehmed V.jpg](https://commons.wikimedia.org/wiki/File:Portrait_of_Sultan_Mehmed_V.jpg) — Public domain
 - **map**: 1914 borders and 1920 Poland border drawn from [historical-basemaps](https://github.com/aourednik/historical-basemaps) by André Ourednik — GPL-3.0
-- **music**: "Conspiracy Theory" by Rod Kim (from 0:10, ducked under narration) — check the artist's licence terms and credit as required
+- **music**: "Conspiracy Theory" by Rod Kim (plays from the start, offset so the song’s 0:10 hit lands on the “MISSED” → “No World War One” cut; ducked under narration) — check the artist's licence terms and credit as required
