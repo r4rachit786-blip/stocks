@@ -25,6 +25,7 @@ Better world or worse? Tell me in the comments 👇
 
 Image credits: public-domain photographs via Wikimedia Commons.
 Map data: historical-basemaps by André Ourednik (GPL-3.0).
+Music: "Conspiracy Theory" by Rod Kim.
 Full list: see CREDITS in the project.
 ```
 
@@ -51,7 +52,7 @@ Better world or worse? Comment below.
 #history #ww1 #worldwar1 #alternatehistory #whatif #historyfacts #historybuff #europe #reels
 ```
 - Cover: upload `cover.jpg`.
-- Add a trending instrumental at 5–10% volume, or none, since the video already has a score.
+- Background music is already mixed in ("Conspiracy Theory" by Rod Kim), so don't add another track.
 - Turn on "Also share to Facebook".
 
 ---
@@ -64,7 +65,7 @@ What if WW1 never happened? 🌍 one bullet changed everything #history #ww1 #al
 ```
 - Cover: choose the title frame, or upload `cover.jpg`.
 - Turn on the "AI-generated content" label (AI voice).
-- Optional: a dark ambient trending sound at very low volume.
+- Music is already in the video. Don't add a second sound.
 
 ---
 
@@ -93,7 +94,8 @@ Reply quickly to early comments, especially people arguing about Poland and WW2.
 
 ## Pre-flight checklist
 - [ ] Watch once on a phone with sound, and check that the captions aren't hidden behind the app's buttons.
-- [ ] Paste the credits line into the description.
+- [ ] Paste the credits lines (images, map, music) into the description.
+- [ ] Check the licence terms for "Conspiracy Theory" by Rod Kim (credit wording, monetisation, Content ID). If a claim appears, dispute it with the licence or swap the track.
 - [ ] Mark the AI voice disclosure (YouTube "altered content", TikTok AI label).
 - [ ] Set the custom cover (Instagram, TikTok).
 - [ ] Post the pinned comment right after publishing.
