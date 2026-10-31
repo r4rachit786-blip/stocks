@@ -1,6 +1,6 @@
 # Image credits (Wikimedia Commons)
 
-All photographs are public domain or CC0 unless noted. The map is CC BY-SA 4.0 and must be credited in the video description.
+All photographs are public domain or CC0 unless noted. The map is drawn from the historical-basemaps dataset (GPL-3.0) and should be credited in the video description.
 
 - **illus**: [DC-1914-27-d-Sarajevo-cropped.jpg](https://commons.wikimedia.org/wiki/File:DC-1914-27-d-Sarajevo-cropped.jpg) — Public domain
 - **car**: [Franz Ferdinand & Sophie Leave Sarajevo Guildhall in a Car.jpg](https://commons.wikimedia.org/wiki/File:Franz_Ferdinand_%26_Sophie_Leave_Sarajevo_Guildhall_in_a_Car.jpg) — Public domain
@@ -17,4 +17,4 @@ All photographs are public domain or CC0 unless noted. The map is CC BY-SA 4.0 a
 - **dday**: [Into the Jaws of Death 23-0455M edit.jpg](https://commons.wikimedia.org/wiki/File:Into_the_Jaws_of_Death_23-0455M_edit.jpg) — Public domain
 - **wedding**: [Wedding couple outside Builth Wells baptist church (1294197).jpg](https://commons.wikimedia.org/wiki/File:Wedding_couple_outside_Builth_Wells_baptist_church_%281294197%29.jpg) — Public domain
 - **mehmed**: [Portrait of Sultan Mehmed V.jpg](https://commons.wikimedia.org/wiki/File:Portrait_of_Sultan_Mehmed_V.jpg) — Public domain
-- **map**: [A Blank Map of Europe in 1914.png (recoloured, empires highlighted)](https://commons.wikimedia.org/wiki/File:A_Blank_Map_of_Europe_in_1914.png) — CC BY-SA 4.0 — ClayWolf
+- **map**: 1914 borders and 1920 Poland border drawn from [historical-basemaps](https://github.com/aourednik/historical-basemaps) by André Ourednik — GPL-3.0
