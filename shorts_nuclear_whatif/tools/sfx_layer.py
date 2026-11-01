@@ -148,6 +148,13 @@ add(riser(wt(104) - wt(97)), wt(97), 0.4); add(reverse_swell(0.9), wt(104) - 0.9
 # lucky for you... he said no
 add(whoosh(0.4), wt(107) - 0.2, 0.5); add(shimmer(1.8), wt(107), 0.6); add(reverse_swell(1.0), wt(115) - 1.0, 0.55); add(hit(0.8), wt(115), 0.9); add(shimmer(2.0), wt(115) + 0.05, 0.6)
 
+# --- make the lows audible on phone speakers: saturate the sub into harmonics, add punch + presence
+def phone_ready(x):
+    low = lp(x, 160); harm = hp(np.tanh(low * 6) * 0.5, 180)
+    mid = bp(x, 180, 2500); air = hp(x, 3500)
+    y = x * 0.8 + harm * 1.1 + np.tanh(mid * 2.5) * 0.45 + air * 0.35
+    return y
+L = phone_ready(L); R = phone_ready(R)
 st = np.stack([L, R], 1)[:int(D * SR)]
 st /= (np.abs(st).max() + 1e-9); st *= 0.9
 wf.write('/tmp/von3/sfx_layer.wav', SR, (st * 32767).astype(np.int16))
