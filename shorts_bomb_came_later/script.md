@@ -1,11 +1,13 @@
 # What if the nuclear bomb was never built? Script and shot list (~55 sec, ~160 words)
 
+_Hook reworked: see GROK_PROMPTS.md for the full second-by-second build guide._
+
 Visual key: [ARCHIVE] real 1940s footage/photos; [AI] generated what-if scene with small "Imagined" tag; [TEXT] animated type/maps.
 
 | Time | VO | On-screen text | Visual |
 |---|---|---|---|
-| 0:00 | "What if the nuclear bomb was never built?" | WHAT IF IT WAS NEVER BUILT? | [ARCHIVE] Trinity flash, freeze, rewind effect |
-| 0:03 | "It's 1942. America cancels the Manhattan Project." | 1942 · CANCELLED | [AI] red CANCELLED stamp on a Manhattan Project file |
+| 0:00 | "No atomic bomb… means World War Three in 1950. Here's how." | NO A-BOMB = WORLD WAR III? · 1950 | [ARCHIVE] Trinity flash, freeze, red flash, rewind effect |
+| 0:03 | "1942. Imagine America cancels the Manhattan Project." | 1942 · CANCELLED | [AI] red CANCELLED stamp on a Manhattan Project file |
 | 0:06 | "Two billion dollars and a hundred thousand workers go to jets and radar instead." | $2 BILLION → JETS | [ARCHIVE] Los Alamos crowd, whip-pan to early jet fighter |
 | 0:10 | "August 1945. No flash over Hiroshima." | AUG 6, 1945 · NOTHING HAPPENS | [AI] calm Hiroshima street, morning |
 | 0:13 | "So on November first, the biggest invasion in history hits Japan." | NOV 1, 1945 · OPERATION DOWNFALL | [AI] landing fleet off Kyushu |
@@ -19,7 +21,7 @@ Visual key: [ARCHIVE] real 1940s footage/photos; [AI] generated what-if scene wi
 | 0:40 | "Fission was discovered in 1938. Someone builds the bomb eventually." | 1938 → ? | [ARCHIVE] 1930s lab photo, clock spinning forward |
 | 0:44 | "Except now, no one has seen Hiroshima. No warning. No taboo." | NO WARNING · NO TABOO | [AI] modern skyline, distant flash |
 | 0:48 | "Better world, or worse? Comment BETTER or WORSE." | BETTER or WORSE? 👇 | [TEXT] two big buttons, split screen |
-| 0:52 | "Because maybe the scariest history... is the one where the bomb comes later." | THE BOMB COMES LATER | [ARCHIVE] Trinity flash (same as 0:00 for a seamless loop) |
+| 0:52 | "Because maybe the scariest history... is the one where the bomb comes later." (loops into the hook) | THE BOMB COMES LATER | [ARCHIVE] Trinity flash (same as 0:00 for a seamless loop) |
 
 ## Sound
 Low ticking clock throughout, speeding up after 0:38; hit on every number; whoosh on whip-pans; 1 sec silence at 0:38 then bass drop; tense building music cut dead at 0:52.
