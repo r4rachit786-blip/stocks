@@ -25,7 +25,7 @@ Would you live on that map, or ours? 👇
 
 #history #ottomanempire #whatif #alternatehistory #shorts
 
-Alternate-history scenario. Images: Wikimedia Commons (public domain). Map data: historical-basemaps (GPL-3.0). Voice: AI. Music: AI-generated (vidIQ).
+Alternate-history scenario. Images: Wikimedia Commons (public domain). Map data: historical-basemaps (GPL-3.0). Voice: AI. Music: AI-generated (vidIQ). Oil-gusher image is an AI recreation. SFX: Mixkit.
 ```
 **Pinned comment:** `That map or ours? 1️⃣ Ottoman  2️⃣ Today 👇`
 
@@ -59,6 +59,6 @@ That map or ours? 👇
   - The Baba Gurgur oil gusher near Kirkuk erupted in 1927.
   - Atatürk founded the Republic of Turkey in 1923.
 - **What-if:** everything after "what if Britain had just delivered the ships?" is speculation, and the video presents it that way.
-- **AI label:** turn it on everywhere (AI voice).
+- **AI label:** turn it on everywhere (AI voice + AI-recreated oil-gusher image).
 - **Comments:** this topic can get heated (Turkey, the Arab states, Armenia). Hold potentially inappropriate comments for review and keep your replies neutral.
 - **Post timing:** TikTok first, then Reels 1–2 days later.
