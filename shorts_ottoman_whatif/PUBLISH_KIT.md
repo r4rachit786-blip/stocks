@@ -25,7 +25,7 @@ Would you live on that map, or ours? 👇
 
 #history #ottomanempire #whatif #alternatehistory #shorts
 
-Alternate-history scenario. Images: Wikimedia Commons (public domain). Map data: historical-basemaps (GPL-3.0). Voice: AI.
+Alternate-history scenario. Images: Wikimedia Commons (public domain). Map data: historical-basemaps (GPL-3.0). Voice: AI. Music: AI-generated (vidIQ).
 ```
 **Pinned comment:** `That map or ours? 1️⃣ Ottoman  2️⃣ Today 👇`
 

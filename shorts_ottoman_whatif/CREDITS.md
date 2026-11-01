@@ -12,3 +12,4 @@ Images via Wikimedia Commons (public domain unless noted).
 - **mehmed**: [Portrait of Sultan Mehmed V.jpg](https://commons.wikimedia.org/wiki/File:Portrait_of_Sultan_Mehmed_V.jpg)
 - **map**: drawn from [historical-basemaps](https://github.com/aourednik/historical-basemaps) by André Ourednik — GPL-3.0
 - Voice: AI (vidIQ / ElevenLabs "Adam")
+- **music**: original AI-generated score (vidIQ music generator, royalty-free)
