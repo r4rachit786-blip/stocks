@@ -74,7 +74,7 @@ at_onset(dist(load(2800, dur=2.0, fade=1.0), 6.0), wt(76), 1.0); at_onset(load(2
 # 0:30.3 rocket abort: vintage computer beeps (Kenney), reversed jet suck, glitch-pitched meltdown horn
 ab = wt(91); cb = load('k_computerNoise_001.wav', dur=ab - wt(86), fade=0.1); put(cb, wt(86), 0.7)
 js = load(1580, start=4.0, dur=3.0, fade=0.05, rev=True); put(js, ab - js.shape[1] / SR + 0.05, 0.85)
-put(dist(stutter(pitch(load(999, dur=1.6, fade=0.4), 0.78), 9, 0.55), 2.5), ab, 0.8)
+al = dist(stutter(pitch(load(999, dur=1.6, fade=0.4), 0.78), 9, 0.55), 2.5); n = int((wt(92) - ab) * SR); al = al[:, :n]; f8 = min(int(0.03 * SR), n); al[:, -f8:] *= np.linspace(1, 0, f8); put(al, ab, 0.8)  # alarm stops dead on the cut to the Moon
 # 0:32.4 Moon: deep space vacuum hum + wet, aggressive marker strike dead centre
 put(load(1177, dur=wt(97) - wt(92), fade=0.5), wt(92), 0.55); at_onset(load(2998), wt(96) + 0.15, 1.0)
 # 0:34.5 historian: lo-fi vinyl crackle (Orange Free Sounds, CC BY) + muted keyboard taps, everything DOWN
@@ -105,7 +105,7 @@ if len(sc) < NS: sc = np.vstack([sc, np.zeros((NS - len(sc), 2))])
 g = np.ones(NS)
 def ramp(t0, t1, v0, v1): a_, b_ = int(t0 * SR), int(t1 * SR); g[a_:b_] = np.linspace(v0, v1, b_ - a_)
 def hold(t0, t1, v): g[int(t0 * SR):int(t1 * SR)] = v
-hold(wt(9) - 0.02, wt(11), 0.0); ramp(wt(32) - 0.1, wt(32) + 0.1, 1, 0.3); hold(wt(32) + 0.1, wt(34), 0.3); ramp(wt(34), wt(34) + 0.05, 0.3, 0.12); hold(wt(34) + 0.05, wt(38) - 0.1, 0.12); ramp(wt(38) - 0.1, wt(38), 0.12, 1); hold(wt(59), wt(63), 0.45); hold(wt(110) + 0.4, wt(115), 0.4); ramp(wt(115), wt(120), 0.4, 1); hold(wt(91), wt(92), 0.5); ramp(wt(11), wt(11) + 0.2, 0.0, 1.0)              # rewind: all other sound cut
+hold(wt(9) - 0.02, wt(11), 0.0); ramp(wt(32) - 0.1, wt(32) + 0.1, 1, 0.3); hold(wt(32) + 0.1, wt(34), 0.3); ramp(wt(34), wt(34) + 0.05, 0.3, 0.12); hold(wt(34) + 0.05, wt(38) - 0.1, 0.12); ramp(wt(38) - 0.1, wt(38), 0.12, 1); hold(wt(59), wt(63), 0.45); hold(wt(110) + 0.4, wt(115), 0.4); ramp(wt(115), wt(120), 0.4, 1); hold(wt(91), wt(92), 0.5); ramp(wt(92) - 0.02, wt(92) + 0.1, 0.5, 0.18); hold(wt(92) + 0.1, wt(97) - 0.2, 0.18); ramp(wt(11), wt(11) + 0.2, 0.0, 1.0)              # rewind: all other sound cut
 hold(wt(72) + 0.1, wt(74) - 0.02, 0.0)                                                # silence before the WW3 shock
 ramp(wt(97) - 0.2, wt(97) + 0.2, 1, 0.3); hold(wt(97) + 0.2, wt(106) - 0.1, 0.3)       # historian: breathing room
 hold(wt(106) - 0.1, wt(110), 0.0); ramp(wt(110), wt(110) + 0.4, 0, 1)                 # twist
