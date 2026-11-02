@@ -1,0 +1,52 @@
+  // ---------------- helpers ----------------
+  const txt = (ctx, s, font, x, y, align = 'center', fill = '#fff', ls = 0) => { ctx.font = font; ctx.textAlign = align; ctx.textBaseline = 'alphabetic'; ctx.letterSpacing = ls + 'px'; ctx.fillStyle = fill; ctx.fillText(s, x, y); ctx.letterSpacing = '0px'; };
+  const cover = (ctx, img, cx, cy, z, dx = 0, dy = 0) => { const s = Math.max(W / img.width, HH / img.height) * z, dw = img.width * s, dh = img.height * s; let x = W / 2 - cx * dw, y = HH / 2 - cy * dh; x = Math.min(0, Math.max(W - dw, x)) + dx; y = Math.min(0, Math.max(HH - dh, y)) + dy; ctx.drawImage(img, x, y, dw, dh); return { x, y, dw, dh, P: (nx, ny) => [x + nx * dw, y + ny * dh] }; };
+  const kb = (ctx, img, s, t, f, to) => { const u = E.inOut(seg(t, s.t0, s.t1)); return cover(ctx, img, lerp(f[0], to[0], u), lerp(f[1], to[1], u), lerp(f[2], to[2], u)); };
+  const glow = (ctx, fn, color = CYAN, blur = 24) => { ctx.save(); ctx.shadowColor = color; ctx.shadowBlur = blur; fn(); ctx.restore(); };
+  // 2.5D parallax: blurred background and cut-out foreground move at different speeds
+  const parallax = (ctx, bg, fg, s, t, face = [0.5, 0.3], rim = RED) => {
+    const u = E.inOut(seg(t, s.t0, s.t1));
+    const z0 = 1.12; const r = cover(ctx, bg, face[0], face[1], z0 + 0.04 * u, -20 + 40 * u, 0);
+    const sc = (r.dw / bg.width) * (fg.width === bg.width ? 1 : 1) * (1 + 0.08 * u), dw = fg.width * sc, dh = fg.height * sc;
+    const x = r.x + 20 - 40 * u - (dw - r.dw) * face[0] - 30 * u, y = r.y - (dh - r.dh) * face[1];
+    ctx.save(); ctx.shadowColor = rim; ctx.shadowBlur = 60; ctx.drawImage(fg, x, y, dw, dh); ctx.restore(); ctx.drawImage(fg, x, y, dw, dh);
+    return (nx, ny) => [x + nx * dw, y + ny * dh];
+  };
+  // kinetic headline: flies in from big + ghost trail, settles with a slight drift
+  const kin = (ctx, s, y, size, color, t, t0, rot = 0) => { if (t < t0 - 0.02) return; const u = seg(t, t0 - 0.02, t0 + 0.2), e = E.out(u), sc = lerp(2.4, 1, e) * (1 + 0.02 * (t - t0));
+    ctx.save(); ctx.translate(W / 2, y); ctx.rotate(rot); ctx.font = `400 ${size}px "Anton"`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.lineJoin = 'round';
+    for (let g = 3; g >= 0; g--) { const gs = sc * (1 + g * 0.08 * (1 - e)); ctx.save(); ctx.scale(gs, gs); ctx.globalAlpha = g ? 0.18 * (1 - e) : Math.min(1, u * 3); if (!g) { ctx.lineWidth = size * 0.12; ctx.strokeStyle = 'rgba(0,0,0,0.9)'; ctx.strokeText(s, 0, 0); ctx.shadowColor = color; ctx.shadowBlur = 45; } ctx.fillStyle = color; ctx.letterSpacing = '4px'; ctx.fillText(s, 0, 0); ctx.letterSpacing = '0px'; ctx.restore(); }
+    ctx.restore(); };
+  const stamp = (ctx, s, x, y, size, color, t, t0, rot = -0.12, tc = '#fff') => { if (t < t0 - 0.02) return; const u = seg(t, t0 - 0.02, t0 + 0.09), sc = lerp(2.6, 1, E.out(u)) * (t > t0 + 0.07 ? 1 + 0.05 * Math.exp(-(t - t0 - 0.07) * 20) : 1); ctx.save(); ctx.globalAlpha = Math.min(1, u * 3); ctx.translate(x, y); ctx.rotate(rot); ctx.scale(sc, sc);
+    ctx.font = `400 ${size}px "Anton"`; ctx.letterSpacing = '4px'; const w = ctx.measureText(s).width + size * 0.7, hh = size * 1.3, top = -size * 0.72; ctx.letterSpacing = '0px';
+    ctx.shadowColor = 'rgba(0,0,0,0.85)'; ctx.shadowBlur = 40; ctx.shadowOffsetY = 14; ctx.fillStyle = color; ctx.fillRect(-w / 2, top, w, hh); ctx.shadowColor = 'transparent';
+    ctx.strokeStyle = tc; ctx.lineWidth = size * 0.05; ctx.strokeRect(-w / 2 + size * 0.11, top + size * 0.11, w - size * 0.22, hh - size * 0.22);
+    ctx.lineWidth = size * 0.04; ctx.strokeStyle = 'rgba(0,0,0,0.35)'; ctx.strokeRect(-w / 2, top, w, hh);
+    txt(ctx, s, `400 ${size}px "Anton"`, 0, size * 0.36, 'center', tc, 4); ctx.restore(); };
+  // animated callout: pulsing dot on the subject, a line drawn out to a typed label
+  const callout = (ctx, p, l, label, sub, t, t0, color = CYAN) => { if (t < t0) return; const u = seg(t, t0, t0 + 0.35), v = seg(t, t0 + 0.25, t0 + 0.75);
+    const pulse = 1 + 0.4 * Math.sin((t - t0) * 9); ctx.save(); ctx.strokeStyle = color; ctx.fillStyle = color; ctx.lineWidth = 3; ctx.shadowColor = color; ctx.shadowBlur = 16;
+    ctx.beginPath(); ctx.arc(p[0], p[1], 10, 0, 7); ctx.fill(); ctx.beginPath(); ctx.arc(p[0], p[1], 22 * pulse, 0, 7); ctx.stroke();
+    const mx = lerp(p[0], l[0], 0.5), my = l[1]; const e = [lerp(p[0], mx, Math.min(1, u * 2)), lerp(p[1], my, Math.min(1, u * 2))]; ctx.beginPath(); ctx.moveTo(p[0], p[1]); ctx.lineTo(e[0], e[1]); if (u > 0.5) ctx.lineTo(lerp(mx, l[0], (u - 0.5) * 2), my); ctx.stroke();
+    if (v > 0) { const n = Math.ceil(label.length * v), m = Math.ceil((sub || '').length * v); ctx.shadowBlur = 0; ctx.font = '400 46px "Share Tech Mono"'; ctx.letterSpacing = '2px'; const lw0 = ctx.measureText(label).width; ctx.font = '400 34px "Share Tech Mono"'; const sw0 = sub ? ctx.measureText(sub).width : 0; ctx.letterSpacing = '0px'; const w = Math.max(lw0, sw0) + 44, left = l[0] > W / 2 ? l[0] - w : l[0];
+      ctx.fillStyle = 'rgba(0,10,16,0.75)'; ctx.fillRect(left, my - 52, w, sub ? 112 : 70); ctx.strokeRect(left, my - 52, w, sub ? 112 : 70); txt(ctx, label.slice(0, n), '400 46px "Share Tech Mono"', left + 20, my, 'left', '#fff', 2); if (sub) txt(ctx, sub.slice(0, m), '400 34px "Share Tech Mono"', left + 20, my + 44, 'left', color, 2); }
+    ctx.restore(); };
+  // target reticle locking onto a point
+  const reticle = (ctx, p, size, label, t, t0, color = RED) => { if (t < t0) return; const u = E.out(seg(t, t0, t0 + 0.35)), s = lerp(size * 2.2, size, u), a = (1 - u) * 0.8; ctx.save(); ctx.translate(p[0], p[1]); ctx.rotate(a); ctx.strokeStyle = color; ctx.lineWidth = 5; ctx.shadowColor = color; ctx.shadowBlur = 20;
+    const l = s * 0.35; [[-1, -1], [1, -1], [1, 1], [-1, 1]].forEach(([sx, sy]) => { ctx.beginPath(); ctx.moveTo(sx * s, sy * (s - l)); ctx.lineTo(sx * s, sy * s); ctx.lineTo(sx * (s - l), sy * s); ctx.stroke(); }); ctx.rotate(-a);
+    if (u > 0.6) txt(ctx, label, '400 40px "Share Tech Mono"', 0, -s - 22, 'center', color, 4); ctx.restore(); };
+  const hud = (ctx, lines, t, t0, y = P.hudY) => { const u = appear(t, t0 + 0.05, 0.3); if (u <= 0) return; ctx.save(); ctx.globalAlpha = u; ctx.translate(-(1 - u) * 60, 0);
+    ctx.fillStyle = 'rgba(0,10,16,0.65)'; ctx.fillRect(60, y - 64, 640, 64 + lines.length * 58); ctx.strokeStyle = CYAN; ctx.lineWidth = 2; ctx.strokeRect(60, y - 64, 640, 64 + lines.length * 58);
+    lines.forEach((l, i) => { const s = l.replace(/^!/, ''), n = Math.ceil(s.length * seg(t, t0 + 0.05 + i * 0.12, t0 + 0.45 + i * 0.12)); glow(ctx, () => txt(ctx, s.slice(0, n), `400 ${i ? 40 : 54}px "Share Tech Mono"`, 86, y + i * 58, 'left', i ? CYAN : (l.startsWith('!') ? RED : '#fff'), 3), i ? CYAN : '#fff', 12); }); ctx.restore(); };
+  const clock = (ctx, time, date, t, t0, color = RED, y = 760) => { const u = pop(t, t0, 0.3); if (u <= 0) return; ctx.save(); ctx.translate(W / 2, y); ctx.scale(u, u); ctx.fillStyle = 'rgba(0,0,0,0.6)'; ctx.fillRect(-380, -170, 760, 300); ctx.strokeStyle = color; ctx.lineWidth = 4; ctx.strokeRect(-380, -170, 760, 300);
+    const blink = Math.floor(t * 2) % 2 ? ':' : ' '; glow(ctx, () => txt(ctx, time.replace(':', blink), '400 190px "Share Tech Mono"', 0, 40, 'center', color, 6), color, 40); txt(ctx, date, '400 44px "Share Tech Mono"', 0, 105, 'center', '#fff', 8); ctx.restore(); };
+  const flash = (ctx, t, t0, d = 0.5, color = '255,245,220') => { if (t < t0 || t > t0 + d) return; const a = 1 - (t - t0) / d; ctx.fillStyle = `rgba(${color},${a * 0.95})`; ctx.fillRect(0, 0, W, HH); };
+  const embers = (ctx, t, n, seed, y0 = HH, spread = W, hot = 1) => { const r = H.rng(seed); ctx.save(); ctx.globalCompositeOperation = 'lighter'; for (let i = 0; i < n; i++) { const sp = r.range(120, 380), ph = r.range(0, 10), x0 = r.range(0, spread), life = (t * sp / HH + ph) % 1, x = x0 + Math.sin(t * r.range(1, 3) + ph) * 40, y = y0 - life * HH * 1.1, s = r.range(2, 6) * (1 - life * 0.6);
+    ctx.fillStyle = `rgba(255,${(140 + r.range(0, 90)) | 0},40,${(0.9 - life) * hot})`; ctx.beginPath(); ctx.arc(x, y, s, 0, 7); ctx.fill(); } ctx.restore(); };
+  const smokeLayer = (ctx, tex, t, alpha, speed = 30, scale = 2.4, mode = 'screen') => { ctx.save(); ctx.globalAlpha = alpha; ctx.globalCompositeOperation = mode; const s = tex.width * scale, ox = -((t * speed) % s), oy = -((t * speed * 0.4) % s); for (let y = oy; y < HH; y += s) for (let x = ox; x < W; x += s) ctx.drawImage(tex, x, y, s, s); ctx.restore(); };
+  const fireGlow = (ctx, t, a = 1) => { const f = 0.85 + 0.15 * Math.sin(t * 17) * Math.sin(t * 7.3); const g = ctx.createLinearGradient(0, HH, 0, HH * 0.3); g.addColorStop(0, `rgba(255,120,20,${0.75 * a * f})`); g.addColorStop(0.5, `rgba(200,40,10,${0.35 * a * f})`); g.addColorStop(1, 'rgba(0,0,0,0)'); ctx.save(); ctx.globalCompositeOperation = 'screen'; ctx.fillStyle = g; ctx.fillRect(0, 0, W, HH); ctx.restore(); };
+  const leak = (ctx, t, color = '255,120,40', a = 0.35) => { const x = W * (0.5 + 0.45 * Math.sin(t * 0.7)), y = HH * (0.3 + 0.2 * Math.cos(t * 0.5)); const g = ctx.createRadialGradient(x, y, 0, x, y, 900); g.addColorStop(0, `rgba(${color},${a})`); g.addColorStop(1, `rgba(${color},0)`); ctx.save(); ctx.globalCompositeOperation = 'screen'; ctx.fillStyle = g; ctx.fillRect(0, 0, W, HH); ctx.restore(); };
+  const shockwave = (ctx, p, t, t0, max = 1400) => { if (t < t0 || t > t0 + 0.8) return; const u = seg(t, t0, t0 + 0.8); ctx.save(); ctx.strokeStyle = `rgba(255,240,220,${1 - u})`; ctx.lineWidth = 30 * (1 - u) + 2; ctx.beginPath(); ctx.arc(p[0], p[1], max * E.out(u), 0, 7); ctx.stroke(); ctx.restore(); };
+  const rgbSplit = (ctx, amt) => { if (amt <= 0.02) return; const fx = A.fx, x = fx.getContext('2d'); x.globalCompositeOperation = 'copy'; x.drawImage(ctx.canvas, 0, 0); x.globalCompositeOperation = 'multiply'; x.fillStyle = '#ff0000'; x.fillRect(0, 0, W, HH);
+    ctx.save(); ctx.globalCompositeOperation = 'screen'; ctx.globalAlpha = 0.55 * amt; ctx.drawImage(fx, 18 * amt, 0); ctx.restore(); x.globalCompositeOperation = 'copy'; x.drawImage(ctx.canvas, 0, 0); x.globalCompositeOperation = 'multiply'; x.fillStyle = '#00ffff'; x.fillRect(0, 0, W, HH); ctx.save(); ctx.globalCompositeOperation = 'screen'; ctx.globalAlpha = 0.45 * amt; ctx.drawImage(fx, -18 * amt, 0); ctx.restore(); };
+  const glitch = (ctx, amt, seed) => { if (amt <= 0.01) return; const r = H.rng(seed), c = ctx.canvas; for (let i = 0; i < 7; i++) { const y = r.range(0, HH), h = r.range(10, 90), dx = r.range(-90, 90) * amt; ctx.drawImage(c, 0, y, W, h, dx, y, W, h); } };
