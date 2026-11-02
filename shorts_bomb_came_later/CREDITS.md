@@ -4,5 +4,8 @@
 - **Voice:** AI (vidIQ / ElevenLabs "Adam").
 - **Music:** original AI-generated dark phonk score (vidIQ music generator, royalty-free).
 - **Purple Hearts warehouse image:** AI-generated (ChatGPT, supplied by the channel).
-- **Sound effects:** [Mixkit](https://mixkit.co/free-sound-effects/) free sound effects (Mixkit Free License) — IDs 2782, 1700, 833, 1520, 1093, 1088, 2533, 2541, 2542, 849, 2299, 201, 1053, 1061, 3165, 1580, 1579, 2604, 2786, 1452, 3186, 1153, 2160, 2152, 1157, 498, 2756, 2757, 2800, 2303, 3122, 999, 1177, 2998, 701, 2951, 3111, 2291, 1072, 1652, 1686, 1278, 1511, 2568, 2573, 1687, 2777; plus synthesized sub-drops and ambience layers.
+- **Sound effects:** [Mixkit](https://mixkit.co/free-sound-effects/) free sound effects (Mixkit Free License) — IDs 2782, 833, 1093, 2533, 2541, 2542, 1053, 3165, 1580, 1579, 2604, 1700, 2132, 201, 1153, 2786, 2160, 1157, 498, 2800, 2757, 999, 1177, 2998, 2951, 3111, 1072, 1652, 1686, 1511, 2568, 2573, 1687.
+- **Kenney sound packs** (CC0, kenney.nl): Sci-Fi Sounds (lowFrequency_explosion_000, doorClose_001, computerNoise_001), Digital Audio (lowDown).
+- **Vine Boom:** archive.org item vine-boom_202501 (marked CC0).
+- **"Vinyl Noise"** by Orange Free Sounds (orangefreesounds.com), licensed CC BY 4.0 — attribution required (included in the video description).
 - **Cicada recording:** "Cicada chirping", Yuchi Township, Nantou County (Radio Aporee, archive.org item aporee_73386_85757), Public Domain Mark 1.0.

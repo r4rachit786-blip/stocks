@@ -24,7 +24,7 @@ Better world or worse? Comment BETTER or WORSE 👇
 
 #history #whatif #ww2 #alternatehistory #shorts
 
-Visuals: AI-generated scenes (Grok), marked "IMAGINED" on screen. Voice: AI. Music: AI-generated (vidIQ). SFX: Mixkit. Map data: historical-basemaps (GPL-3.0).
+Visuals: AI-generated scenes (Grok, ChatGPT), marked "IMAGINED" on screen. Voice: AI. Music: AI-generated (vidIQ). SFX: Mixkit, Kenney (CC0), Radio Aporee (public domain). "Vinyl Noise" by Orange Free Sounds, CC BY 4.0. Map data: historical-basemaps (GPL-3.0).
 ```
 **Pinned comment:** `Historians are split on this one. Was Japan about to surrender anyway, or would the invasion have happened? Make your case 👇`
 
