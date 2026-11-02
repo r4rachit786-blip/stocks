@@ -20,7 +20,7 @@
   window.loadAssets = async () => {
     const imgs = await Promise.all(NAMES.map((n) => loadImg('assets/' + n + '.jpg')));
     NAMES.forEach((n, i) => { A[n] = filtered(imgs[i], 'contrast(1.08)'); });
-    A.moonBlur = filtered(imgs[NAMES.indexOf('moon')], 'blur(14px) contrast(0.9)');
+    A.p59 = filtered(await loadImg('assets/p59_cut.png'), 'contrast(1.1)'); A.moonBlur = filtered(imgs[NAMES.indexOf('moon')], 'blur(14px) contrast(0.9)');
     A.cloudHot = filtered(imgs[0], 'brightness(1.6) contrast(1.3)');
     const [n, s, smoke] = await Promise.all([loadImg('assets/jp_north.png'), loadImg('assets/jp_south.png'), loadImg('assets/smoke.png')]);
     A.north = tintMask(n, [224, 38, 59]); A.south = tintMask(s, [47, 124, 240]);
