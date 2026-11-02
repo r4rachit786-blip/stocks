@@ -99,3 +99,16 @@ Reply quickly to early comments, especially people arguing about Poland and WW2.
 - [ ] Mark the AI voice disclosure (YouTube "altered content", TikTok AI label).
 - [ ] Set the custom cover (Instagram, TikTok).
 - [ ] Post the pinned comment right after publishing.
+
+---
+
+## TikTok version
+**File:** `social/ww1-what-if-tiktok.mp4`. Captions and big titles are moved and shrunk to stay clear of TikTok's right-side buttons and bottom caption area. Same audio as the YouTube version.
+
+**Caption**
+```
+If this bullet missed in 1914… you wouldn't exist 🤯 No Soviet Union. No Nazis. No Poland. Better world or worse? 👇 #history #ww1 #whatif #alternatehistory #historytok
+```
+**On-screen cover text:** `IF THIS BULLET MISSED…`
+**Pinned comment:** `Better world or worse? Defend your answer 👇`
+**Sound:** keep the original sound on. Rod Kim's "Conspiracy Theory" is already mixed in. TikTok may mute copyrighted music in the upload; if it does, add the same track from TikTok's sound library at low volume.
