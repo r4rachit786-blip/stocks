@@ -24,6 +24,6 @@
     ctx.drawImage(A.scan, 0, 0); ctx.globalCompositeOperation = 'overlay'; ctx.globalAlpha = P.grain; ctx.drawImage(A.grain[Math.floor(t * 30) % 6], 0, 0, W, HH); ctx.globalAlpha = 1; ctx.globalCompositeOperation = 'source-over';
     const g = ctx.createRadialGradient(W / 2, HH / 2, 450, W / 2, HH / 2, 1250); g.addColorStop(0, 'rgba(0,0,0,0)'); g.addColorStop(1, 'rgba(0,0,0,0.62)'); ctx.fillStyle = g; ctx.fillRect(0, 0, W, HH);
     const bg = ctx.createLinearGradient(0, 1220, 0, HH); bg.addColorStop(0, 'rgba(0,0,0,0)'); bg.addColorStop(1, 'rgba(0,0,0,0.6)'); ctx.fillStyle = bg; ctx.fillRect(0, 1220, W, HH - 1220);
-    corners(ctx);
+    timeline(ctx, t, s); corners(ctx);
     if (s.k !== 'you') captions(ctx, t);
   }
