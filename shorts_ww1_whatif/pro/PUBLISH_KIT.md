@@ -112,3 +112,19 @@ If this bullet missed in 1914… you wouldn't exist 🤯 No Soviet Union. No Naz
 **On-screen cover text:** `IF THIS BULLET MISSED…`
 **Pinned comment:** `Better world or worse? Defend your answer 👇`
 **Sound:** keep the original sound on. Rod Kim's "Conspiracy Theory" is already mixed in. TikTok may mute copyrighted music in the upload; if it does, add the same track from TikTok's sound library at low volume.
+
+## Instagram Reels (and Facebook) version
+**File:** `social/ww1-what-if-reels.mp4`. Top labels are lowered below the Reels header, and captions are raised above Instagram's taller bottom text area.
+
+**Caption**
+```
+28 June 1914. One bullet in Sarajevo. 🔫
+If it had missed… no WW1, no Soviet Union, no Nazis, no Poland.
+And maybe… no you.
+
+Better world or worse? 👇
+
+#history #ww1 #whatif #alternatehistory #historyfacts
+```
+**Pinned comment:** `1️⃣ Better world  2️⃣ Worse world. Pick one and defend it 👇`
+**Music:** same note as TikTok. If Instagram mutes the track, add "Conspiracy Theory" from the Instagram music library at low volume.
