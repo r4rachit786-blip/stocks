@@ -42,7 +42,7 @@
     S('moon', wt(92), wt(97), 'cut'), S('other', wt(97), wt(106), 'whip'), S('twist', wt(106), wt(110), 'cut'), S('lab', wt(110), wt(120), 'zoom'),
     S('skyline', wt(120), wt(131), 'whip'), S('choice', wt(131), wt(139), 'cut'), S('end', wt(139), DURATION + 1, 'flash'),
   ];
-  const HITS = [0.12, wt(8), wt(14), wt(44), wt(46.5 | 0) + 0.3, wt(53), wt(64), wt(76), wt(91), wt(108), wt(126) + 0.1, wt(139), wt(151)];
+  const HITS = [0.02, wt(8), wt(14), wt(44), wt(46.5 | 0) + 0.3, wt(53), wt(64), wt(76), wt(91), wt(108), wt(126) + 0.1, wt(139), wt(151)];
   const KEY = new Set(['ATOMIC', 'BOMB', 'WORLD', 'WAR', 'THREE', '1950', '1942', 'MANHATTAN', 'PROJECT', 'CANCELS', 'BILLION', 'JETS', 'RADAR', '1945', 'HIROSHIMA', 'NOVEMBER', 'BIGGEST', 'INVASION', 'JAPAN', 'MILLION', 'PURPLE', 'HEARTS', 'SOVIETS', 'HOKKAIDO', 'SPLITS', 'TWO', 'FEAR', 'DESTRUCTION', 'HOT', 'TAKE', 'EUROPE', 'TANKS', 'MISSILES', 'SPUTNIK', 'MOON', '1969', 'SURRENDERED', 'MAYBE', 'TWIST', 'FISSION', '1938', 'EVENTUALLY', 'WARNING', 'TABOO', 'BETTER', 'WORSE', 'SCARIEST', 'LATER', 'NO']);
   const RED_KEYS = new Set(['BOMB', 'WAR', 'THREE', 'CANCELS', 'INVASION', 'DESTRUCTION', 'TANKS', 'MISSILES', 'NO', 'WARNING', 'TABOO', 'WORSE', 'LATER', 'SPLITS', 'TWIST']);
   const CAPS = []; { let cur = null; WORDS.forEach((w, i) => { const gap = i ? w[0] - WORDS[i - 1][1] : 1; if (!cur || cur.idx.length >= 3 || gap > 0.22) { cur = { idx: [] }; CAPS.push(cur); } cur.idx.push(i); }); }

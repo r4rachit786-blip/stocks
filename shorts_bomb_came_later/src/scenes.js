@@ -56,15 +56,15 @@
 
   // ---------------- scenes ----------------
   const SCN = {
-    hook(ctx, t, s) { if (t < 0.1) { ctx.fillStyle = '#000'; ctx.fillRect(0, 0, W, HH); return; }
-      const z = 1.0 + 0.22 * E.out(seg(t, 0.1, s.t1)) + 0.05 * Math.exp(-(t - 0.1) * 6), r = rect(A.cloud, 0.5, 0.42, z); shimmer(ctx, A.cloud, r, t, 6);
-      const sw = seg(t, 0.15, 1.6); if (sw > 0 && sw < 1) { const c = r.P(0.5, 0.78); ctx.save(); ctx.globalCompositeOperation = 'lighter'; ctx.strokeStyle = `rgba(255,230,200,${0.7 * (1 - sw)})`; ctx.lineWidth = 40 * (1 - sw); ctx.beginPath(); ctx.ellipse(c[0], c[1], 1400 * E.out(sw), 160 * E.out(sw), 0, 0, 7); ctx.stroke(); ctx.restore(); }
+    hook(ctx, t, s) {
+      const z = 1.0 + 0.22 * E.out(seg(t, 0, s.t1)) + 0.07 * Math.exp(-t * 6), r = rect(A.cloud, 0.5, 0.42, z); shimmer(ctx, A.cloud, r, t, 6);
+      const sw = seg(t, 0.0, 1.4); if (sw > 0 && sw < 1) { const c = r.P(0.5, 0.78); ctx.save(); ctx.globalCompositeOperation = 'lighter'; ctx.strokeStyle = `rgba(255,230,200,${0.7 * (1 - sw)})`; ctx.lineWidth = 40 * (1 - sw); ctx.beginPath(); ctx.ellipse(c[0], c[1], 1400 * E.out(sw), 160 * E.out(sw), 0, 0, 7); ctx.stroke(); ctx.restore(); }
       particles(ctx, t, { n: 70, seed: 3, sp: [0.15, 0.4], vx: 0.05, vy: -0.6, size: [1.5, 4], color: '#ffd9a0', a: 0.7, mode: 'lighter' });
       if (t > wt(4) - 0.05 && t < wt(9)) { ctx.fillStyle = `rgba(190,15,25,${0.18 + 0.08 * Math.sin(t * 14)})`; ctx.fillRect(0, 0, W, HH); }
       kin(ctx, 'NO A-BOMB', 400 + P.top, 150, '#fff', t, wt(0) + 0.1); kin(ctx, '=', 560 + P.top, 110, '#fff', t, wt(3)); banner(ctx, 'WORLD WAR III', 700 + P.top, 120, t, wt(4));
       if (t > wt(8) - 0.02) { const u = seg(t, wt(8) - 0.02, wt(8) + 0.12), g = t < wt(8) + 0.25 ? 1 : 0; ctx.save(); ctx.translate(W / 2, 1060); ctx.scale(lerp(2, 1, E.out(u)), lerp(2, 1, E.out(u))); ctx.globalAlpha = Math.min(1, u * 3);
         ctx.font = '400 260px "Anton"'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.lineWidth = 8; ctx.strokeStyle = '#fff'; if (g) { ctx.fillStyle = 'rgba(0,255,255,0.6)'; ctx.fillText('1950', -10, 0); ctx.fillStyle = 'rgba(255,0,60,0.6)'; ctx.fillText('1950', 10, 0); } ctx.shadowColor = RED; ctx.shadowBlur = 50; ctx.fillStyle = RED; ctx.fillText('1950', 0, 0); ctx.strokeText('1950', 0, 0); ctx.restore(); }
-      flash(ctx, t, 0.1, 0.7, '255,250,235'); },
+      flash(ctx, t, 0.0, 0.55, '255,250,235'); },
     rewind(ctx, t, s) { const u = seg(t, s.t0, s.t1); cover(ctx, A.cloud, 0.5, 0.42, 1.25 - 0.3 * E.inOut(u)); ctx.save(); ctx.globalCompositeOperation = 'saturation'; ctx.fillStyle = '#000'; ctx.globalAlpha = 0.7; ctx.fillRect(0, 0, W, HH); ctx.restore(); vhs(ctx, t, 1);
       const yr = Math.round(lerp(1950, 1942, E.inOut(u))); ctx.save(); ctx.font = '400 260px "Anton"'; ctx.textAlign = 'center'; ctx.lineJoin = 'round'; ctx.lineWidth = 22; ctx.strokeStyle = 'rgba(0,0,0,0.9)'; ctx.strokeText(String(yr), W / 2, 1040); ctx.fillStyle = '#fff'; ctx.fillText(String(yr), W / 2, 1040); ctx.restore(); tag(ctx, '◀◀ REWIND', W / 2, 760, 64, CYAN, t, s.t0); },
     cancel(ctx, t, s) { const hit = wt(14), pun = t > hit ? 0.06 * Math.exp(-(t - hit) * 9) : 0, r = rect(A.desk, 0.5, 0.54, lerp(1.04, 1.16, E.inOut(seg(t, s.t0, s.t1))) + pun); ctx.drawImage(A.desk, r.x, r.y, r.dw, r.dh);
