@@ -75,10 +75,33 @@ put(wind(wt(74) - wt(67), 0.7), wt(67), 0.45, False); hb = load(490); put(hb, wt
 # ---- WW3: tanks, bombers overhead, fire; the big explosion ----
 d = wt(86) - wt(74); put(load(2756, start=2.0, dur=d, fade=1.5), wt(74), 0.5, False); put(load(1579, start=0.5, dur=d, fade=2.0), wt(74), 0.6, False); put(crackle(d), wt(74), 0.25, False)
 put(load(2800, dur=2.4, fade=1.0), wt(76), 1.0); put(BASS, wt(76), 1.0)
-# ---- ROCKET: searchlight hum, countdown beeps, abort buzzer ----
-ab = wt(91); put(hum(ab - wt(86), 55, 0.4), wt(86), 0.4, False)
-for k in range(3): put(beep(880 if k < 2 else 1320), wt(86) + 0.2 + k * (ab - wt(86) - 0.2) / 3, 0.5, False)
-rk = load(1715, dur=3.0, rev=True); put(rk, ab - rk.shape[1] / SR, 0.55, False); put(buzzer(0.9), ab, 0.7, False); put(BASS, ab, 0.6)
+# ---- ROCKET: countdown variants (CD env var) ----
+import os
+CD = os.environ.get('CD', 'A'); ab = wt(91); T0 = wt(86) + 0.2; step = (ab - T0) / 3; beats = [T0 + k * step for k in range(3)]
+def sine(f, d, dec=8): t = tt(d); return np.sin(2 * np.pi * f * t) * np.exp(-t * dec)
+def verb(x, d=1.2, mix=0.35): ir = noise(d) * np.exp(-tt(d) * 5); y = sg.fftconvolve(x, ir)[:len(x) + int(d * SR)]; y /= np.abs(y).max() + 1e-9; o = np.zeros(len(y)); o[:len(x)] = x * (1 - mix); return o + y * mix * np.abs(x).max()
+put(hum(ab - wt(86), 55, 0.4), wt(86), 0.4, False); rk = load(1715, dur=3.0, rev=True)
+if CD == 'A':   # square-wave console beeps + abort buzzer (current)
+    for k, b in enumerate(beats): put(beep(880 if k < 2 else 1320), b, 0.5, False)
+    put(rk, ab - rk.shape[1] / SR, 0.55, False); put(buzzer(0.9), ab, 0.7, False); put(BASS, ab, 0.6)
+elif CD == 'B': # mission control: radio static + clean pips, long final tone, abort klaxon
+    for k, b in enumerate(beats):
+        put(bp(noise(0.12), 1500, 5000) * 0.25, b - 0.12, 0.6, False); put(sine(1000, 0.18, 4), b, 0.6, False)
+    put(sine(1000, 0.7, 0.5) * np.minimum(1, (0.7 - tt(0.7)) / 0.05), ab - 0.05, 0.45, False)
+    t = tt(1.0); kl = np.sign(np.sin(2 * np.pi * np.where((t * 4).astype(int) % 2 == 0, 440, 330) * t)) * 0.3 * env(1.0, 0.01, 0.1); put(kl, ab + 0.1, 0.6, False); put(rk, ab - rk.shape[1] / SR, 0.45, False); put(BASS, ab, 0.7)
+elif CD == 'C': # missile silo: heavy relay clunks + low alarm pulse, abort power-down
+    for k, b in enumerate(beats):
+        put(lpf(HAMMER[0], 1800), b, 0.7 + 0.1 * k); t = tt(0.35); put(np.sign(np.sin(2 * np.pi * 220 * t)) * 0.3 * env(0.35, 0.01, 0.1), b + 0.05, 0.5, False)
+    t = tt(1.4); put(np.sin(2 * np.pi * np.cumsum(400 * (1 - 0.85 * t / 1.4)) / SR) * (1 - t / 1.4) * 0.5, ab, 0.8, False); put(STAMP, ab, 0.8); put(BASS, ab, 1.0); put(rk, ab - rk.shape[1] / SR, 0.5, False)
+elif CD == 'D': # radar sonar: reverberant pings, final ping cut by a descending tone + static
+    for k, b in enumerate(beats): put(verb(sine(1250 + 150 * k, 0.25, 9), 1.4, 0.5), b, 0.75, False)
+    t = tt(0.9); put(np.sin(2 * np.pi * np.cumsum(1600 * (1 - 0.8 * t / 0.9)) / SR) * env(0.9, 0.01, 0.2) * 0.35, ab, 0.8, False); put(glitch(0.5), ab, 0.6, False); put(BASS, ab, 0.7)
+elif CD == 'E': # geiger counter accelerating into the abort
+    k = wt(86); dens = lambda x: 4 + 60 * ((x - wt(86)) / (ab - wt(86))) ** 2.5
+    while k < ab:
+        c = bp(noise(0.004), 2000, 8000) * np.exp(-tt(0.004) * 900); put(c, k, rng.uniform(0.5, 1.0), False); k += rng.exponential(1 / dens(k))
+    for b in beats: put(sine(700, 0.08, 20), b, 0.35, False)
+    put(buzzer(0.9), ab, 0.6, False); put(BASS, ab, 0.9); put(rk, ab - rk.shape[1] / SR, 0.4, False)
 # ---- MOON: near-silence, typed line, marker strike ----
 put(hum(wt(97) - wt(92), 40, 0.3), wt(92), 0.3, False); typing('NO MOON LANDING', wt(92), 22, 0.35); put(swipe(0.25), wt(96) + 0.15, 0.6, False)
 # ---- OTHER SIDE ----
@@ -100,7 +123,7 @@ put(POP, wt(136), 0.8); put(POP, wt(138), 0.8)
 # ---- END ----
 put(load(2782, dur=2.5, fade=1.2), wt(139), 0.9); put(BASS, wt(139), 0.8); put(load(2777, dur=2.5, fade=1.5), wt(151), 0.9); put(BASS, wt(151), 1.0)
 out = FX[:, :NS]; out = out / (np.abs(out).max() + 1e-9) * 0.95
-wf.write('/tmp/vob/sfx.wav', SR, (out.T * 32767).astype(np.int16))
+wf.write(os.environ.get('OUT','/tmp/vob/sfx.wav'), SR, (out.T * 32767).astype(np.int16))
 # ---- music: automation ----
 a = subprocess.run(['ffmpeg', '-v', 'error', '-i', '/tmp/vob/score.wav', '-f', 'f32le', '-ac', '2', '-ar', str(SR), '-'], capture_output=True).stdout
 sc = np.frombuffer(a, np.float32).reshape(-1, 2).astype(float)[:NS]
