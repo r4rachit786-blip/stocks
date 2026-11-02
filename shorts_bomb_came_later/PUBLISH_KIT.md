@@ -32,6 +32,8 @@ Visuals: AI-generated scenes (Grok, ChatGPT), marked "IMAGINED" on screen. Voice
 **Caption**
 ```
 No atomic bomb = World War 3 in 1950? ☢️ The scariest timeline is the one where the bomb comes later. BETTER or WORSE? 👇 #history #whatif #ww2 #alternatehistory #historytok
+
+SFX credit: "Vinyl Noise" by Orange Free Sounds (CC BY 4.0)
 ```
 **Cover text:** `NO A-BOMB = WW3?`
 **Pinned comment:** `BETTER or WORSE? Defend it 👇`
@@ -46,6 +48,8 @@ And then someone builds it anyway. With no warning.
 Better world or worse? 👇
 
 #history #whatif #ww2 #alternatehistory #historyfacts
+
+AI visuals & voice. SFX credit: "Vinyl Noise" by Orange Free Sounds (CC BY 4.0)
 ```
 **Pinned comment:** `1️⃣ Better world  2️⃣ Worse world. Pick one 👇`
 
@@ -55,6 +59,8 @@ Better world or worse? 👇
 - **Real facts in the video:** the Manhattan Project (~$2 billion, 100,000+ workers); Hiroshima (Aug 6, 1945); Operation Downfall planned for Nov 1, 1945; ~500,000 Purple Hearts made for the invasion; fission discovered in 1938; Sputnik's rocket was built to carry a nuclear warhead.
 - **Imagined (labelled IMAGINED on screen):** the cancellation, jets instead of the bomb, the invasion, a split Japan, WW3 in 1950, no Moon landing, the bomb arriving later.
 - **Debated:** whether Japan would have surrendered anyway. The video says so.
-- **AI label:** turn it on everywhere (AI images and voice).
+- **AI label:** turn it on everywhere. All images are AI-generated (Grok and ChatGPT, including the Purple Hearts warehouse and the P-59 jet), and so is the voice.
+- **Vinyl credit:** "Vinyl Noise" is CC BY 4.0, so the credit line must stay in every caption/description (already included above).
+- **Plane sound:** the vintage plane flyover over Hiroshima is the recording you supplied ("CCC - Vintage Plane Passing Overhead"). Make sure its licence allows use on a monetized channel.
 - **Comments:** this topic is sensitive (Hiroshima and Nagasaki victims). Hold potentially inappropriate comments for review and keep replies respectful.
 - **Post timing:** your "One Vote" nuke video is already live, so leave a few days between the two.
