@@ -107,7 +107,7 @@ def ramp(t0, t1, v0, v1): a_, b_ = int(t0 * SR), int(t1 * SR); g[a_:b_] = np.lin
 def hold(t0, t1, v): g[int(t0 * SR):int(t1 * SR)] = v
 hold(wt(9) - 0.02, wt(11), 0.0); ramp(wt(32) - 0.1, wt(32) + 0.1, 1, 0.3); hold(wt(32) + 0.1, wt(34), 0.3); ramp(wt(34), wt(34) + 0.05, 0.3, 0.12); hold(wt(34) + 0.05, wt(38) - 0.1, 0.12); ramp(wt(38) - 0.1, wt(38), 0.12, 1); hold(wt(59), wt(63), 0.45); hold(wt(110) + 0.4, wt(115), 0.4); ramp(wt(115), wt(120), 0.4, 1); hold(wt(91), wt(92), 0.5); ramp(wt(92) - 0.02, wt(92) + 0.1, 0.5, 0.18); hold(wt(92) + 0.1, wt(97) - 0.2, 0.18); ramp(wt(11), wt(11) + 0.2, 0.0, 1.0)              # rewind: all other sound cut
 hold(wt(72) + 0.1, wt(74) - 0.02, 0.0)                                                # silence before the WW3 shock
-ramp(wt(97) - 0.2, wt(97) + 0.2, 1, 0.3); hold(wt(97) + 0.2, wt(106) - 0.1, 0.3)       # historian: breathing room
+ramp(wt(97) - 0.2, wt(97) + 0.2, 0.18, 0.3); hold(wt(97) + 0.2, wt(106) - 0.1, 0.3)       # historian: breathing room
 hold(wt(106) - 0.1, wt(110), 0.0); ramp(wt(110), wt(110) + 0.4, 0, 1)                 # twist
 ramp(wt(151) - 0.15, wt(151) - 0.02, 1, 0); hold(wt(151) - 0.02, D, 0)                 # cut dead on "later"
 sc = sc * g[:, None]
