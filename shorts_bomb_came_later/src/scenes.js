@@ -77,8 +77,8 @@
       if (t < wt(28) - 0.1) { ctx.fillStyle = 'rgba(0,0,0,0.35)'; ctx.fillRect(0, 0, W, HH); counter(ctx, t, wt(18) - 0.05, wt(20) + 0.2, 2000000000, 760, 118, GOLD, '$'); typeOn(ctx, '100,000 WORKERS', W / 2, 900, 76, t, wt(23), 20, '#fff'); trefoil(ctx, [W / 2, 1060], 70, t, wt(19)); } },
     calm(ctx, t, s) { const u = E.inOut(seg(t, s.t0, s.t1)), r = rect(A.street, 0.5, lerp(0.78, 0.22, u), 1.25); ctx.drawImage(A.street, r.x, r.y, r.dw, r.dh);
       particles(ctx, t, { n: 40, seed: 12, sp: [0.03, 0.08], vx: 0.04, vy: 0.01, size: [1, 2.5], color: '#fff', a: 0.4 });
-      const pu = seg(t, wt(34) - 0.3, s.t1 + 0.2); if (pu > 0) { const wJ = 460, hJ = wJ * A.p59.height / A.p59.width, px = lerp(-wJ * 0.6, W + wJ * 0.6, pu), py = 640 + P.top * 0.5 + 30 * Math.sin(pu * 3);
-        ctx.save(); ctx.translate(px, py); ctx.rotate(0.03); ctx.filter = 'brightness(0.85) contrast(1.1)'; ctx.drawImage(A.p59, -wJ / 2, -hJ / 2, wJ, hJ); ctx.restore(); reticle(ctx, [px, py], 120, 'P-59', t, wt(34) - 0.1, RED); }
+      const pu = seg(t, wt(34) - 0.3, s.t1); if (pu > 0) { const e = E.out(pu), wJ = lerp(560, 200, e), hJ = wJ * A.p59.height / A.p59.width, px = lerp(W + 320, W * 0.58, e), py = lerp(600, 540, e) + P.top * 0.5;
+        ctx.save(); ctx.translate(px, py); ctx.scale(-1, 1); ctx.rotate(-0.05); ctx.globalAlpha = lerp(1, 0.85, e); ctx.filter = 'brightness(0.85) contrast(1.1)'; ctx.drawImage(A.p59, -wJ / 2, -hJ / 2, wJ, hJ); ctx.restore(); reticle(ctx, [px, py], lerp(150, 70, e), 'P-59', t, wt(34) - 0.1, RED); }
       hud(ctx, ['AUG 6, 1945 · 8:15', 'HIROSHIMA'], t, s.t0, HY); typeOn(ctx, 'NOTHING HAPPENS.', W / 2, 1000, 100, t, wt(36), 18, '#fff'); },
     invasion(ctx, t, s) { const sw = wt(43); if (t < sw) { const r = rect(A.map_japan, 0.3, 0.66, 1.45 + 0.12 * seg(t, s.t0, sw)); ctx.drawImage(A.map_japan, r.x, r.y, r.dw, r.dh); const ky = mapPt(JP.kyushu, r);
         for (let k = 0; k < 5; k++) { const a = [ky[0] + 260 + k * 80, HH - 300], b = [ky[0] + 30 + k * 25, ky[1] + 60 + k * 10]; arrow(ctx, curve(a, b, 0.15 + k * 0.03), seg(t, s.t0 + 0.1 + k * 0.1, s.t0 + 0.9 + k * 0.1), k % 2 ? '#7fb2ff' : '#4f8df7', 16); }

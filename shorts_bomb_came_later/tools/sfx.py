@@ -53,7 +53,7 @@ tk = hp(pitch(load(1053), 1.35), 600); n = int((wt(20) + 0.25 - wt(18)) * SR); p
 at_onset(load(3165), wt(28) - 0.35, 0.8); jet = load(1580, start=4.6, dur=3.6, fade=1.5); jet = norm(jet + 0.8 * norm(lp(jet, 180))); put(jet, wt(28) - 0.6, 1.0, pan=-0.7, pan_to=0.7)
 # 0:11.9 Hiroshima: real cicadas, slightly too loud, cut dead on "No flash"; distorted propeller drone in the void
 cic = hp(load('cicada_tw.mp3', start=20, dur=wt(34) + 0.05 - wt(32), fade=0.01), 2500); put(cic, wt(32), 1.0)
-pc = (wt(34) - 0.3 + wt(38) + 0.2) / 2; pl = load('vintage_plane_overhead.mp3', start=20.3, dur=4.6, fade=1.0); at_peak(pl, pc, 0.85, pan=-0.85, pan_to=0.85)  # user-supplied vintage plane, overhead as the P-59 crosses
+pl = load('vintage_plane_overhead.mp3', start=21.3, dur=4.2, fade=1.5); at_peak(pl, wt(34) + 0.5, 0.85, pan=0.85, pan_to=0.1)  # user-supplied vintage plane, overhead as the P-59 crosses
 # 0:15.0 invasion map: deep low whooshes panned left -> right with the arrows
 dw = lp(load(2604, dur=1.4, fade=0.4), 900)
 for k in range(5): put(dw, wt(38) + 0.05 + k * 0.1, 0.5, pan=-0.9 + 0.1 * k, pan_to=0.9)
