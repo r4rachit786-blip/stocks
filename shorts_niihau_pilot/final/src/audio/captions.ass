@@ -1,0 +1,142 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 2
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: W,Inter,84,&H00FFFFFF,&H00FFFFFF,&H00000000,&H64000000,-1,0,0,0,100,100,0,0,1,6,2,2,60,60,500,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.23,0:00:00.59,W,,0,0,0,,A Pearl
+Dialogue: 0,0:00:00.59,0:00:00.85,W,,0,0,0,,Harbor
+Dialogue: 0,0:00:00.85,0:00:01.25,W,,0,0,0,,pilot was
+Dialogue: 0,0:00:01.25,0:00:01.54,W,,0,0,0,,told to
+Dialogue: 0,0:00:01.54,0:00:01.96,W,,0,0,0,,crash on an
+Dialogue: 0,0:00:01.96,0:00:02.22,W,,0,0,0,,empty
+Dialogue: 0,0:00:02.22,0:00:02.86,W,,0,0,0,,island
+Dialogue: 0,0:00:02.86,0:00:03.25,W,,0,0,0,,A hundred
+Dialogue: 0,0:00:03.25,0:00:03.33,W,,0,0,0,,and
+Dialogue: 0,0:00:03.33,0:00:03.83,W,,0,0,0,,thirty-six
+Dialogue: 0,0:00:03.83,0:00:04.22,W,,0,0,0,,people were
+Dialogue: 0,0:00:04.22,0:00:04.73,W,,0,0,0,,standing on
+Dialogue: 0,0:00:04.73,0:00:05.11,W,,0,0,0,,it
+Dialogue: 0,0:00:05.11,0:00:05.66,W,,0,0,0,,His navy's
+Dialogue: 0,0:00:05.66,0:00:06.00,W,,0,0,0,,plan for
+Dialogue: 0,0:00:06.00,0:00:06.30,W,,0,0,0,,damaged
+Dialogue: 0,0:00:06.30,0:00:07.09,W,,0,0,0,,planes land
+Dialogue: 0,0:00:07.09,0:00:07.48,W,,0,0,0,,on tiny
+Dialogue: 0,0:00:07.48,0:00:08.39,W,,0,0,0,,Niihau and
+Dialogue: 0,0:00:08.39,0:00:08.79,W,,0,0,0,,wait for a
+Dialogue: 0,0:00:08.79,0:00:09.54,W,,0,0,0,,submarine
+Dialogue: 0,0:00:09.54,0:00:10.51,W,,0,0,0,,So he lands
+Dialogue: 0,0:00:10.51,0:00:11.37,W,,0,0,0,,In a fence
+Dialogue: 0,0:00:11.37,0:00:11.99,W,,0,0,0,,A local man
+Dialogue: 0,0:00:11.99,0:00:12.34,W,,0,0,0,,pulls him
+Dialogue: 0,0:00:12.34,0:00:12.72,W,,0,0,0,,out and
+Dialogue: 0,0:00:12.72,0:00:13.08,W,,0,0,0,,politely
+Dialogue: 0,0:00:13.08,0:00:13.55,W,,0,0,0,,borrows his
+Dialogue: 0,0:00:13.55,0:00:13.94,W,,0,0,0,,pistol and
+Dialogue: 0,0:00:13.94,0:00:14.76,W,,0,0,0,,his papers
+Dialogue: 0,0:00:14.76,0:00:15.25,W,,0,0,0,,The pilot
+Dialogue: 0,0:00:15.25,0:00:15.55,W,,0,0,0,,asks for
+Dialogue: 0,0:00:15.55,0:00:16.13,W,,0,0,0,,them back
+Dialogue: 0,0:00:16.67,0:00:17.47,W,,0,0,0,,No luck
+Dialogue: 0,0:00:17.47,0:00:17.92,W,,0,0,0,,But nobody
+Dialogue: 0,0:00:17.92,0:00:18.46,W,,0,0,0,,here knows
+Dialogue: 0,0:00:18.46,0:00:18.71,W,,0,0,0,,there is a
+Dialogue: 0,0:00:18.71,0:00:19.29,W,,0,0,0,,war
+Dialogue: 0,0:00:19.29,0:00:19.58,W,,0,0,0,,So they
+Dialogue: 0,0:00:19.58,0:00:19.93,W,,0,0,0,,throw their
+Dialogue: 0,0:00:19.93,0:00:20.33,W,,0,0,0,,surprise
+Dialogue: 0,0:00:20.33,0:00:20.61,W,,0,0,0,,guest a
+Dialogue: 0,0:00:20.61,0:00:21.19,W,,0,0,0,,party
+Dialogue: 0,0:00:21.19,0:00:21.78,W,,0,0,0,,That night
+Dialogue: 0,0:00:21.78,0:00:22.15,W,,0,0,0,,a battery
+Dialogue: 0,0:00:22.15,0:00:22.54,W,,0,0,0,,radio
+Dialogue: 0,0:00:22.54,0:00:22.86,W,,0,0,0,,delivers
+Dialogue: 0,0:00:22.86,0:00:23.59,W,,0,0,0,,the news
+Dialogue: 0,0:00:23.59,0:00:24.05,W,,0,0,0,,The party
+Dialogue: 0,0:00:24.05,0:00:24.24,W,,0,0,0,,ends
+Dialogue: 0,0:00:24.24,0:00:24.80,W,,0,0,0,,quickly
+Dialogue: 0,0:00:24.80,0:00:25.26,W,,0,0,0,,Now he is
+Dialogue: 0,0:00:25.26,0:00:25.91,W,,0,0,0,,a prisoner
+Dialogue: 0,0:00:25.91,0:00:26.49,W,,0,0,0,,And no boat
+Dialogue: 0,0:00:26.49,0:00:27.07,W,,0,0,0,,can come
+Dialogue: 0,0:00:27.07,0:00:27.15,W,,0,0,0,,the
+Dialogue: 0,0:00:27.15,0:00:27.51,W,,0,0,0,,military
+Dialogue: 0,0:00:27.51,0:00:27.93,W,,0,0,0,,has banned
+Dialogue: 0,0:00:27.93,0:00:28.55,W,,0,0,0,,them all
+Dialogue: 0,0:00:28.55,0:00:29.26,W,,0,0,0,,Then five
+Dialogue: 0,0:00:29.26,0:00:29.99,W,,0,0,0,,days later
+Dialogue: 0,0:00:29.99,0:00:30.39,W,,0,0,0,,he finds a
+Dialogue: 0,0:00:30.39,0:00:30.82,W,,0,0,0,,helper with
+Dialogue: 0,0:00:30.82,0:00:31.59,W,,0,0,0,,a shotgun
+Dialogue: 0,0:00:31.59,0:00:32.02,W,,0,0,0,,They burn a
+Dialogue: 0,0:00:32.02,0:00:32.30,W,,0,0,0,,house
+Dialogue: 0,0:00:32.30,0:00:32.60,W,,0,0,0,,looking for
+Dialogue: 0,0:00:32.60,0:00:33.38,W,,0,0,0,,the papers
+Dialogue: 0,0:00:33.38,0:00:33.76,W,,0,0,0,,They burn
+Dialogue: 0,0:00:33.76,0:00:34.43,W,,0,0,0,,the plane
+Dialogue: 0,0:00:34.43,0:00:34.79,W,,0,0,0,,The village
+Dialogue: 0,0:00:34.79,0:00:35.16,W,,0,0,0,,hides in
+Dialogue: 0,0:00:35.16,0:00:35.86,W,,0,0,0,,caves
+Dialogue: 0,0:00:35.86,0:00:36.30,W,,0,0,0,,One sheep
+Dialogue: 0,0:00:36.30,0:00:36.60,W,,0,0,0,,rancher
+Dialogue: 0,0:00:36.60,0:00:37.27,W,,0,0,0,,does not
+Dialogue: 0,0:00:37.27,0:00:37.54,W,,0,0,0,,He is
+Dialogue: 0,0:00:37.54,0:00:38.06,W,,0,0,0,,caught with
+Dialogue: 0,0:00:38.06,0:00:38.73,W,,0,0,0,,his wife
+Dialogue: 0,0:00:38.73,0:00:38.89,W,,0,0,0,,and he
+Dialogue: 0,0:00:38.89,0:00:39.25,W,,0,0,0,,jumps the
+Dialogue: 0,0:00:39.25,0:00:39.95,W,,0,0,0,,pilot
+Dialogue: 0,0:00:39.95,0:00:40.40,W,,0,0,0,,The pilot
+Dialogue: 0,0:00:40.40,0:00:40.77,W,,0,0,0,,shoots him
+Dialogue: 0,0:00:40.77,0:00:41.70,W,,0,0,0,,three times
+Dialogue: 0,0:00:41.70,0:00:42.16,W,,0,0,0,,As he told
+Dialogue: 0,0:00:42.16,0:00:42.63,W,,0,0,0,,it later
+Dialogue: 0,0:00:42.63,0:00:42.88,W,,0,0,0,,that is
+Dialogue: 0,0:00:42.88,0:00:43.29,W,,0,0,0,,when he got
+Dialogue: 0,0:00:43.29,0:00:43.85,W,,0,0,0,,mad
+Dialogue: 0,0:00:43.85,0:00:44.22,W,,0,0,0,,He picks
+Dialogue: 0,0:00:44.22,0:00:44.63,W,,0,0,0,,the pilot
+Dialogue: 0,0:00:44.63,0:00:44.84,W,,0,0,0,,up and
+Dialogue: 0,0:00:44.84,0:00:45.20,W,,0,0,0,,throws him
+Dialogue: 0,0:00:45.20,0:00:45.45,W,,0,0,0,,into a
+Dialogue: 0,0:00:45.45,0:00:46.27,W,,0,0,0,,stone wall
+Dialogue: 0,0:00:46.27,0:00:46.71,W,,0,0,0,,His wife
+Dialogue: 0,0:00:46.71,0:00:46.99,W,,0,0,0,,ends the
+Dialogue: 0,0:00:46.99,0:00:47.35,W,,0,0,0,,argument
+Dialogue: 0,0:00:47.35,0:00:48.05,W,,0,0,0,,with a rock
+Dialogue: 0,0:00:48.05,0:00:48.65,W,,0,0,0,,You see
+Dialogue: 0,0:00:48.65,0:00:49.33,W,,0,0,0,,Niihau was
+Dialogue: 0,0:00:49.33,0:00:50.04,W,,0,0,0,,never empty
+Dialogue: 0,0:00:50.59,0:00:50.83,W,,0,0,0,,It was
+Dialogue: 0,0:00:50.83,0:00:51.53,W,,0,0,0,,private
+Dialogue: 0,0:00:51.53,0:00:52.07,W,,0,0,0,,One family
+Dialogue: 0,0:00:52.07,0:00:52.70,W,,0,0,0,,owned it no
+Dialogue: 0,0:00:52.70,0:00:53.49,W,,0,0,0,,phones no
+Dialogue: 0,0:00:53.49,0:00:54.07,W,,0,0,0,,power one
+Dialogue: 0,0:00:54.07,0:00:54.84,W,,0,0,0,,boat a week
+Dialogue: 0,0:00:54.84,0:00:55.21,W,,0,0,0,,A house
+Dialogue: 0,0:00:55.21,0:00:55.39,W,,0,0,0,,with the
+Dialogue: 0,0:00:55.39,0:00:55.79,W,,0,0,0,,curtains
+Dialogue: 0,0:00:55.79,0:00:56.39,W,,0,0,0,,drawn
+Dialogue: 0,0:00:56.39,0:00:56.86,W,,0,0,0,,The rancher
+Dialogue: 0,0:00:56.86,0:00:57.62,W,,0,0,0,,got a medal
+Dialogue: 0,0:00:57.62,0:00:57.76,W,,0,0,0,,The
+Dialogue: 0,0:00:57.76,0:00:58.21,W,,0,0,0,,submarine
+Dialogue: 0,0:00:58.21,0:00:59.01,W,,0,0,0,,never came
+Dialogue: 0,0:00:59.01,0:00:59.31,W,,0,0,0,,And his
+Dialogue: 0,0:00:59.31,0:00:59.69,W,,0,0,0,,plane is
+Dialogue: 0,0:00:59.69,0:01:00.02,W,,0,0,0,,still in a
+Dialogue: 0,0:01:00.02,0:01:00.49,W,,0,0,0,,Hawaii
+Dialogue: 0,0:01:00.49,0:01:01.19,W,,0,0,0,,museum
+Dialogue: 0,0:01:01.19,0:01:01.76,W,,0,0,0,,a souvenir
+Dialogue: 0,0:01:01.76,0:01:01.98,W,,0,0,0,,from the
+Dialogue: 0,0:01:01.98,0:01:02.39,W,,0,0,0,,island that
+Dialogue: 0,0:01:02.39,0:01:02.51,W,,0,0,0,,was
+Dialogue: 0,0:01:02.51,0:01:02.89,W,,0,0,0,,supposed to
+Dialogue: 0,0:01:02.89,0:01:03.44,W,,0,0,0,,be empty
