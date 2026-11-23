@@ -16,3 +16,7 @@
 - captions regrouped, final re-encoded, sheets rebuilt. Next: docs (SCRIPT shot list, QA, CREDITS), src copy, handback.
 - shot 31 reframed, final re-encoded (crf 18), sheets rebuilt. Next: docs + src copy + handback.
 - DONE round 2: final mp4 (crf 18, 68.6 MB), sheets, SCRIPT/QA updated, src copied.
+- round 3 (4 small defects: wing disc reads as blood in shots 5-7, conch, curtain window, shot 13 framing): in progress
+- fix5 merged into all/
+- round 3 final encoded, scan + sheets done. Next: full-size look at 6 frames, QA.md, src copy, handback.
+- DONE round 3: final mp4 re-encoded, sheets + QA.md updated, src copied.

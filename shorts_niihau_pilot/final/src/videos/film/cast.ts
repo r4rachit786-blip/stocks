@@ -6,6 +6,7 @@ import * as THREE from "three";
 import { Pen, bodyFront, relight, fxWaves, fxTicks, fxStars, fxBurst, fxSmoke, fxPlank, Outfit, Expr, FrontOpts, INK } from "./toon";
 import { Stage, CamInfo, Place, tier, light2D, lidAt, blob, fkey, q } from "./cards";
 import { Shot, inShot, shotEnd, COCKPIT, PILOT_S, EYE, COWL, GUEST, RADIO, LANTERN, TORCH1, TORCH2, HOUSE, TABLE, LookName } from "./story";
+import { shelfCard, hatHook, noticeCard } from "./art2d";
 import { mapCard, chalkboard, calendar, noBoats, canoe, plaque, banner, fireBig, caveBack, portrait, conch, lampCard, boatCal, curtainCard, iboat, helmetCard, bunting, sleeve, ropeCard, photoFrame, paperSheet, displayCase, medal } from "./art2d";
 
 const SKINW = "#fff8f0";
@@ -88,14 +89,14 @@ const DIR: Record<number, (c: Ctx, n: number, u: number, s: Shot) => void> = {
   },
   6: (c, n) => { // helped out of the wreck; from frame 60 the local man holds the pistol and the papers
     const got = n >= 60;
-    P(c, "pilot", PILOT_O, 4, -0.62, 4.6, stand(got ? "confused" : "dazed", { facing: 1, look: 1, headTilt: got ? 0 : q(5 * Math.sin(n * 0.2), 4), blink: lidAt(c.f, 7, [c.f - n + 60]), scarfDir: -1 }), { s: 1.1 });
-    P(c, "man", MAN, 6, 0.42, 4.7, stand(got ? "smile_closed" : "smile", { facing: -1, look: -1, prop: got ? "loot" : null, blink: got ? 0 : lidAt(c.f, 23) }), {});
+    P(c, "pilot", PILOT_O, 4, 1.35, 5.6, stand(got ? "confused" : "dazed", { facing: 1, look: 1, headTilt: got ? 0 : q(5 * Math.sin(n * 0.2), 4), blink: lidAt(c.f, 7, [c.f - n + 60]), scarfDir: -1 }), { s: 1.1 });
+    P(c, "man", MAN, 6, 2.38, 5.7, stand(got ? "smile_closed" : "smile", { facing: -1, look: -1, prop: got ? "loot" : null, blink: got ? 0 : lidAt(c.f, 23) }), {});
     smoke(c, COWL[0] - 0.38, COWL[1] - 0.1, COWL[2] - 0.35, 12, 7.8, -1.9);
   },
   7: (c, n) => { // "I would like those back": open hand out; at "No luck" the man shakes his head
     const no = n >= 58;
-    P(c, "pilot", PILOT_O, 4, -0.62, 4.6, stand(no ? "nervous" : "hesitant", { facing: 1, look: 1, wave: 0.9, raise: 0.45, blink: lidAt(c.f, 7, [c.f - n + 58]), scarfDir: -1 }), { s: 1.1 });
-    P(c, "man", MAN, 6, 0.42, 4.7, stand(no ? "smile_closed" : "smile", { facing: -1, look: -1, prop: "loot", headTilt: no ? q(7 * Math.sin((n - 58) * 0.9) * Math.max(0, 1 - (n - 58) / 16), 2) : 0 }), {});
+    P(c, "pilot", PILOT_O, 4, 1.35, 5.6, stand(no ? "nervous" : "hesitant", { facing: 1, look: 1, wave: 0.9, raise: 0.45, blink: lidAt(c.f, 7, [c.f - n + 58]), scarfDir: -1 }), { s: 1.1 });
+    P(c, "man", MAN, 6, 2.38, 5.7, stand(no ? "smile_closed" : "smile", { facing: -1, look: -1, prop: "loot", headTilt: no ? q(7 * Math.sin((n - 58) * 0.9) * Math.max(0, 1 - (n - 58) / 16), 2) : 0 }), {});
   },
   8: (c, n) => {
     const cheer = n > 14;
@@ -207,7 +208,11 @@ const DIR: Record<number, (c: Ctx, n: number, u: number, s: Shot) => void> = {
   26: (c, n) => { // four pictures on the ranch-house wall: one family / no phones / no power / one boat a week
     const up = { y: 1.25, noBlob: true };
     if (n < 30) card(c, "portrait", 700, 900, portrait, -2.6, 2.95, -0.96, 0.95);
-    else if (n < 56) { P(c, "man", MAN, 6, -0.98, -0.3, stand(n > 40 ? "confused" : "neutral", { facing: 1, look: 1, wave: -0.2, raise: 0.75, blink: lidAt(c.f, 41, [c.f - n + 40]) }), up); card(c, "conch", 300, 300, conch, -0.6, 2.74, -0.25, 0.28); }
+    else if (n < 56) { // the shell held to his ear like a receiver; the wall says why
+      card(c, "notice", 520, 640, noticeCard, -1.36, 3.16, -0.96, 0.4); card(c, "shelf", 700, 420, shelfCard, -0.5, 3.3, -0.96, 0.5); card(c, "hathook", 400, 360, hatHook, -1.4, 2.4, -0.96, 0.3);
+      P(c, "man", MAN, 6, -0.98, -0.3, stand(n > 40 ? "confused" : "neutral", { facing: -1, look: 1, wave: -0.9, raise: 1, blink: lidAt(c.f, 41, [c.f - n + 40]) }), up);
+      card(c, "conch", 300, 300, conch, -0.655, 2.7, -0.22, 0.27, { rot: 0.5 });
+    }
     else if (n < 74) { P(c, "auntie", AUNTIE, 8, 0.72, -0.3, stand("smile", { facing: 1, look: 1, lookY: 0.5, wave: -0.6, raise: 0.5 }), { ...up, s: 0.98 }); card(c, "lampc", 300, 520, lampCard, 1.22, 2.72, -0.25, 0.3, { tint: 1.25 }); }
     else { card(c, "boatcal", 700, 900, boatCal, 2.75, 2.95, -0.96, 0.82); P(c, "kid", KID, 5, 2.2, -0.2, stand("grin", { facing: 1, look: 1, lookY: -0.5, wave: 0.3, raise: 0.9 }), { ...up, s: 0.8, y: 1.6 }); }
   },

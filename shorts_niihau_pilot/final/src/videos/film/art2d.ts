@@ -193,7 +193,10 @@ export const boatCal = (p: Pen) => {
 export const curtainCard = (p: Pen, open: number) => {
   const g = p.g; rrect(p, 10, 10, 380, 480, 6, "#f4efdc", 12);
   const gr = g.createLinearGradient(0, 30, 0, 470); gr.addColorStop(0, "#3a3458"); gr.addColorStop(1, "#6a5a70"); g.fillStyle = gr; g.fillRect(34, 34, 332, 432);
-  g.fillStyle = "rgba(255,190,110,0.5)"; g.beginPath(); g.arc(200, 380, 70, 0, 7); g.fill();
+  // a kerosene lamp on the sill, and someone peeking out until the curtains close
+  g.fillStyle = "rgba(255,190,110,0.35)"; g.beginPath(); g.arc(250, 400, 90, 0, 7); g.fill();
+  rrect(p, 232, 418, 36, 44, 6, "#6f7f8a", 6); blob(p, [[236, 418], [230, 376], [250, 350], [270, 376], [264, 418]], "#ffe9a0", 6); blob(p, [[250, 412], [242, 390], [250, 368], [258, 390]], "#fb9a30", 0);
+  if (open > 0.2) { p.ell(170, 300, 62, 58, "#fff8f0", 9); blob(p, [[108, 290], [118, 240], [170, 222], [222, 240], [232, 290], [170, 268]], "#3a2620", 7); for (const ex of [150, 190]) { p.ell(ex, 306, 13, 14, "#ffffff", 5); p.dot(ex + 4, 308, 5); } }
   const half = (s: number) => { const edge = 200 + s * (8 + 120 * open), x0 = s < 0 ? 34 : edge, x1 = s < 0 ? edge : 366;
     g.fillStyle = "#e8b04a"; g.fillRect(x0, 34, x1 - x0, 432);
     for (let x = x0 + 14; x < x1 - 6; x += 30) { g.fillStyle = "rgba(160,96,30,0.4)"; g.fillRect(x, 34, 8, 432); }
@@ -242,4 +245,25 @@ export const displayCase = (p: Pen) => {
   rrect(p, 60, 430, 480, 350, 8, "#5a4630", 12); rrect(p, 80, 60, 440, 380, 6, "rgba(200,225,245,0.55)", 10);
   p.g.save(); p.g.translate(160, 170); p.g.scale(0.72, 0.72); helmetCard(new Pen(p.g)); p.g.restore();
   p.stroke([[120, 100], [200, 390]], 14, "rgba(255,255,255,0.5)"); rrect(p, 200, 520, 200, 70, 6, "#d9b45a", 6);
+};
+
+// ---------------- review round 3: wall dressing for the "no phones" picture ----------------
+/** wall shelf with jars, a tin and a book, 700 x 420 */
+export const shelfCard = (p: Pen) => {
+  rrect(p, 20, 300, 660, 40, 6, "#8a5a34", 10); p.poly([[80, 340], [80, 400], [150, 340]], "#6b4426", 8); p.poly([[620, 340], [620, 400], [550, 340]], "#6b4426", 8);
+  rrect(p, 70, 150, 110, 150, 14, "#bfe0d8", 9); rrect(p, 84, 126, 82, 30, 6, "#c9a04a", 7);
+  rrect(p, 210, 190, 120, 110, 10, "#c2352c", 9); text(p, "TEA", 270, 246, 44, "#fff6e0");
+  rrect(p, 370, 120, 60, 180, 4, "#2f4f93", 8); rrect(p, 436, 140, 54, 160, 4, "#4d7a5c", 8); rrect(p, 496, 110, 66, 190, 4, "#7a4e2a", 8);
+  p.ell(620, 268, 40, 32, "#f6d6c0", 8);
+};
+/** straw hat hanging on a peg, 400 x 360 */
+export const hatHook = (p: Pen) => { p.stroke([[200, 40], [200, 90]], 16, "#6b4426"); p.ell(200, 250, 180, 70, "#ecc76a", 10); blob(p, [[110, 250], [130, 140], [200, 110], [270, 140], [290, 250]], "#ecc76a", 10); p.stroke([[118, 226], [282, 226]], 22, "#a8402f"); };
+/** pinned shipping notice, 520 x 640 */
+export const noticeCard = (p: Pen) => {
+  p.g.save(); p.g.translate(260, 320); p.g.rotate(-0.04); p.g.translate(-260, -320);
+  rrect(p, 20, 30, 480, 590, 6, "#f6f0dc", 9); p.dot(260, 58, 14, "#c2352c");
+  text(p, "NOTICE", 260, 140, 84, "#c2352c"); p.stroke([[70, 196], [450, 196]], 6);
+  text(p, "NO TELEPHONE", 260, 268, 48); text(p, "ON THIS ISLAND", 260, 332, 48);
+  text(p, "Send word", 260, 430, 46, "#2f4f93"); text(p, "by the boat", 260, 494, 46, "#2f4f93");
+  p.g.restore();
 };

@@ -1,7 +1,7 @@
 # QA record: niihau_pilot_short.mp4
 
 ## File
-1080x1920, 30 fps, 1935 frames, 64.5 s, h264 (crf 18, preset slow, faststart) + AAC 192k, 68.6 MB. Burned captions from the word timings.
+1080x1920, 30 fps, 1935 frames, 64.5 s, h264 (crf 18, preset slow, faststart) + AAC 192k, 70.4 MB. Burned captions from the word timings.
 
 ## Loudness (ffmpeg ebur128 on the final mp4 / stems)
 | Item | Integrated | Notes |
@@ -78,3 +78,15 @@ Loudness of the final mp4: -13.9 LUFS, peak -1.9 dBFS (unchanged mix).
 Still weak after round 2: items 4 and 6 above; the conch floats beside the man's hand rather than at his ear; shots 9 and 11
 (party wide) and the chart inserts were not touched; no independent reviewer other than the coordinator; camera-speed and
 per-look brightness targets were not re-measured.
+
+## Review round 3 (four small defects)
+| Item | Result |
+|---|---|
+| 1 red wing disc read as blood (shots 5-7) | Shots 6 and 7: the two men now stand in front of the nose, clear of the wing; no red marking on the ground near them (the only red left is the warning stripes on a propeller tip in the earth). Shot 5: higher view, the disc sits inside a full wing panel with rivets, panel lines and the wing edge. The "In a fence" caption is raised so it does not cover the disc |
+| 2 conch (shot 26, "no phones") | held to his ear in his raised hand; wall dressed with a pinned notice ("NO TELEPHONE ON THIS ISLAND / Send word by the boat"), a shelf and a hat on a peg. The notice is partly cut by the left frame edge but legible |
+| 3 curtains (shot 27) | the lantern cap is gone (the lanterns nearest the eave were removed from the string); inside the window a kerosene lamp on the sill and a face peeking that vanishes as the curtains shut on "drawn". Still one window with wall boards and the eave line, not the whole house front; a soft glow disc remains behind the lamp |
+| 4 "no boat" (shot 13) | camera pulled back: the old man and the kid are both fully in frame beside the board |
+
+Checks on this final: frame scan black 0, white 0, frozen 0; jumps off cuts are the same six intended ones. Loudness -13.9 LUFS, peak -1.9 dBFS.
+Full-size (1080x1920) frames looked at from the final mp4: f325 (shot 5), f389 (shot 6), f1590 (shot 26), f1650 (shot 27); shots 7 and 13 were checked on the reduced strip only.
+Side effect to know: removing the eave lanterns changes the lanai set, but the party shots were not re-rendered, so those shots still show them.

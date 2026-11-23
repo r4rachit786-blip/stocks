@@ -107,7 +107,7 @@ export function buildParty(R: THREE.Object3D, M: Mats) {
     const n = si === 2 ? 12 : 13, pts: THREE.Vector3[] = [];
     for (let i = 0; i <= 16; i++) { const t = i / 16; pts.push(a.clone().lerp(c, t).add(V(0, -0.75 * 4 * t * (1 - t), 0))); }
     b.add(limb(pts, [0.008, 0.008], 4, 1, 32), rope);
-    for (let i = 0; i < n; i++) {
+    for (let i = si === 1 ? 3 : si === 0 ? 1 : 0; i < n; i++) { // (the lantern nearest the eave is left off: it hung in front of the window in the curtain shot)
       const t = (i + 0.6) / n, p = a.clone().lerp(c, t).add(V(0, -0.75 * 4 * t * (1 - t) - 0.2, 0)), col = cols[(i + si * 2) % cols.length];
       const lan = new THREE.Mesh(new THREE.SphereGeometry(0.17, 12, 8).scale(1, 1.15, 1), emissive(col, 1.6));
       lan.position.copy(p); lan.layers.set(NOINK); R.add(lan);
