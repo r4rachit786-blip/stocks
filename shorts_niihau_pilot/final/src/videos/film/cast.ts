@@ -3,10 +3,10 @@
 // palaka shirt, moustache), his wife (teal dress, hair flower), the auntie, the kid, the helper (grey cap).
 // Acting = single beats (STUDY.md D). Light is painted onto each card per look (relight, multiply: v4 method).
 import * as THREE from "three";
-import { Pen, bodyFront, relight, fxWaves, fxTicks, fxStars, fxBurst, fxSmoke, Outfit, Expr, FrontOpts, INK } from "./toon";
+import { Pen, bodyFront, relight, fxWaves, fxTicks, fxStars, fxBurst, fxSmoke, fxPlank, Outfit, Expr, FrontOpts, INK } from "./toon";
 import { Stage, CamInfo, Place, tier, light2D, lidAt, blob, fkey, q } from "./cards";
 import { Shot, inShot, shotEnd, COCKPIT, PILOT_S, EYE, COWL, GUEST, RADIO, LANTERN, TORCH1, TORCH2, HOUSE, TABLE, LookName } from "./story";
-import { mapCard, chalkboard, calendar, noBoats, canoe, caveWall, eyesCard, icon, curtains, submarine, plaque, banner, fireBig } from "./art2d";
+import { mapCard, chalkboard, calendar, noBoats, canoe, plaque, banner, fireBig, caveBack, portrait, conch, lampCard, boatCal, curtainCard, iboat, helmetCard, bunting, sleeve, ropeCard, photoFrame, paperSheet, displayCase, medal } from "./art2d";
 
 const SKINW = "#fff8f0";
 const PILOT_O: Outfit = { jacket: "#a8905c", pants: "#6b5a3c", boots: INK, hat: "pilot", goggles: true, scarf: "#fbf9f3", collar: "#6e4a2e", belt: "#d5c9a2", plain: true, skin: SKINW };
@@ -18,6 +18,8 @@ const AUNTIE: Outfit = { jacket: "#d9694e", dress: "#d9694e", print: "#fbe6a8", 
 const MAN: Outfit = { jacket: "#6f94ba", suspenders: "#6b4a30", pants: "#5d5348", boots: "#4a3426", hat: "hair", hair: "#2f211c", skin: SKINW, buttons: "#e8eef4" };
 const KID: Outfit = { jacket: "#f6f2e8", stripes: "#d0503f", pants: "#4d6d9a", boots: "#fdebd8", hat: "hair", hair: "#2f211c", build: "kid", skin: SKINW, plain: true };
 const HELPER: Outfit = { jacket: "#8f927c", pants: "#4a4a52", boots: "#3a2a22", hat: "cap", cap: "#6a6f78", skin: SKINW, buttons: "#d8d8cc" };
+const ELDER: Outfit = { jacket: "#b9a27a", pants: "#5d5348", boots: "#4a3426", hat: "hair", hair: "#d8d4cc", moustache: "#d8d4cc", skin: SKINW, buttons: "#f1ead6" };
+const TOURIST: Outfit = { jacket: "#4f9a7a", pants: "#3b3f52", boots: "#f4f1ea", hat: "hair", hair: "#6a4a2a", skin: SKINW, plain: true };
 const VISITOR: Outfit = { jacket: "#f2b84a", pants: "#3f5a8a", boots: "#f4f1ea", hat: "cap", cap: "#d0503f", build: "kid", skin: SKINW, plain: true };
 
 const RELIGHT: Record<LookName, null | [string, string]> = { day: null, high: null, museum: null, dusk: ["255,236,214", "255,210,150"], night: ["180,188,255", "255,212,156"] };
@@ -75,9 +77,14 @@ const DIR: Record<number, (c: Ctx, n: number, u: number, s: Shot) => void> = {
     const u = q((n / 34) % 1, 34); card(c, `stars${u}`, 420, 210, (p) => fxStars(p, u), EYE[0] + 0.02, EYE[1] + 0.56, 0.06, 0.98);
     smoke(c, COWL[0] - 0.38, COWL[1] - 0.1, COWL[2] - 0.35, 14, 7.8, -1.9);
   },
-  5: (c, n) => {
+  5: (c, n) => { // in a fence: low by the nose, rails flying, the pilot clear in the cockpit behind
     P(c, "pilot", PILOT_O, 4, COCKPIT[0], COCKPIT[2], { mode: "sit", expr: "dazed", headTilt: q(6 * Math.sin(n * 0.19), 4), flutter: q((c.f / 20) % 1, 20), scarfDir: -1 }, { s: PILOT_S, y: COCKPIT[1], noBlob: true });
-    smoke(c, COWL[0] - 0.38, COWL[1] - 0.1, COWL[2] - 0.35, 14, 7.8, -1.9);
+    const u = q((n / 34) % 1, 34); card(c, `stars${u}`, 420, 210, (p) => fxStars(p, u), EYE[0] + 0.02, EYE[1] + 0.56, 0.06, 0.98);
+    smoke(c, COWL[0] - 0.38, COWL[1] - 0.1, COWL[2] - 0.35, 12, 7.8, -1.9);
+    [[2.3, 1.6, 0.9, 2.2], [2.9, 2.2, 1.3, -1.6], [1.7, 2.5, 0.5, 3.0], [2.6, 1.2, 1.6, -2.4], [2.0, 2.0, 1.1, 1.4]].forEach(([vx, vy, vz, sp], i) => {
+      const t = (n - 4 - i) / 30; if (t < 0 || t > 1.1) return;
+      card(c, "plank", 320, 110, fxPlank, 0.2 + (vx - 2.3) * t * 1.6, 0.9 + vy * 2.2 * t - 4.2 * t * t, 2.9 + vz * t * 0.6, 0.8, { rot: sp * t * 3 + i, tint: TINT.day });
+    });
   },
   6: (c, n) => { // helped out of the wreck; from frame 60 the local man holds the pistol and the papers
     const got = n >= 60;
@@ -120,15 +127,19 @@ const DIR: Record<number, (c: Ctx, n: number, u: number, s: Shot) => void> = {
     P(c, "wifeBack", WIFE, 3, -0.42, 2.3, stand("neutral", { back: true, headTilt: t(2) ? 5 : -3 }), { s: 0.97, y: -0.75 });
     P(c, "pilotLei", PILOT_LEI, 4, GUEST[0], GUEST[2], stand(n >= 14 ? "frozen" : "smile_closed", { prop: "plate", bite: true, look: n >= 22 ? -1 : 0, blink: lidAt(c.f, 77, [c.f - n + 14]) * (n < 18 ? 1 : 0) }), { s: 1.15, boost: 2.2, side: 1 });
   },
-  12: (c, n) => { // prisoner: seated between two watchers, the lei gone
-    P(c, "man", MAN, 6, 0.12, 0.2, stand("stern", { facing: 1, look: 1, blink: lidAt(c.f, 41) }), {});
+  12: (c, n) => { // prisoner: wrists tied, guarded with his own pistol, by lantern light
+    P(c, "man", MAN, 6, 0.1, 0.3, stand("stern", { facing: 1, look: 1, prop: "pistol", blink: lidAt(c.f, 41) }), {});
     P(c, "rancher", RANCHER, 2, 1.72, 0.15, stand("stern", { facing: -1, look: -1, blink: lidAt(c.f, 42) }), { s: 1.12 });
-    P(c, "pilot", PILOT_O, 4, 0.9, 0.5, { mode: "sit", expr: "nervous", look: n < 14 ? -1 : 1, lookY: -0.3, blink: lidAt(c.f, 7), scarfDir: -1 }, { s: 1.15, y: 0.42, noBlob: true, boost: 2, side: 1 });
-    card(c, "crate", 300, 200, (p) => { p.poly([[14, 30], [286, 30], [286, 190], [14, 190]], "#a8683a", 10); p.stroke([[14, 84], [286, 84]], 7); p.stroke([[14, 138], [286, 138]], 7); }, 0.9, 0.3, 0.46, 0.86, { tint: TINT.night * 1.1 });
+    P(c, "pilot", PILOT_O, 4, 0.92, 0.5, { mode: "sit", expr: "nervous", look: n < 14 ? -1 : 1, lookY: -0.3, blink: lidAt(c.f, 7), scarfDir: -1 }, { s: 1.15, y: 0.42, noBlob: true, boost: 2, side: 1 });
+    card(c, "crate", 300, 200, (p) => { p.poly([[14, 30], [286, 30], [286, 190], [14, 190]], "#a8683a", 10); p.stroke([[14, 84], [286, 84]], 7); p.stroke([[14, 138], [286, 138]], 7); }, 0.92, 0.3, 0.46, 0.86, { tint: TINT.night * 1.1 });
+    card(c, "rope", 300, 160, ropeCard, 0.92, 1.02, 0.6, 0.36, { tint: 0.85 });
+    card(c, "lampc", 300, 520, lampCard, 0.36, 0.3, 1.0, 0.34, { tint: 1.7 });
   },
-  13: (c) => {
-    card(c, "noboats", 900, 1000, noBoats, 2.25, 1.05, -22.0, 1.75, { tint: 0.82 });
-    card(c, "canoe", 1200, 420, canoe, 3.2, 0.4, -21.0, 2.4, { tint: 0.66 });
+  13: (c) => { // the board, the chained canoe, and two islanders looking out at an empty moonlit sea
+    card(c, "noboats", 900, 1000, noBoats, 2.45, 1.05, -22.0, 1.7, { tint: 0.82 });
+    card(c, "canoe", 1200, 420, canoe, 3.3, 0.4, -21.0, 2.3, { tint: 0.66 });
+    P(c, "elderBack", ELDER, 10, 1.42, -20.6, stand("neutral", { back: true }), {});
+    P(c, "kidBack", KID, 5, 1.95, -20.2, stand("neutral", { back: true }), { s: 0.78 });
   },
   14: (c, n) => { // five days: pages 7 .. 12, one every 8 frames, then the 12 stays
     const day = Math.min(12, 7 + Math.floor(n / 8));
@@ -138,12 +149,13 @@ const DIR: Record<number, (c: Ctx, n: number, u: number, s: Shot) => void> = {
     P(c, "pilot", PILOT_O, 4, 0.3, 1.2, stand("stern", { facing: 1, look: 1, blink: lidAt(c.f, 7), scarfDir: -1 }), { s: 1.15, boost: 1.6 });
     P(c, "helper", HELPER, 9, 1.25, 1.1, stand("nervous", { facing: -1, look: -1, prop: n >= 6 ? "shotgun" : null, blink: lidAt(c.f, 51) }), { boost: 1.6, mirror: true });
   },
-  16: (c) => {
+  16: (c, n) => { // the house burns; papers fly out of the window; the two men lit orange, faces readable
     const H = (lx: number, ly: number, lz: number): [number, number, number] => [HOUSE.x + lx * Math.cos(HOUSE.yaw) + lz * Math.sin(HOUSE.yaw), ly, HOUSE.z - lx * Math.sin(HOUSE.yaw) + lz * Math.cos(HOUSE.yaw)];
-    [[0, 3.6, 0.5, 5.4], [-2.4, 3.2, 1.2, 3.8], [2.3, 3.2, 1.0, 4.0], [-2.2, 1.6, 2.7, 1.5], [2.2, 1.6, 2.7, 1.5], [0, 1.4, 2.7, 1.7]].forEach(([lx, ly, lz, s], i) => { const [x, y, z] = H(lx, ly, lz); fire(c, x, y, z, s, i); });
-    P(c, "pilotBack", PILOT_O, 4, -0.5, 1.4, stand("neutral", { back: true, prop: "torch" }), { s: 1.15, side: -1, boost: 3 });
-    P(c, "helperBack", HELPER, 9, 0.45, 1.7, stand("neutral", { back: true, prop: "shotgun" }), { side: -1, boost: 3 });
+    [[0, 3.6, 0.5, 5.4], [-2.4, 3.2, 1.2, 3.8], [2.3, 3.2, 1.0, 4.0], [-2.2, 1.6, 2.7, 1.5], [2.2, 1.6, 2.7, 1.5]].forEach(([lx, ly, lz, s], i) => { const [x, y, z] = H(lx, ly, lz); fire(c, x, y, z, s, i); });
     smoke(c, HOUSE.x, 5.5, HOUSE.z, 9, 9, 2.5);
+    for (let i = 0; i < 7; i++) { const t = ((n + i * 9) % 46) / 46, [x, y, z] = H(2.2 + 1.2 * t + 0.3 * Math.sin(i), 2.2 + 2.4 * t - 2.6 * t * t + 0.2 * i, 2.8 + 4.5 * t); card(c, "sheet", 200, 240, paperSheet, x, y, z, 0.42, { rot: t * 5 + i, tint: 1.0 }); }
+    P(c, "helper", HELPER, 9, 0.3, -0.7, stand("nervous", { facing: -1, look: -1, prop: "shotgun" }), { boost: 3, side: -1, mirror: true });
+    P(c, "pilot", PILOT_O, 4, 0.98, 0.75, stand("stern", { facing: -1, look: -1, prop: "torch", scarfDir: 1 }), { s: 1.15, side: -1, boost: 3 });
   },
   17: (c) => {
     fire(c, 0.3, 0.9, 0.3, 3.6, 0); fire(c, -1.6, 0.7, -0.5, 2.6, 1); fire(c, 1.7, 0.6, 1.0, 2.4, 2); fire(c, -0.6, 0.3, 1.8, 1.8, 3);
@@ -151,13 +163,13 @@ const DIR: Record<number, (c: Ctx, n: number, u: number, s: Shot) => void> = {
     P(c, "pilot", PILOT_O, 4, -2.3, 7.4, stand("stern", { facing: 1, prop: "torch", scarfDir: -1 }), { s: 1.15, boost: 3 });
     P(c, "helper", HELPER, 9, -1.2, 7.9, stand("nervous", { facing: 1, prop: "shotgun" }), { boost: 3 });
   },
-  18: (c, n) => {
-    card(c, "cave", 1200, 2100, caveWall, 0, 2.7, -0.95, 2.5, { tint: 0.8 });
-    [[-0.25, 2.32, 0.3, 3], [0.2, 2.42, 0.26, 11], [-0.05, 2.12, 0.22, 17], [0.34, 2.16, 0.2, 23], [-0.36, 2.08, 0.18, 29], [0.08, 2.62, 0.2, 37]].forEach(([x, y, w, seed], i) => {
-      if (n < 4 + i * 3) return;
-      const lid = lidAt(c.f, seed), look = q(Math.sin(n * 0.12 + i), 4);
-      card(c, `eyes${lid}|${look}`, 200, 100, (p) => eyesCard(p, lid, look), x, y, -0.93, w, { tint: 0.95 });
-    });
+  18: (c, n) => { // the village in a sea cave: one kerosene lantern, worried faces, the moonlit sea outside
+    card(c, "caveback", 1400, 2400, caveBack, -0.62, 1.6, -3.2, 5.0, { tint: 1.0 });
+    card(c, "lampc", 300, 520, lampCard, 0.3, 0.3, 1.05, 0.34, { tint: 1.9 });
+    P(c, "auntie", AUNTIE, 8, -0.72, 0.15, stand("nervous", { facing: 1, look: 1, lookY: -0.4, blink: lidAt(c.f, 43) }), { s: 0.98 });
+    P(c, "elder", ELDER, 10, 0.95, 0.05, stand(n > 16 ? "shock" : "nervous", { facing: -1, look: n > 16 ? 1 : -1, blink: lidAt(c.f, 44, [c.f - n + 16]) }), {});
+    P(c, "man", MAN, 6, 0.2, -0.45, stand("stern", { look: n > 20 ? 1 : 0, blink: lidAt(c.f, 41) }), {});
+    P(c, "kid", KID, 5, -0.12, 0.8, stand("nervous", { look: n > 10 ? 1 : 0, lookY: -0.3, blink: lidAt(c.f, 31) }), { s: 0.74 });
   },
   19: (c, n) => { fire(c, 0.3, 0.9, 0.3, 3.6, 0); fire(c, -1.6, 0.7, -0.5, 2.6, 1); P(c, "rancher", RANCHER, 2, -0.6, 9.5, stand("stern", { look: n > 20 ? 1 : 0, blink: lidAt(c.f, 21) }), { s: 1.14, boost: 1.2 }); },
   20: (c, n) => { // caught: hands up; at frame 46 the rancher jumps the pilot
@@ -192,24 +204,50 @@ const DIR: Record<number, (c: Ctx, n: number, u: number, s: Shot) => void> = {
     if (n >= 42) { const u = q(((n - 42) / 30) % 1, 30); card(c, `stars${u}`, 420, 210, (p) => fxStars(p, u), 1.25, 0.95, 9.75, 0.9); }
   },
   25: (c, n) => { card(c, `map${n >= 76 ? 3 : 0}`, 1000, 1300, (p) => mapCard(p, n >= 76 ? 3 : 0), 0, TABLE.y + 0.012, 0.05, 1.0, { flat: true }); },
-  26: (c, n) => { [3.5, 2.7, 1.9].forEach((y, k) => { const at = [30, 56, 74][k]; if (n >= at) card(c, `icon${k}`, 600, 600, (p) => icon(p, k), 0.04 * Math.max(0, 1 - (n - at) / 5), y, -0.96, 0.72); }); },
-  27: () => { /* curtains are part of the set in this look */ },
-  28: (c, n) => { P(c, "rancherMedal", RANCHER_M, 2, -0.6, 9.5, stand(n > 16 ? "grin" : "smile", { look: 0, blink: lidAt(c.f, 21, [c.f - n + 16]) }), { s: 1.14 }); },
-  29: (c, n, u) => { card(c, "sub", 1200, 420, submarine, 1.0 + 3 * u, -6.0 - 0.9 * u, -46 - 14 * u, 15 - 4 * u, { tint: 0.75 }); },
+  26: (c, n) => { // four pictures on the ranch-house wall: one family / no phones / no power / one boat a week
+    const up = { y: 1.25, noBlob: true };
+    if (n < 30) card(c, "portrait", 700, 900, portrait, -2.6, 2.95, -0.96, 0.95);
+    else if (n < 56) { P(c, "man", MAN, 6, -0.98, -0.3, stand(n > 40 ? "confused" : "neutral", { facing: 1, look: 1, wave: -0.2, raise: 0.75, blink: lidAt(c.f, 41, [c.f - n + 40]) }), up); card(c, "conch", 300, 300, conch, -0.6, 2.74, -0.25, 0.28); }
+    else if (n < 74) { P(c, "auntie", AUNTIE, 8, 0.72, -0.3, stand("smile", { facing: 1, look: 1, lookY: 0.5, wave: -0.6, raise: 0.5 }), { ...up, s: 0.98 }); card(c, "lampc", 300, 520, lampCard, 1.22, 2.72, -0.25, 0.3, { tint: 1.25 }); }
+    else { card(c, "boatcal", 700, 900, boatCal, 2.75, 2.95, -0.96, 0.82); P(c, "kid", KID, 5, 2.2, -0.2, stand("grin", { facing: 1, look: 1, lookY: -0.5, wave: 0.3, raise: 0.9 }), { ...up, s: 0.8, y: 1.6 }); }
+  },
+  27: (c, n) => { // the curtains twitch shut on "drawn" (frame 29 of the shot)
+    const open = n < 27 ? 0.55 : Math.max(0, 0.55 * (1 - (n - 27) / 4));
+    card(c, `curtain${q(open, 20)}`, 400, 500, (p) => curtainCard(p, q(open, 20)), -5.548, 2.2, -4.42, 0.98, { tint: 0.97 });
+  },
+  28: (c, n) => { // the medal: pinned on by an officer's hand, bunting overhead
+    card(c, "bunting", 1600, 300, bunting, -12.6, 3.0, 3.6, 5.2, { tint: 0.96 });
+    P(c, "rancher", RANCHER, 2, -12, 6, stand(n > 16 ? "grin" : "smile", { blink: lidAt(c.f, 21, [c.f - n + 16]) }), { s: 1.14 });
+    card(c, "medalBig", 200, 300, medal, -11.98, 1.24, 6.08, 0.2, { tint: 1.0 });
+    const k = n < 12 ? 1 - n / 12 : 0; card(c, "sleeve", 700, 260, sleeve, -11.5 + 0.5 * k, 1.27, 5.93, 0.62, { tint: 0.96 });
+    if (n >= 18 && n < 26) { const u = q((n - 18) / 8, 8); card(c, `glint${u}`, 500, 500, (p) => fxBurst(p, u, "#fff8d0", 8, 20, 150), -11.98, 1.2, 6.12, 0.34, { tint: 1.6 }); }
+  },
+  29: (c, n, u) => { // the submarine goes; the helmet stays on the bluff
+    const w = 15 - 5 * u; card(c, "iboat", 1400, 360, iboat, 1.2 + 2 * u, -7 + 0.28 * (w * 360 / 1400) - 1.1 * u * u, -42 - 20 * u, w, { tint: 0.8 });
+    card(c, "helmet", 420, 300, helmetCard, 0.95, 0.17, -24.0, 0.5, { tint: 0.86 });
+  },
   30: (c) => {
-    card(c, "banner", 1600, 400, banner, 0, 3.6, -4.94, 5.2);
+    card(c, "banner", 1600, 400, banner, 0, 4.2, -4.94, 5.2);
+    [[-3.3, 2.3, 0], [-2.1, 2.5, 1], [3.2, 2.4, 2]].forEach(([x, y, v]) => card(c, `photo${v}`, 500, 400, (p) => photoFrame(p, v), x, y, -4.93, 0.95));
+    card(c, "wallmap", 1000, 1300, (p) => mapCard(p, 0), 4.6, 2.5, -4.93, 1.25);
+    card(c, "case", 600, 800, displayCase, -3.5, 0.82, 2.6, 1.2);
+    P(c, "tourist", TOURIST, 13, -2.3, 4.6, stand("smile", { facing: 1, look: 1, wave: 0.2, raise: 0.6, blink: lidAt(c.f, 62) }), {});
     P(c, "visitor", VISITOR, 12, 2.7, 4.7, stand("neutral", { back: true }), { s: 0.8 });
   },
   31: (c, n) => {
-    card(c, "banner", 1600, 400, banner, 0, 3.6, -4.94, 5.2);
-    card(c, "plaque", 900, 560, plaque, 1.95, 1.05, 3.9, 0.8);
-    P(c, "visitor", VISITOR, 12, 2.7, 4.7, stand(n > 40 ? "wow" : "neutral", { facing: -1, look: -1, blink: lidAt(c.f, 61, [c.f - n + 40]) }), { s: 0.8 });
+    card(c, "banner", 1600, 400, banner, 0, 4.2, -4.94, 5.2);
+    [[-3.3, 2.3, 0], [-2.1, 2.5, 1], [3.2, 2.4, 2]].forEach(([x, y, v]) => card(c, `photo${v}`, 500, 400, (p) => photoFrame(p, v), x, y, -4.93, 0.95));
+    card(c, "wallmap", 1000, 1300, (p) => mapCard(p, 0), 4.6, 2.5, -4.93, 1.25);
+    card(c, "case", 600, 800, displayCase, -3.5, 0.82, 2.6, 1.2);
+    P(c, "tourist", TOURIST, 13, -2.3, 4.6, stand("smile", { facing: 1, look: 1, wave: 0.2, raise: 0.6, blink: lidAt(c.f, 62) }), {});
+    card(c, "plaque", 900, 560, plaque, 1.2, 1.05, 3.9, 0.8);
+    P(c, "visitor", VISITOR, 12, 1.98, 4.6, stand(n > 40 ? "wow" : "neutral", { facing: -1, look: -1, blink: lidAt(c.f, 61, [c.f - n + 40]) }), { s: 0.8 });
   },
 };
 
 export const stage = (f: number, cam: CamInfo): Stage => {
   const out: Stage = { places: [], fx: [] }, { s, n, u } = inShot(f);
-  const warm: Warm = s.set === "lanai" && s.look !== "high" ? (s.fire === 1 ? [[HOUSE.x, 3, HOUSE.z, 30], ...WARM_LANAI] : WARM_LANAI) : s.fire === 2 ? [[0.3, 1.6, 0.3, 40]] : s.look === "night" && s.set === "studio" ? [] : [];
+  const warm: Warm = s.set === "cave" ? [[0.3, 0.5, 1.05, 3]] : s.set === "lanai" && s.look !== "high" ? (s.fire === 1 ? [[HOUSE.x, 3, HOUSE.z, 30], ...WARM_LANAI] : WARM_LANAI) : s.fire === 2 ? [[0.3, 1.6, 0.3, 40]] : s.look === "night" && s.set === "studio" ? [] : [];
   DIR[s.id]?.({ cam, out, look: s.look, warm, f }, n, u, s);
   void shotEnd;
   return out;

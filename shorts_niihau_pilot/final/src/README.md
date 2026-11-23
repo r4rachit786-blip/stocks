@@ -17,7 +17,8 @@ Frames are written as `f<absolute frame>.jpeg`; a chunk that crashes keeps its f
     ffmpeg -i premix.wav -af "loudnorm=I=-14:TP=-2:LRA=7,alimiter=limit=0.79:level=false" -ar 48000 mix.wav
 
 ## Final
-    ffmpeg -framerate 30 -i all/f%04d.jpeg -i mix.wav -vf "ass=captions.ass" -c:v libx264 -pix_fmt yuv420p -crf 15 -preset slow \
+    python3 audio/post.py out/film/all out/film/post src/videos/film/story.ts   # 8-frame dissolves on sentence onsets
+    ffmpeg -framerate 30 -i post/f%04d.jpeg -i mix.wav -vf "ass=captions.ass" -c:v libx264 -pix_fmt yuv420p -crf 18 -preset slow \
            -c:a aac -b:a 192k -shortest -movflags +faststart niihau_pilot_short.mp4
 
 ## Files in videos/film

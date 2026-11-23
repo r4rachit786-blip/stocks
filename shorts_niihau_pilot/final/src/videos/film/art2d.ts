@@ -139,3 +139,107 @@ export const medal = (p: Pen) => {
   p.poly([[60, 10], [140, 10], [128, 150], [72, 150]], "#3f6aa8", 8); p.stroke([[100, 12], [100, 148]], 14, "#f6f0dc");
   p.ell(100, 210, 62, 62, "#f2c84a", 9); const s: [number, number][] = []; for (let k = 0; k < 10; k++) { const r = k % 2 ? 20 : 46, b = (k * 36 - 90) * Math.PI / 180; s.push([100 + r * Math.cos(b), 210 + r * Math.sin(b)]); } p.poly(s, "#fff3b0", 5);
 };
+
+// ---------------- review round 2: new painted props ----------------
+/** inside of a sea cave looking out: rock walls in violet-blue, the mouth opens on the moonlit sea; 1400 x 2400 */
+export const caveBack = (p: Pen) => {
+  const g = p.g;
+  g.fillStyle = "#2a2a66"; g.fillRect(0, 0, 1400, 2400);
+  // the opening: sky, moon, sea, far palms
+  g.save(); g.beginPath(); g.moveTo(520, 1500); g.bezierCurveTo(430, 900, 640, 420, 980, 430); g.bezierCurveTo(1300, 450, 1380, 900, 1330, 1500); g.closePath(); g.clip();
+  const sk = g.createLinearGradient(0, 400, 0, 1500); sk.addColorStop(0, "#27329c"); sk.addColorStop(0.6, "#5a68d6"); sk.addColorStop(1, "#8f8ae4"); g.fillStyle = sk; g.fillRect(400, 380, 1000, 1150);
+  g.fillStyle = "rgba(190,205,255,0.35)"; g.beginPath(); g.arc(1080, 720, 150, 0, 7); g.fill(); g.fillStyle = "#eef2ff"; g.beginPath(); g.arc(1080, 720, 92, 0, 7); g.fill();
+  for (let i = 0; i < 40; i++) { g.fillStyle = "rgba(235,240,255,0.8)"; g.beginPath(); g.arc(470 + ((i * 197) % 880), 440 + ((i * 131) % 560), 3 + (i % 3), 0, 7); g.fill(); }
+  g.fillStyle = "#2f44b0"; g.fillRect(400, 1180, 1000, 400);
+  for (let i = 0; i < 26; i++) { g.fillStyle = "rgba(215,228,255,0.75)"; const w = 30 + ((i * 53) % 110) * (i / 26 + 0.3); g.fillRect(1080 - w / 2 + ((i * 37) % 60) - 30, 1190 + i * 12, w, 5); }
+  g.fillStyle = "#1a1c52"; g.beginPath(); g.moveTo(400, 1330); g.quadraticCurveTo(700, 1250, 1400, 1300); g.lineTo(1400, 1600); g.lineTo(400, 1600); g.fill();
+  p.stroke([[640, 1320], [652, 1120]], 12, "#1a1c52"); for (const a of [-2.6, -2.1, -1.5, -0.9, -0.4]) p.stroke([[652, 1120], [652 + Math.cos(a) * 120, 1120 + Math.sin(a) * 90 + 40]], 10, "#1a1c52");
+  g.restore();
+  p.g.lineWidth = 16; p.g.strokeStyle = INK; g.beginPath(); g.moveTo(520, 1500); g.bezierCurveTo(430, 900, 640, 420, 980, 430); g.bezierCurveTo(1300, 450, 1380, 900, 1330, 1500); g.stroke();
+  // rock blocks and strata, lighter toward the mouth
+  for (let i = 0; i < 60; i++) { const x = (i * 331) % 1400, y = (i * 577) % 2400; if (x > 470 && x < 1340 && y > 480 && y < 1480) continue; const w = 150 + ((i * 97) % 200), h = 100 + ((i * 53) % 130); blob(p, [[x, y], [x + w, y - 20], [x + w + 30, y + h * 0.6], [x + w * 0.6, y + h], [x - 20, y + h * 0.7]], i % 3 ? "#34367c" : "#42459a", 7); }
+  for (const [x, l] of [[300, 260], [760, 180], [1180, 300], [1000, 150], [150, 190]]) blob(p, [[x - 60, 0], [x + 60, 0], [x + 14, l], [x, l + 40], [x - 14, l]], "#3a3c88", 8); // stalactites
+  blob(p, [[0, 1900], [300, 1820], [800, 1880], [1400, 1800], [1400, 2400], [0, 2400]], "#2c2e6e", 10); // floor
+};
+/** oval family portrait in a frame, 700 x 900: four formal figures; brass label, no names */
+export const portrait = (p: Pen) => {
+  rrect(p, 20, 20, 660, 860, 26, "#7a4e2a", 14); rrect(p, 70, 70, 560, 640, 14, "#e9dcb8", 8);
+  const g = p.g; g.save(); g.beginPath(); g.ellipse(350, 390, 250, 290, 0, 0, 7); g.clip(); g.fillStyle = "#c9b48a"; g.fillRect(70, 70, 560, 640);
+  for (const [x, y, s, c] of [[230, 330, 1, "#3a3440"], [460, 320, 1, "#5a4a3a"], [300, 470, 0.85, "#6a3a3a"], [420, 480, 0.8, "#3a4a5a"]] as const) {
+    blob(p, [[x - 70 * s, y + 250 * s], [x - 62 * s, y + 80 * s], [x, y + 50 * s], [x + 62 * s, y + 80 * s], [x + 70 * s, y + 250 * s]], c, 7);
+    p.ell(x, y, 62 * s, 58 * s, "#fbf3e2", 8); p.stroke([[x - 30 * s, y - 4], [x - 12 * s, y - 4]], 7); p.stroke([[x + 12 * s, y - 4], [x + 30 * s, y - 4]], 7); p.stroke([[x - 12 * s, y + 26 * s], [x + 12 * s, y + 26 * s]], 6);
+  }
+  g.restore(); g.lineWidth = 9; g.strokeStyle = INK; g.beginPath(); g.ellipse(350, 390, 250, 290, 0, 0, 7); g.stroke();
+  rrect(p, 150, 750, 400, 90, 10, "#d9b45a", 7); text(p, "THE OWNERS", 350, 797, 54);
+};
+/** conch shell, 300 x 300 */
+export const conch = (p: Pen) => { blob(p, [[40, 170], [90, 70], [200, 50], [270, 130], [240, 230], [130, 260]], "#f6d6c0", 10); blob(p, [[120, 180], [200, 120], [250, 160], [210, 220]], "#f09aa0", 6); for (const k of [0, 1, 2]) p.stroke([[80 + k * 26, 110 - k * 14], [110 + k * 30, 80 - k * 8]], 6); };
+/** kerosene hurricane lamp, lit, 300 x 520 */
+export const lampCard = (p: Pen) => {
+  p.g.strokeStyle = INK; p.g.lineWidth = 9; p.g.beginPath(); p.g.arc(150, 150, 110, Math.PI * 1.08, Math.PI * 1.92); p.g.stroke();
+  rrect(p, 80, 400, 140, 96, 22, "#6f7f8a", 10); rrect(p, 104, 366, 92, 40, 8, "#8d949c", 8);
+  blob(p, [[100, 366], [84, 260], [112, 170], [188, 170], [216, 260], [200, 366]], "#ffe9a0", 10);
+  blob(p, [[150, 350], [126, 290], [150, 215], [174, 290]], "#fb9a30", 0); blob(p, [[150, 346], [138, 300], [150, 256], [162, 300]], "#fff6d0", 0);
+  rrect(p, 106, 128, 88, 46, 10, "#6f7f8a", 9); rrect(p, 128, 96, 44, 36, 8, "#6f7f8a", 8);
+};
+/** boat-day wall calendar with a sampan, 700 x 900: one day ringed in every week */
+export const boatCal = (p: Pen) => {
+  rrect(p, 20, 20, 660, 860, 16, "#f6f0dc", 12); rrect(p, 20, 20, 660, 150, 16, "#2f4f93", 12); text(p, "BOAT DAY", 350, 98, 92, "#fff6e0");
+  blob(p, [[190, 300], [350, 322], [510, 300], [470, 372], [230, 372]], "#a8683a", 9); p.stroke([[350, 312], [350, 196]], 10, "#7a5a3a"); p.poly([[360, 204], [450, 290], [360, 290]], "#f6f0dc", 7);
+  p.g.strokeStyle = "#3f6aa8"; p.g.lineWidth = 8; for (let i = 0; i < 5; i++) { p.g.beginPath(); p.g.arc(140 + i * 105, 400, 50, 0.15 * Math.PI, 0.85 * Math.PI); p.g.stroke(); }
+  for (let r = 0; r < 4; r++) for (let c = 0; c < 7; c++) { const x = 92 + c * 86, y = 520 + r * 92; text(p, String(r * 7 + c + 1), x, y, 46, c === 2 ? "#c2352c" : "#5a5560"); if (c === 2) { p.g.strokeStyle = "#c2352c"; p.g.lineWidth = 7; p.g.beginPath(); p.g.arc(x, y - 2, 38, 0, 7); p.g.stroke(); } }
+};
+/** one window with two patterned curtains; open 1 = parted (dark room, lamp glow), 0 = drawn shut; 400 x 500 */
+export const curtainCard = (p: Pen, open: number) => {
+  const g = p.g; rrect(p, 10, 10, 380, 480, 6, "#f4efdc", 12);
+  const gr = g.createLinearGradient(0, 30, 0, 470); gr.addColorStop(0, "#3a3458"); gr.addColorStop(1, "#6a5a70"); g.fillStyle = gr; g.fillRect(34, 34, 332, 432);
+  g.fillStyle = "rgba(255,190,110,0.5)"; g.beginPath(); g.arc(200, 380, 70, 0, 7); g.fill();
+  const half = (s: number) => { const edge = 200 + s * (8 + 120 * open), x0 = s < 0 ? 34 : edge, x1 = s < 0 ? edge : 366;
+    g.fillStyle = "#e8b04a"; g.fillRect(x0, 34, x1 - x0, 432);
+    for (let x = x0 + 14; x < x1 - 6; x += 30) { g.fillStyle = "rgba(160,96,30,0.4)"; g.fillRect(x, 34, 8, 432); }
+    for (let y = 70; y < 460; y += 62) for (let x = x0 + 26; x < x1 - 10; x += 60) { g.fillStyle = "#c2352c"; g.beginPath(); g.arc(x + ((y / 62) % 2) * 26, y, 11, 0, 7); g.fill(); g.fillStyle = "#fff3c0"; g.beginPath(); g.arc(x + ((y / 62) % 2) * 26, y, 4, 0, 7); g.fill(); }
+    p.stroke([[edge, 34], [edge, 466]], 7); };
+  half(-1); half(1);
+  p.stroke([[20, 34], [380, 34]], 12, "#7a4e2a"); g.lineWidth = 12; g.strokeStyle = INK; g.strokeRect(34, 34, 332, 432); rrect(p, 0, 470, 400, 26, 4, "#4d7a5c", 8);
+};
+/** WW2 fleet submarine on the surface, heading away: long low hull, deck gun, small conning tower; 1400 x 360 */
+export const iboat = (p: Pen) => {
+  blob(p, [[20, 250], [200, 214], [700, 204], [1250, 216], [1380, 246], [1250, 276], [200, 280]], "#3f4a6c", 10);
+  p.stroke([[60, 232], [1320, 226]], 6, "#566289");
+  rrect(p, 600, 120, 170, 92, 14, "#3f4a6c", 10); rrect(p, 630, 84, 84, 40, 8, "#3f4a6c", 9); p.stroke([[660, 84], [660, 28]], 8); p.stroke([[692, 84], [692, 46]], 6); p.stroke([[600, 150], [560, 150], [560, 206]], 6);
+  rrect(p, 430, 176, 60, 30, 6, "#3f4a6c", 8); p.stroke([[470, 184], [380, 160]], 12); // deck gun
+  p.stroke([[20, 250], [-10, 200]], 5); p.stroke([[1380, 246], [1400, 196]], 5); p.stroke([[40, 200], [600, 124]], 3); p.stroke([[770, 124], [1360, 200]], 3); // aerial wires
+  p.g.fillStyle = "rgba(230,240,255,0.92)"; for (let i = 0; i < 16; i++) { p.g.beginPath(); p.g.ellipse(50 + i * 86, 284 + (i % 2) * 10, 58, 13, 0, 0, 7); p.g.fill(); }
+};
+/** the pilot's flying helmet and goggles left on the sand, 420 x 300 */
+export const helmetCard = (p: Pen) => {
+  blob(p, [[60, 250], [70, 130], [160, 60], [270, 70], [350, 150], [360, 250]], "#8b5a34", 11); blob(p, [[130, 250], [140, 180], [210, 150], [280, 180], [290, 250]], "#3a2416", 7);
+  p.ell(150, 110, 52, 38, "#caa252", 9, 0, 360, -16); p.ell(150, 110, 36, 24, "#a8d6ec", 6, 0, 360, -16); p.ell(262, 112, 52, 38, "#caa252", 9, 0, 360, 12); p.ell(262, 112, 36, 24, "#a8d6ec", 6, 0, 360, 12);
+  p.stroke([[40, 262], [380, 262]], 10, "#c9a25a");
+};
+/** string of triangular bunting, 1600 x 300 */
+export const bunting = (p: Pen) => {
+  const g = p.g; g.strokeStyle = INK; g.lineWidth = 7; g.beginPath(); g.moveTo(0, 40); g.quadraticCurveTo(800, 150, 1600, 40); g.stroke();
+  for (let i = 0; i < 13; i++) { const t = (i + 0.5) / 13, x = t * 1600, y = 40 + 110 * 4 * t * (1 - t) * 0.5 + 4; p.poly([[x - 52, y], [x + 52, y], [x, y + 120]], ["#c2352c", "#f6f0dc", "#2f4f93"][i % 3], 7); }
+};
+/** an officer's sleeve and hand reaching in from the right to pin the medal, 700 x 260 */
+export const sleeve = (p: Pen) => { blob(p, [[700, 60], [300, 84], [250, 130], [300, 176], [700, 210]], "#b9a878", 10); p.stroke([[330, 92], [330, 170]], 8, "#8f7e52"); for (const x of [420, 470]) p.stroke([[x, 90], [x, 178]], 10, "#e8c45a"); p.ell(210, 130, 56, 46, "#fff8f0", 10); };
+/** rope round the prisoner's wrists, 300 x 160 */
+export const ropeCard = (p: Pen) => { for (let k = 0; k < 4; k++) { p.stroke([[40, 40 + k * 26], [260, 30 + k * 26]], 20, INK); p.stroke([[40, 40 + k * 26], [260, 30 + k * 26]], 11, "#d9b87a"); } p.ell(150, 76, 26, 22, "#d9b87a", 8); };
+/** framed period photograph for the museum wall, 500 x 400; v picks the subject */
+export const photoFrame = (p: Pen, v: number) => {
+  rrect(p, 10, 10, 480, 380, 8, "#3a2a22", 10); rrect(p, 50, 50, 400, 300, 4, "#d9cfb8", 5);
+  const g = p.g; g.save(); g.beginPath(); g.rect(50, 50, 400, 300); g.clip(); g.fillStyle = "#b9ad94"; g.fillRect(50, 230, 400, 120);
+  if (v === 0) { blob(p, [[90, 210], [250, 180], [400, 200], [330, 240], [140, 240]], "#8a8674", 6); p.ell(120, 206, 40, 40, "#5a5650", 5); p.stroke([[370, 190], [420, 130]], 12, "#8a8674"); }
+  if (v === 1) { for (const x of [150, 250, 350]) { p.stroke([[x, 300], [x, 220]], 8, "#5a5650"); p.ell(x, 190, 34, 32, "#f1ead6", 6); } }
+  if (v === 2) { p.poly([[110, 250], [110, 170], [250, 110], [390, 170], [390, 250]], "#8a8674", 6); p.stroke([[250, 250], [250, 190]], 30, "#5a5650"); p.stroke([[420, 250], [420, 110]], 10, "#5a5650"); }
+  g.restore();
+};
+/** a sheet of paper in the air, 200 x 240 */
+export const paperSheet = (p: Pen) => { p.poly([[20, 30], [170, 14], [184, 214], [36, 228]], "#f6f0dc", 9); for (let i = 0; i < 5; i++) p.stroke([[50, 64 + i * 30], [150, 56 + i * 30]], 5, "#8a8478"); };
+/** glass display case with the flying helmet inside, 600 x 800 */
+export const displayCase = (p: Pen) => {
+  rrect(p, 60, 430, 480, 350, 8, "#5a4630", 12); rrect(p, 80, 60, 440, 380, 6, "rgba(200,225,245,0.55)", 10);
+  p.g.save(); p.g.translate(160, 170); p.g.scale(0.72, 0.72); helmetCard(new Pen(p.g)); p.g.restore();
+  p.stroke([[120, 100], [200, 390]], 14, "rgba(255,255,255,0.5)"); rrect(p, 200, 520, 200, 70, 6, "#d9b45a", 6);
+};

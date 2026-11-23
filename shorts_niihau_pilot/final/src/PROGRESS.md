@@ -8,3 +8,11 @@
 - fix renders merged into out/film/all (symlinks). Next: check fixcheck.jpg, encode with captions+mix, QA.md, copy src.
 - final mp4 encoded (captions+mix); sheets rebuilt from the mp4. Next: view captions_check, QA.md, copy src.
 - DONE: final mp4, sheets, SCRIPT.md, CREDITS.md, QA.md, src copied to final/.
+- coordinator review 2: fixing shots 5,12,13,16,18,26,27,28,29,30,31 + dissolves in post + crf 18 (in progress)
+- round-2 fixes coded; test stills in rm/out/fc/sheet.jpg
+- round-2 tweak 2 applied; rendering ranges into out/film/fix2 (312-337 741-852 945-997 1030-1072 1543-1934)
+- fix2 merged into all/. Next: view check sheet, post.py dissolves, encode crf 18, QA, docs.
+- post dissolves + final encode crf18 done. Next: scan, sheets, docs.
+- captions regrouped, final re-encoded, sheets rebuilt. Next: docs (SCRIPT shot list, QA, CREDITS), src copy, handback.
+- shot 31 reframed, final re-encoded (crf 18), sheets rebuilt. Next: docs + src copy + handback.
+- DONE round 2: final mp4 (crf 18, 68.6 MB), sheets, SCRIPT/QA updated, src copied.

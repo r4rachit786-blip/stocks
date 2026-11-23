@@ -183,17 +183,18 @@ export const flameTex = (v: number) => clampT(ctex("flame" + v, 128, 256, (g) =>
 }));
 
 /** night sea: 256 x 1024 gradient, v = 0 at the shore; ultramarine with pale crests */
-export const seaNight = () => clampT(ctex("seaNight", 256, 1024, (g, r) => {
+export const seaNight = () => clampT(ctex("seaNight3", 256, 1024, (g, r) => {
+  // review round 2: smooth gradient + long thin swell lines only (the old short crest dashes turned into white blocks)
   const H = 1024, gr = g.createLinearGradient(0, H, 0, 0);
-  gr.addColorStop(0, "#3c5fd0"); gr.addColorStop(0.1, "#2a44b4"); gr.addColorStop(0.5, "#22349c"); gr.addColorStop(1, "#4a5cc8");
+  gr.addColorStop(0, "#4a6ad6"); gr.addColorStop(0.08, "#2f49b8"); gr.addColorStop(0.5, "#243aa2"); gr.addColorStop(1, "#4c5ecc");
   g.fillStyle = gr; g.fillRect(0, 0, 256, H);
-  for (let i = 0; i < 90; i++) { const y = H * (0.02 + 0.78 * r()); g.fillStyle = `rgba(190,210,255,${0.08 + 0.14 * r()})`; g.fillRect(r() * 256, y, 6 + r() * 22, 1); } // sparse far crests only: near the shore they turned into big white blocks
-  g.fillStyle = "rgba(210,228,255,0.9)"; g.fillRect(0, H - 6, 256, 6);
+  for (let i = 0; i < 70; i++) { const y = H * r(); g.fillStyle = `rgba(170,195,255,${0.05 + 0.08 * r()})`; g.fillRect(0, y, 256, 1); }
+  g.fillStyle = "rgba(215,230,255,0.85)"; g.fillRect(0, H - 4, 256, 4);
 }));
 /** moon glitter path on the water: broken horizontal dashes narrowing toward the horizon (additive), 256 x 1024 */
-export const glitterTex = () => clampT(ctex("glitter", 256, 1024, (g, r) => {
-  g.clearRect(0, 0, 256, 1024);
-  for (let i = 0; i < 420; i++) { const t = r(), y = t * 1024, w = (10 + 60 * r()) * (0.25 + 0.75 * t), x = 128 + (r() - 0.5) * 220 * (0.2 + 0.8 * t); g.fillStyle = `rgba(255,255,255,${0.35 + 0.6 * r()})`; g.fillRect(x - w / 2, y, w, 2 + 4 * t); }
+export const glitterTex = () => clampT(ctex("glitter2", 256, 1024, (g, r) => {
+  g.clearRect(0, 0, 256, 1024); // many thin, short glints (the old wide dashes read as white blocks near the shore)
+  for (let i = 0; i < 1500; i++) { const t = r(), y = t * 1024, w = (3 + 16 * r()) * (0.3 + 0.7 * t), x = 128 + (r() - 0.5) * 230 * (0.15 + 0.85 * t) * (0.4 + 0.6 * r()); g.fillStyle = `rgba(255,255,255,${0.3 + 0.6 * r()})`; g.fillRect(x - w / 2, y, w, 1); }
 }));
 /** star field for the sky dome band: 1024 x 512, transparent */
 export const starsTex = () => ctex("starsN", 1024, 512, (g, r) => {

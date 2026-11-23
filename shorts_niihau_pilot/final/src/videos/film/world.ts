@@ -10,9 +10,10 @@ import { NOINK } from "./ink";
 import { Pool, Actor, Fx } from "./cards";
 import { stage } from "./cast";
 import { camAt, inShot, MOON, HOUSE, LookName, SetName, TABLE } from "./story";
-import { V, rng, quadUV, limb } from "./geo";
+import { V, rng, quadUV, limb, rock } from "./geo";
 import { islandTex, dryGroundHD } from "./paintx";
 import { seaNight, glitterTex, starsTex, flameTex, grainWood, windowGlow } from "./paint3";
+import { boardWall } from "./paintx";
 import { buildPlane } from "./plane";
 import { mats, buildGround, buildEarth, buildRocks, stoneWall, buildFence, palm, kiawe, buildHouse, buildTufts, buildWindmill, spinWindmill } from "./set";
 import { buildParty, Source } from "./props";
@@ -38,6 +39,7 @@ const moonTex = () => ctex("moonN", 256, 256, (g) => {
   g.fillStyle = gr; g.beginPath(); g.arc(128, 128, 120, 0, 7); g.fill();
   g.fillStyle = "rgba(170,184,236,0.5)"; for (const [x, y, r] of [[90, 100, 26], [160, 84, 16], [150, 160, 30], [84, 168, 14], [188, 132, 12]]) { g.beginPath(); g.arc(x, y, r, 0, 7); g.fill(); }
 });
+const coneTex = () => ctex("coneN", 64, 256, (g) => { const gr = g.createLinearGradient(0, 0, 0, 256); gr.addColorStop(0, "rgba(255,255,255,0.9)"); gr.addColorStop(1, "rgba(255,255,255,0.15)"); g.fillStyle = gr; g.fillRect(0, 0, 64, 256); const m = g.createLinearGradient(0, 0, 64, 0); m.addColorStop(0, "rgba(0,0,0,0)"); m.addColorStop(0.5, "rgba(0,0,0,1)"); m.addColorStop(1, "rgba(0,0,0,0)"); g.globalCompositeOperation = "destination-in"; g.fillStyle = m; g.fillRect(0, 0, 64, 256); });
 const checker = () => ctex("museumFloor", 512, 512, (g) => { for (let i = 0; i < 4; i++) for (let j = 0; j < 4; j++) { g.fillStyle = (i + j) % 2 ? "#d9d2c0" : "#8a93a8"; g.fillRect(i * 128, j * 128, 128, 128); g.strokeStyle = "rgba(40,36,60,0.35)"; g.lineWidth = 3; g.strokeRect(i * 128, j * 128, 128, 128); } });
 
 export class World {
@@ -137,7 +139,7 @@ export class World {
       // closed curtains over the windows and a shut door for the "house with the curtains drawn" (high-key look only)
       const H = new THREE.Group(); H.position.set(HOUSE.x, 0, HOUSE.z); H.rotation.y = HOUSE.yaw; G.add(H);
       const cm = new THREE.MeshBasicMaterial({ map: ctex("curtainsC", 256, 320, (g) => curtains(new Pen(g))), color: new THREE.Color(0.92, 0.9, 0.86) });
-      for (const wx of [-2.2, 2.2]) { const w = new THREE.Mesh(new THREE.PlaneGeometry(0.84, 1.14), cm); w.position.set(wx, 2.2, 2.512); w.layers.set(NOINK); H.add(w); this.curt.push(w); }
+      for (const wx of [2.2]) { const w = new THREE.Mesh(new THREE.PlaneGeometry(0.84, 1.14), cm); w.position.set(wx, 2.2, 2.512); w.layers.set(NOINK); H.add(w); this.curt.push(w); }
       const dm = new THREE.Mesh(new THREE.PlaneGeometry(0.9, 1.94), new THREE.MeshBasicMaterial({ map: grainWood("door", "#6f4a34", 3), color: new THREE.Color(0.9, 0.9, 0.9) })); dm.position.set(0, 1.65, 2.512); dm.layers.set(NOINK); H.add(dm); this.curt.push(dm);
       G.traverse((o) => { // everything self-lit or additive in this set is a lamp piece: hidden in the daylight look
         const m = (o as THREE.Mesh).material as THREE.MeshBasicMaterial | undefined;
@@ -152,7 +154,7 @@ export class World {
     {
       const G = group("studio"), b = new Batch();
       b.add(boxGeo(V(-2.2, TABLE.y - 0.08, -0.9), V(2.2, TABLE.y, 1.6), 1.3, true), lam("deskWood", () => ({ map: grainWood("desk", "#9a6238", 5) })));
-      b.add(quadUV(V(-4, 0, -1.0), V(4, 0, -1.0), V(4, 4.2, -1.0), V(-4, 4.2, -1.0), 0, 0, 5, 1), lam("studioWall", () => ({ map: rep(grainWood("wall", "#d9c9a4", 8), 1, 1) })));
+      b.add(quadUV(V(-4, 0, -1.0), V(4, 0, -1.0), V(4, 4.2, -1.0), V(-4, 4.2, -1.0), 0, 0, 5, 1), lam("studioWall", () => ({ map: boardWall("studio", 8, 4.2, {}) })));
       b.add(quadUV(V(-4, 0, 3), V(4, 0, 3), V(4, 0, -1), V(-4, 0, -1), 0, 0, 4, 2), lam("studioFloor", () => ({ map: grainWood("floor", "#8a6238", 6) })));
       // desk things round the chart: brass dividers, pencil, mug, ruler
       b.add(limb([V(0.62, TABLE.y + 0.012, 0.42), V(0.9, TABLE.y + 0.012, 0.2)], [0.012, 0.004], 6), lam("pencilY", () => ({ color: "#e2b03a" })));
@@ -174,7 +176,22 @@ export class World {
       posts.forEach((p, i) => { b.add(limb([p, p.clone().add(V(0, 0.95, 0))], [0.035, 0.03], 8), brass); b.add(new THREE.SphereGeometry(0.06, 10, 8), brass, new THREE.Matrix4().makeTranslation(p.x, 1.0, p.z)); if (i) { const q = posts[i - 1]; b.add(limb([q.clone().add(V(0, 0.9, 0)), q.clone().lerp(p, 0.5).add(V(0, 0.68, 0)), p.clone().add(V(0, 0.9, 0))], [0.022, 0.022], 6, 1, 10), ropeM); } });
       b.build(G);
       const plane = buildPlane(); plane.position.set(0, 0.9, -0.5); plane.rotation.y += 0.25; G.add(plane);
-      for (const [x, z] of [[-2.2, 1.5], [2.0, 1.2], [0, -1.5]]) { const pl = new THREE.PointLight("#ffe2b0", 26, 14, 2); pl.position.set(x, 4.6, z); G.add(pl); patch(G, poolTex(), V(x - 3, 0.24, z + 3), V(x + 3, 0.24, z + 3), V(x + 3, 0.24, z - 3), V(x - 3, 0.24, z - 3), "#ffdca0", 0.22); }
+      const b2 = new Batch();
+      for (const [x, z] of [[-2.2, 1.5], [2.0, 1.2], [0, -1.5]]) { const pl = new THREE.PointLight("#ffe2b0", 26, 14, 2); pl.position.set(x, 4.6, z); G.add(pl); patch(G, poolTex(), V(x - 3, 0.24, z + 3), V(x + 3, 0.24, z + 3), V(x + 3, 0.24, z - 3), V(x - 3, 0.24, z - 3), "#ffdca0", 0.22);
+        patch(G, coneTex(), V(x - 2.2, 0.3, z), V(x + 2.2, 0.3, z), V(x + 0.25, 5.4, z), V(x - 0.25, 5.4, z), "#ffe6b8", 0.16); // visible light cone
+        b2.add(new THREE.CylinderGeometry(0.16, 0.26, 0.4, 12), lam("spotCan", () => ({ color: "#2a2a34" })), new THREE.Matrix4().makeTranslation(x, 5.5, z)); }
+      b2.build(G);
+    }
+    // ================= CAVE (the villagers' hiding place) =================
+    {
+      const G = group("cave"), b = new Batch();
+      b.add(quadUV(V(-8, 0, 8), V(8, 0, 8), V(8, 0, -4), V(-8, 0, -4), 0, 0, 5, 4), M.rock[1]);
+      for (const [x, z, sx, sy, sz, sd] of [[-2.3, 1.6, 1.3, 1.9, 1.0, 71], [2.5, 1.2, 1.2, 2.3, 1.0, 72], [-2.9, -1.2, 1.5, 2.6, 1.2, 73], [3.1, -1.6, 1.6, 2.8, 1.2, 74], [-1.5, 2.9, 0.7, 0.5, 0.6, 75], [1.7, 3.1, 0.8, 0.45, 0.6, 76]])
+        b.add(rock(sd, sx, sy, sz, 0.6, 2, 0.16), M.rock[sd % 4], new THREE.Matrix4().makeTranslation(x, sy * 0.45, z));
+      b.build(G);
+      const pl = new THREE.PointLight("#ff9c48", 7, 9, 2); pl.position.set(0.3, 0.55, 1.15); G.add(pl);
+      this.src.push({ light: pl, base: 7, seed: 95, flame: undefined, halo: halo(G, V(0.3, 0.45, 1.05), 1.7, "#ffd9a0", 0.7),
+        pool: [patch(G, poolTex(), V(-1.6, 0.03, 2.6), V(2.2, 0.03, 2.6), V(2.2, 0.03, -0.6), V(-1.6, 0.03, -0.6), "#ff9a3c", 0.6)] });
     }
     nightAll(R);
   }
@@ -208,7 +225,7 @@ export class World {
     const outdoors = s.set === "field" || s.set === "lanai";
     for (const o of this.far) { o.position.copy(o.userData.p as THREE.Vector3).add(cam.position); o.visible = outdoors && (o.userData.isl ? true : this.nightFar.includes(o) ? L.night : !L.night); if ((o as THREE.Mesh).isMesh && !(o as THREE.Sprite).isSprite) o.lookAt(cam.position.x, o.position.y, cam.position.z); }
     for (const m of this.dayClouds) (m.material as THREE.MeshBasicMaterial).color.setRGB(L.cloud * (s.look === "dusk" ? 1.15 : 1), L.cloud * (s.look === "dusk" ? 0.82 : 1), L.cloud * (s.look === "dusk" ? 0.74 : 1));
-    this.sea.color.setRGB(...L.sea); this.glitter.visible = L.night;
+    this.sea.color.setRGB(...L.sea); this.glitter.visible = L.night || s.look === "dusk"; (this.glitter.material as THREE.MeshBasicMaterial).color.setRGB(...(L.night ? [1.05, 1.14, 1.3] : [1.3, 0.95, 0.6]) as [number, number, number]);
     for (const o of this.far) if (o.userData.isl) ((o as THREE.Mesh).material as THREE.MeshBasicMaterial).color.setRGB(...(L.night ? [0.2, 0.25, 0.72] : s.look === "dusk" ? [0.9, 0.62, 0.7] : [1, 1, 1]) as [number, number, number]);
     // ---- lamps: hidden in the daylight look; flames flicker; fires burn only in their shots ----
     const lampsOn = s.look !== "high" && s.look !== "day";

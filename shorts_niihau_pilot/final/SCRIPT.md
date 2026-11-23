@@ -92,3 +92,19 @@ Sources: https://en.wikipedia.org/wiki/Niihau_incident · https://www.historynet
 | 29 | 1726-1766 | lanai / dusk | the submarine never came |
 | 30 | 1767-1832 | museum / museum | the plane in the museum |
 | 31 | 1833-1934 | museum / museum | a souvenir from the island that was supposed to be empty |
+
+## Shot list changes after the second review (same frame ranges; these replace the pictures above)
+| # | Frames | Picture now |
+|---|---|---|
+| 5 | 312-337 | low three-quarter view of the cockpit: pilot head and shoulders, wing disc, nose, fence rails flying (hard cut on "In a fence") |
+| 12 | 741-773 | prisoner: wrists tied with rope, seated on a crate, the local man holding the pilot's own pistol, the rancher watching, kerosene lamp |
+| 13 | 774-852 | "NO BOATS" board, chained canoe, an old man and the kid looking out at the empty moonlit sea |
+| 16 | 945-997 | the house burning, papers flying from the window, pilot (torch) and helper (shotgun) lit orange, faces to camera |
+| 18 | 1030-1072 | new cave set: four villagers round one kerosene lantern, the cave mouth open on the moonlit sea |
+| 26 | 1543-1641 | four pictures on the ranch-house wall: family portrait "THE OWNERS" (1543) / man with a conch shell instead of a telephone (1573) / auntie with a lit kerosene lamp (1599) / "BOAT DAY" calendar with one day ringed a week (1617) |
+| 27 | 1642-1688 | one window, patterned curtains that twitch shut on "drawn" |
+| 28 | 1689-1725 | ceremony: bunting, large medal on a ribbon pinned by an officer's hand, glint |
+| 29 | 1726-1766 | WW2 I-boat (deck gun, small tower) drawing away over a sunset glitter path; the flying helmet left on the bluff |
+| 30-31 | 1767-1934 | museum dressed: framed photographs, wall chart, display case, spotlights with cones, second visitor; final frame = banner, plane and plaque |
+
+Transitions: 25 eight-frame cross-dissolves on sentence onsets (built in post, `src/audio/post.py`); hard cuts kept at frames 312, 705, 1196, 1313, 1385 and inside shot 26.
