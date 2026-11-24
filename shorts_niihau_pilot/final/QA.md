@@ -136,3 +136,13 @@ from `audition/index.html` first. So the -14 LUFS / -2 dB target is open until t
 - earshot: installed with the listening models; used to rank the audition options per cue (shown on the page).
   The mix critique waits for the mix.
 - Mixkit files downloaded earlier in this round are not used anywhere and are not in the repo.
+
+**Round 4 follow-up.**
+- Effects locked from the client's picks: fence A, radio A, gunshots C, wall A, rock A, medal A, whoosh C.
+- Music round 1 (seven Kevin MacLeod tracks) rejected. Round 2 "cinematic WW2" is at the top of `audition/index.html`:
+  4 day, 4 night, 2 ending options (5 CC0, 5 CC BY 4.0, all freesound.org via Openverse, licence confirmed on each
+  page; one candidate with no licence link on its page was dropped, as was one titled "Star Wars Style").
+- Remaining beds sourced CC0 (fire, torch, sea, sheep, night insects, wind, museum room tone): 14 files, logged.
+- Cue list for Real SFX prepared (`src/sound_audition/cues.json`, 35 cues). The mix is still not rendered.
+- "In a fence" caption moved down to the normal caption line so it no longer sits on the dazed pilot's chin
+  (`sheets/fence_caption.jpg`). File re-encoded, 49.1 MB, picture otherwise identical.

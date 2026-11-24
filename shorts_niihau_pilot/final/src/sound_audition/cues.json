@@ -1,0 +1,312 @@
+{
+ "fps": 30,
+ "video": "niihau_pilot_short.mp4",
+ "voice": "voice.wav",
+ "note": "Cue list for Real SFX from_cues.py (--from-library, voice-safe). Word-locked cues must not be moved. Music is added after the round-2 pick. Mix not rendered yet.",
+ "cues": [
+  {
+   "t": 0.0,
+   "frame": 0,
+   "kind": "bed_propeller",
+   "file": "bed_propeller__f6a39df1.wav",
+   "note": "Zero engine, dive",
+   "word_locked": false,
+   "dur": 2.7
+  },
+  {
+   "t": 0.1,
+   "frame": 3,
+   "kind": "machinegun",
+   "file": "bed_machinegun__47380227.wav",
+   "note": "cowl guns",
+   "word_locked": true
+  },
+  {
+   "t": 0.267,
+   "frame": 8,
+   "kind": "explosion",
+   "file": "bed_explosion__f6575711.wav",
+   "note": "harbour, distant",
+   "word_locked": true
+  },
+  {
+   "t": 0.667,
+   "frame": 20,
+   "kind": "machinegun",
+   "file": "bed_machinegun__afe2ca37.wav",
+   "note": "the hit: holes stitch the fuselage",
+   "word_locked": true
+  },
+  {
+   "t": 2.767,
+   "frame": 83,
+   "kind": "wind",
+   "file": "bed_wind__0346629e.wav",
+   "note": "crane dive through cloud",
+   "word_locked": true
+  },
+  {
+   "t": 4.133,
+   "frame": 124,
+   "kind": "crowd",
+   "file": "bed_crowd__bfb7ab87.wav",
+   "note": "islanders wave",
+   "word_locked": true,
+   "gain_db": -8
+  },
+  {
+   "t": 5.0,
+   "frame": 150,
+   "kind": "bed_propeller",
+   "file": "bed_propeller__0cd4e904.wav",
+   "note": "limping engine over the sea",
+   "word_locked": false,
+   "dur": 4.4
+  },
+  {
+   "t": 5.0,
+   "frame": 150,
+   "kind": "bed_sea",
+   "file": "bed_sea__6044b489.wav",
+   "note": "sea below",
+   "word_locked": false,
+   "dur": 4.4,
+   "gain_db": -10
+  },
+  {
+   "t": 9.433,
+   "frame": 283,
+   "kind": "bed_propeller",
+   "file": "bed_propeller__10b67f50.wav",
+   "note": "approach",
+   "word_locked": false,
+   "dur": 1.2
+  },
+  {
+   "t": 9.633,
+   "frame": 289,
+   "kind": "sheep",
+   "file": "bed_sheep__cc3ae599.wav",
+   "note": "sheep scatter",
+   "word_locked": true
+  },
+  {
+   "t": 9.933,
+   "frame": 298,
+   "kind": "thump",
+   "file": "wall_throw__80894069.wav",
+   "note": "touchdown",
+   "word_locked": true
+  },
+  {
+   "t": 10.2,
+   "frame": 306,
+   "kind": "thump",
+   "file": "wall_throw__80894069.wav",
+   "note": "second touchdown",
+   "word_locked": true,
+   "gain_db": -3
+  },
+  {
+   "t": 10.667,
+   "frame": 320,
+   "kind": "fence_crash",
+   "file": "fence_crash__e8fc9a76.wav",
+   "note": "PICK A: through the fence",
+   "word_locked": true
+  },
+  {
+   "t": 16.667,
+   "frame": 500,
+   "kind": "none",
+   "file": "",
+   "note": "\"No luck\": silence, no boing",
+   "word_locked": true
+  },
+  {
+   "t": 17.833,
+   "frame": 535,
+   "kind": "crowd",
+   "file": "bed_crowd__c5ff6b85.wav",
+   "note": "islanders cheer",
+   "word_locked": true
+  },
+  {
+   "t": 19.2,
+   "frame": 576,
+   "kind": "ukulele",
+   "file": "bed_ukulele__cef99e6a.wav",
+   "note": "party",
+   "word_locked": false,
+   "dur": 1.9,
+   "gain_db": -6
+  },
+  {
+   "t": 19.2,
+   "frame": 576,
+   "kind": "crowd",
+   "file": "bed_crowd__bfb7ab87.wav",
+   "note": "party murmur",
+   "word_locked": false,
+   "gain_db": -10
+  },
+  {
+   "t": 21.1,
+   "frame": 633,
+   "kind": "bed_insects",
+   "file": "bed_insects__e587e0a4.wav",
+   "note": "night insects under the whole night block to 1438",
+   "word_locked": false,
+   "dur": 26.8,
+   "gain_db": -14
+  },
+  {
+   "t": 21.1,
+   "frame": 633,
+   "kind": "radio",
+   "file": "radio_news__204b98ca.wav",
+   "note": "PICK A: radio static, cut dead at 705",
+   "word_locked": true,
+   "dur": 2.4
+  },
+  {
+   "t": 24.567,
+   "frame": 737,
+   "kind": "whoosh",
+   "file": "whoosh__34ba7605.wav",
+   "note": "PICK C: whip to the prisoner",
+   "word_locked": true
+  },
+  {
+   "t": 25.667,
+   "frame": 770,
+   "kind": "whoosh",
+   "file": "whoosh__34ba7605.wav",
+   "note": "PICK C: whip to the bluff",
+   "word_locked": true
+  },
+  {
+   "t": 25.867,
+   "frame": 776,
+   "kind": "bed_sea",
+   "file": "bed_sea__42a94c71.wav",
+   "note": "surf at the bluff",
+   "word_locked": false,
+   "dur": 2.5,
+   "gain_db": -8
+  },
+  {
+   "t": 31.267,
+   "frame": 938,
+   "kind": "torch",
+   "file": "bed_torch__5c19a506.wav",
+   "note": "torch raised",
+   "word_locked": true
+  },
+  {
+   "t": 31.5,
+   "frame": 945,
+   "kind": "bed_fire",
+   "file": "bed_fire__f9b9cc31.wav",
+   "note": "house fire",
+   "word_locked": false,
+   "dur": 1.8
+  },
+  {
+   "t": 33.267,
+   "frame": 998,
+   "kind": "bed_fire",
+   "file": "bed_fire__ba5faf16.wav",
+   "note": "plane fire, continues low under the fight to 1438",
+   "word_locked": false,
+   "dur": 14.7,
+   "gain_db": -8
+  },
+  {
+   "t": 40.133,
+   "frame": 1204,
+   "kind": "gunshot",
+   "file": "gunshot__4b52a755.wav",
+   "note": "PICK C: shot 1",
+   "word_locked": true
+  },
+  {
+   "t": 40.533,
+   "frame": 1216,
+   "kind": "gunshot",
+   "file": "gunshot__4b52a755.wav",
+   "note": "PICK C: shot 2",
+   "word_locked": true
+  },
+  {
+   "t": 40.867,
+   "frame": 1226,
+   "kind": "gunshot",
+   "file": "gunshot__4b52a755.wav",
+   "note": "PICK C: shot 3",
+   "word_locked": true
+  },
+  {
+   "t": 45.033,
+   "frame": 1351,
+   "kind": "whoosh",
+   "file": "whoosh__34ba7605.wav",
+   "note": "the throw",
+   "word_locked": true,
+   "gain_db": -4
+  },
+  {
+   "t": 45.233,
+   "frame": 1357,
+   "kind": "wall_throw",
+   "file": "wall_throw__80894069.wav",
+   "note": "PICK A: the wall",
+   "word_locked": true
+  },
+  {
+   "t": 47.5,
+   "frame": 1425,
+   "kind": "rock",
+   "file": "rock__7938c07d.wav",
+   "note": "PICK A: the rock",
+   "word_locked": true
+  },
+  {
+   "t": 47.967,
+   "frame": 1439,
+   "kind": "sheep",
+   "file": "bed_sheep__74f89a7c.wav",
+   "note": "ranch",
+   "word_locked": false,
+   "gain_db": -8
+  },
+  {
+   "t": 56.9,
+   "frame": 1707,
+   "kind": "medal",
+   "file": "medal_glint__252fc88e.wav",
+   "note": "PICK A: medal glint",
+   "word_locked": true
+  },
+  {
+   "t": 57.533,
+   "frame": 1726,
+   "kind": "bed_sea",
+   "file": "bed_sea__6044b489.wav",
+   "note": "the submarine leaves",
+   "word_locked": false,
+   "dur": 1.4,
+   "gain_db": -8
+  },
+  {
+   "t": 58.9,
+   "frame": 1767,
+   "kind": "bed_museum",
+   "file": "bed_museum__e4b965f1.wav",
+   "note": "museum room tone",
+   "word_locked": false,
+   "dur": 5.6,
+   "gain_db": -12
+  }
+ ]
+}

@@ -1,0 +1,182 @@
+[
+ {
+  "file": "day__0be666c4.wav",
+  "cue": "day",
+  "title": "Where is the enemy?!",
+  "creator": "code_box",
+  "source_url": "https://freesound.org/people/code_box/sounds/521374",
+  "download_url": "https://cdn.freesound.org/previews/521/521374_10962806-hq.mp3",
+  "licence": "CC0 1.0",
+  "licence_checked_on_source_page": true,
+  "found_via": "Openverse",
+  "openverse_id": "0be666c4-0b8a-44df-91d4-11906f40272a",
+  "block": "day",
+  "option": 1,
+  "files": [
+   "music2/day_1_0be666c4_alone.mp3",
+   "music2/day_1_0be666c4_under_voice.mp3"
+  ]
+ },
+ {
+  "file": "day__71e101bc.wav",
+  "cue": "day",
+  "title": "Heroic Charge",
+  "creator": "code_box",
+  "source_url": "https://freesound.org/people/code_box/sounds/521417",
+  "download_url": "https://cdn.freesound.org/previews/521/521417_10962806-hq.mp3",
+  "licence": "CC0 1.0",
+  "licence_checked_on_source_page": true,
+  "found_via": "Openverse",
+  "openverse_id": "71e101bc-ba5d-49b0-bd98-ffeae24a8d37",
+  "block": "day",
+  "option": 2,
+  "files": [
+   "music2/day_2_71e101bc_alone.mp3",
+   "music2/day_2_71e101bc_under_voice.mp3"
+  ]
+ },
+ {
+  "file": "day__16586c09.wav",
+  "cue": "day",
+  "title": "World War Theme",
+  "creator": "tyops",
+  "source_url": "https://freesound.org/people/tyops/sounds/350481",
+  "download_url": "https://cdn.freesound.org/previews/350/350481_3914271-hq.mp3",
+  "licence": "CC BY 4.0",
+  "licence_checked_on_source_page": true,
+  "found_via": "Openverse",
+  "openverse_id": "16586c09-2fc2-4329-98db-c102a3dbe9e8",
+  "block": "day",
+  "option": 3,
+  "files": [
+   "music2/day_3_16586c09_alone.mp3",
+   "music2/day_3_16586c09_under_voice.mp3"
+  ]
+ },
+ {
+  "file": "day__5d248b6c.wav",
+  "cue": "day",
+  "title": "ww2_1945_action_loop.wav",
+  "creator": "X3nus",
+  "source_url": "https://freesound.org/people/X3nus/sounds/565185",
+  "download_url": "https://cdn.freesound.org/previews/565/565185_973833-hq.mp3",
+  "licence": "CC BY 4.0",
+  "licence_checked_on_source_page": true,
+  "found_via": "Openverse",
+  "openverse_id": "5d248b6c-fc04-442b-bdca-1b892717cdbc",
+  "block": "day",
+  "option": 4,
+  "files": [
+   "music2/day_4_5d248b6c_alone.mp3",
+   "music2/day_4_5d248b6c_under_voice.mp3"
+  ]
+ },
+ {
+  "file": "night__b04b3cf0.wav",
+  "cue": "night",
+  "title": "Dark night in forest - atmo orchestral - sad mood.wav",
+  "creator": "szegvari",
+  "source_url": "https://freesound.org/people/szegvari/sounds/591010",
+  "download_url": "https://cdn.freesound.org/previews/591/591010_2282212-hq.mp3",
+  "licence": "CC0 1.0",
+  "licence_checked_on_source_page": true,
+  "found_via": "Openverse",
+  "openverse_id": "b04b3cf0-d53a-47cc-a18e-da5543447ff8",
+  "block": "night",
+  "option": 1,
+  "files": [
+   "music2/night_1_b04b3cf0_alone.mp3",
+   "music2/night_1_b04b3cf0_under_voice.mp3"
+  ]
+ },
+ {
+  "file": "night__1081948a.wav",
+  "cue": "night",
+  "title": "Suspenseful Increasing Dramatic",
+  "creator": "tyops",
+  "source_url": "https://freesound.org/people/tyops/sounds/440524",
+  "download_url": "https://cdn.freesound.org/previews/440/440524_3914271-hq.mp3",
+  "licence": "CC BY 4.0",
+  "licence_checked_on_source_page": true,
+  "found_via": "Openverse",
+  "openverse_id": "1081948a-e2b7-4c75-ae77-1bad2571dbec",
+  "block": "night",
+  "option": 2,
+  "files": [
+   "music2/night_2_1081948a_alone.mp3",
+   "music2/night_2_1081948a_under_voice.mp3"
+  ]
+ },
+ {
+  "file": "night__4c83d8dd.wav",
+  "cue": "night",
+  "title": "Thriller Intro",
+  "creator": "tyops",
+  "source_url": "https://freesound.org/people/tyops/sounds/459163",
+  "download_url": "https://cdn.freesound.org/previews/459/459163_3914271-hq.mp3",
+  "licence": "CC BY 4.0",
+  "licence_checked_on_source_page": true,
+  "found_via": "Openverse",
+  "openverse_id": "4c83d8dd-a43f-4407-89ad-53f5b235ff1d",
+  "block": "night",
+  "option": 3,
+  "files": [
+   "music2/night_3_4c83d8dd_alone.mp3",
+   "music2/night_3_4c83d8dd_under_voice.mp3"
+  ]
+ },
+ {
+  "file": "night__1d81b521.wav",
+  "cue": "night",
+  "title": "Orchestral Rising Horror #1",
+  "creator": "Mark_Murray",
+  "source_url": "https://freesound.org/people/Mark_Murray/sounds/650940",
+  "download_url": "https://cdn.freesound.org/previews/650/650940_13315998-hq.mp3",
+  "licence": "CC BY 4.0",
+  "licence_checked_on_source_page": true,
+  "found_via": "Openverse",
+  "openverse_id": "1d81b521-2e37-494e-b846-3468682aa455",
+  "block": "night",
+  "option": 4,
+  "files": [
+   "music2/night_4_1d81b521_alone.mp3",
+   "music2/night_4_1d81b521_under_voice.mp3"
+  ]
+ },
+ {
+  "file": "ending__692250cb.wav",
+  "cue": "ending",
+  "title": "Night in street - atmo orchestral - sad mood.wav",
+  "creator": "szegvari",
+  "source_url": "https://freesound.org/people/szegvari/sounds/591008",
+  "download_url": "https://cdn.freesound.org/previews/591/591008_2282212-hq.mp3",
+  "licence": "CC0 1.0",
+  "licence_checked_on_source_page": true,
+  "found_via": "Openverse",
+  "openverse_id": "692250cb-f2c8-4dde-83dd-7b9b9015bcea",
+  "block": "ending",
+  "option": 1,
+  "files": [
+   "music2/ending_1_692250cb_alone.mp3",
+   "music2/ending_1_692250cb_under_voice.mp3"
+  ]
+ },
+ {
+  "file": "ending__aa0b4b0a.wav",
+  "cue": "ending",
+  "title": "Insomnia Of Clouds (Strings).mp3",
+  "creator": "younoise",
+  "source_url": "https://freesound.org/people/younoise/sounds/658375",
+  "download_url": "https://cdn.freesound.org/previews/658/658375_2346185-hq.mp3",
+  "licence": "CC0 1.0",
+  "licence_checked_on_source_page": true,
+  "found_via": "Openverse",
+  "openverse_id": "aa0b4b0a-42fa-47eb-8b10-64ab7e2c2478",
+  "block": "ending",
+  "option": 2,
+  "files": [
+   "music2/ending_2_aa0b4b0a_alone.mp3",
+   "music2/ending_2_aa0b4b0a_under_voice.mp3"
+  ]
+ }
+]
