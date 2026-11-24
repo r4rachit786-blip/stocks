@@ -291,3 +291,4 @@ Final file: 49.3 MB, 1935 frames, 64.5 s, -13.9 LUFS integrated, peak -1.7 dBFS 
 - Not re-run: speech recognition (not available here) and the earshot critique.
 
 - Round 6b: caption ends clipped to shot cuts (9 captions, clipcap.py -> captions_r6.ass), re-encoded; -14.1 LUFS, 63.87 s.
+- Round 6c: client found the mix too loud. Remixed: master -16 LUFS (was -14), music -19/-13 dB re voice (was -15/-9), beds -24/-19 (was -20/-15), accents -8 dB under voice peak (was -6..-7.5). final_mix_q.py.
