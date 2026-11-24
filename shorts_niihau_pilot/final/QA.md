@@ -1,4 +1,56 @@
-# QA record: niihau_pilot_short.mp4
+# QA record: niihau_pilot_short.mp4 (round 5)
+
+## File
+1080x1920, 30 fps, 2293 frames, 76.46 s, h264 two-pass 4.6 Mb/s (preset slow, faststart) + AAC 192k 48 kHz, 45.6 MB.
+Burned captions (captions_r5.ass, 103 groups of 1-3 words from the word timings; Niihau spelled "Niihau"; no delivery tags).
+
+## Voice
+Liam (ElevenLabs via vidIQ), 21 line files, no speed change (no atempo). Leading/trailing silence trimmed; inner pauses
+over 0.35 s shortened to 0.30 s (cuts in silence, 10 ms crossfades): 4.2 s removed (measured at -24 dB re each line's
+peak; the brief expected about 6 s, and the stated rule only finds 4.2 s, so the film is 76.5 s, not 69-71 s).
+Gaps 0.10 s, 0.30 s before lines 8, 11, 18, and 0.90 s before line 4 (the fence crash plays whole in that beat).
+faster-whisper small.en on voice.wav, on the master and on the final mp4: every one of the 21 lines is present and in
+order (snd/mix6/whisper_final_mp4.txt). Both Niihau lines are heard as "Ni'ihao"/"Mi'ihau": understandable as Niihau.
+
+## Loudness (ffmpeg ebur128 on the final mp4)
+| Item | Value |
+|---|---|
+| Final mix | -14.0 LUFS integrated, LRA 4.8 LU, true peak -1.8 dBTP |
+| Accents (crash, gunshots, wall, rock, medal, whooshes, torch) | peaks 6-8 dB under the voice peak (measured per cue; the fence crash raised +4.5 dB, gunshots/whooshes/torch +2.5..4 dB) |
+| Music | three picked tracks, -15 dB re voice under speech, -9 dB between lines (raised versus round 4; the round-4 balance was not re-measured on the same scale) |
+| Beds | -20 dB re voice under speech, -15 dB between lines; continuous from the census to the museum (wind, sea, crowd, insects, fire, sheep, room) |
+
+## Frame scan (all 2293 frames of the final mp4)
+Black frames 0, white frames 0, no frozen runs (longest run of near-identical frames: 2). Cuts are hard cuts; two
+blurred whip-pans at 929 and 961; no dissolves.
+
+## Round 5 picture changes checked at full size (sheets/round5_stills.jpg, sheets/takes_r5_1.jpg, takes_r5_2.jpg)
+- Framing: the opening is a wide shot from 150 m (whole Zero, pilot in the cockpit, harbour below); pushes reduced and
+  several keys widened (dazed pilot, helper two-shot, three shots, gate, medal, plaque). Close-ups only for "mad" and
+  the frozen pilot at the radio.
+- Pearl Harbor is 3D: Ford Island with airfield and hangars, six different battleships + two destroyers, cranes, oil
+  tanks, town, hills; thick smoke columns, fires, flak, other aircraft, haze.
+- Props: the pistol is now visible in the pilot's hand (it was drawn outside the 600 px character card) with a small
+  muzzle flash on each of the three shots; the torch has a wooden handle, wrapped head and a round flame with glow,
+  held apart from the helper's shotgun; papers, shotgun, rock, lamp (lit on "no power" with a match), conch, medal
+  checked in their shots.
+- "You see" onward: ranch wide with people and sheep, the PRIVATE ISLAND sign at the gate; a new interior set of the
+  owners' house (board walls, sideboard, portrait, table with a kerosene lamp, chairs, rug, rocking chair, plates,
+  window with the day outside, door with the boat-day calendar) in one lateral travel; medal ceremony medium-wide with
+  bunting, 48-star flag and villagers; the submarine shot repainted (gradient sea, soft fine glints, swell lines, foam,
+  the empty flying helmet on the bluff); museum banner never cut, the whole plane at the end, extra exhibits and visitors.
+- The curtains take was dropped with its line.
+- Historical staging: no electric light on Niihau (kerosene lamp, torches, fires, moon); electric spots only in the
+  museum. No blood; no real names on screen.
+
+## Known shortfalls
+- Length 76.5 s instead of 69-71 s (see Voice).
+- In the fight the walk-in at gunpoint plays about 3x fast between "One rancher does not." and "He jumps the pilot."
+  (the new script has no time for the capture), and the lift before the throw is quick.
+- The owners' room is lit flat by the day key (no strong window light shaft); the rug is still a little busy.
+- Characters are flat cards (house style); the battleships are simple block models at close range.
+
+## Previous rounds
 
 ## File
 1080x1920, 30 fps, 1935 frames, 64.5 s, h264 (crf 18, preset slow, faststart) + AAC 192k, 70.4 MB. Burned captions from the word timings.

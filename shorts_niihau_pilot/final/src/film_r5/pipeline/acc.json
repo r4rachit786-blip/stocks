@@ -1,0 +1,197 @@
+{
+ "duration": 76.464,
+ "keep_audio": "no",
+ "cues": [
+  {
+   "t": 0.0,
+   "label": "zero engine dive",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/bed_propeller__f6a39df1.wav",
+   "role": "ambience",
+   "gain_db": 1,
+   "anchor": "start",
+   "max_dur": 3.852,
+   "fade_in": 0.05,
+   "fade_out": 0.15
+  },
+  {
+   "t": 0.1,
+   "label": "cowl guns",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/bed_machinegun__47380227.wav",
+   "role": "hit",
+   "gain_db": -7,
+   "anchor": "start",
+   "max_dur": 0.73
+  },
+  {
+   "t": 0.298,
+   "label": "harbour explosions",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/bed_explosion__f6575711.wav",
+   "role": "hit",
+   "gain_db": -9,
+   "anchor": "start",
+   "max_dur": 2.816,
+   "fade_out": 0.6
+  },
+  {
+   "t": 0.888,
+   "label": "the hit",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/bed_machinegun__afe2ca37.wav",
+   "role": "hit",
+   "gain_db": -1.5,
+   "anchor": "start",
+   "max_dur": 0.642
+  },
+  {
+   "t": 11.599,
+   "label": "approach",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/bed_propeller__10b67f50.wav",
+   "role": "ambience",
+   "gain_db": 1,
+   "anchor": "start",
+   "max_dur": 1.566,
+   "fade_in": 0.05,
+   "fade_out": 0.2
+  },
+  {
+   "t": 11.884,
+   "label": "sheep scatter",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/bed_sheep__cc3ae599.wav",
+   "role": "ambience",
+   "gain_db": 6,
+   "anchor": "start",
+   "max_dur": 1.179,
+   "fade_out": 0.3
+  },
+  {
+   "t": 12.336,
+   "label": "touchdown",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/wall_throw__80894069.wav",
+   "role": "hit",
+   "gain_db": -5,
+   "anchor": "arrive",
+   "max_dur": 0.791
+  },
+  {
+   "t": 12.615,
+   "label": "second touchdown",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/wall_throw__80894069.wav",
+   "role": "hit",
+   "gain_db": -10,
+   "anchor": "arrive",
+   "max_dur": 0.872,
+   "pitch": -2
+  },
+  {
+   "t": 12.935,
+   "label": "PICK fence crash A",
+   "file": "/home/user/stocks/shorts_niihau_pilot/final/audition/sfx/fence_crash__e8fc9a76.wav",
+   "role": "hit",
+   "gain_db": 2.5,
+   "anchor": "start",
+   "max_dur": 0.861,
+   "fade_out": 0.25,
+   "lowpass": 9000
+  },
+  {
+   "t": 30.739,
+   "label": "PICK whoosh C",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/whoosh__34ba7605.wav",
+   "role": "whoosh",
+   "gain_db": 3,
+   "anchor": "start",
+   "max_dur": 0.977
+  },
+  {
+   "t": 31.949,
+   "label": "PICK whoosh C",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/whoosh__34ba7605.wav",
+   "role": "whoosh",
+   "gain_db": 3,
+   "anchor": "start",
+   "max_dur": 0.937
+  },
+  {
+   "t": 39.486,
+   "label": "torch",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/bed_torch__5c19a506.wav",
+   "role": "whoosh",
+   "gain_db": 2,
+   "anchor": "start",
+   "max_dur": 1.497
+  },
+  {
+   "t": 39.808,
+   "label": "house fire",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/bed_fire__f9b9cc31.wav",
+   "role": "ambience",
+   "gain_db": 10,
+   "anchor": "start",
+   "max_dur": 2.28,
+   "fade_in": 0.4,
+   "fade_out": 0.15
+  },
+  {
+   "t": 47.968,
+   "label": "PICK gunshot C 1",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/gunshot__4b52a755.wav",
+   "role": "hit",
+   "gain_db": 1,
+   "anchor": "arrive",
+   "max_dur": 2.133
+  },
+  {
+   "t": 48.934,
+   "label": "PICK gunshot C 2",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/gunshot__4b52a755.wav",
+   "role": "hit",
+   "gain_db": 0.5,
+   "anchor": "arrive",
+   "max_dur": 1.624
+  },
+  {
+   "t": 49.619,
+   "label": "PICK gunshot C 3",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/gunshot__4b52a755.wav",
+   "role": "hit",
+   "gain_db": 0.5,
+   "anchor": "arrive",
+   "max_dur": 1.428
+  },
+  {
+   "t": 54.71,
+   "label": "the throw",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/whoosh__34ba7605.wav",
+   "role": "whoosh",
+   "gain_db": -3,
+   "anchor": "start",
+   "max_dur": 0.832
+  },
+  {
+   "t": 55.088,
+   "label": "PICK wall A",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/wall_throw__80894069.wav",
+   "role": "hit",
+   "gain_db": -4,
+   "anchor": "arrive",
+   "max_dur": 2.103
+  },
+  {
+   "t": 58.867,
+   "label": "PICK rock A",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/rock__7938c07d.wav",
+   "role": "hit",
+   "gain_db": -9,
+   "anchor": "arrive",
+   "max_dur": 1.137
+  },
+  {
+   "t": 67.943,
+   "label": "PICK medal A",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/medal_glint__252fc88e.wav",
+   "role": "chime",
+   "gain_db": 6,
+   "anchor": "arrive",
+   "max_dur": 1.844
+  }
+ ]
+}
