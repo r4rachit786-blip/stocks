@@ -228,14 +228,14 @@ const helperTake = (c: Ctx) => {
 const fightTake = (c: Ctx) => {
   const f = c.f, Zr = 9.5;
   fire(c, 0.3, 0.9, 0.3, 3.6, 0); fire(c, -1.6, 0.7, -0.5, 2.6, 1);
-  const eIn = smooth01((f - 1102) / 18), walk = eIn > 0 && eIn < 1 ? 0.07 * Math.abs(Math.sin(f * 0.8)) : 0;
+  const eIn = smooth01((f - 1080) / 24) /* round 6: they walk in while "One rancher does not" plays (no time for a separate capture) */, walk = eIn > 0 && eIn < 1 ? 0.07 * Math.abs(Math.sin(f * 0.8)) : 0;
   const JUMP = 1161, jump = f >= JUMP, kj = smooth01((f - JUMP) / 9), back = smooth01((f - 1172) / 9);
   const SH = [1204, 1216, 1226], hitI = SH.findIndex((h) => f >= h && f < h + 5), flinch = SH.reduce((a, h) => a + (f >= h && f < h + 6 ? 1 - (f - h) / 6 : 0), 0);
-  const LIFT = 1318, THROW = 1351, lift = smooth01((f - LIFT) / 12), thr = f >= THROW, kt = thr ? Math.min(1, (f - THROW) / 7) : 0;
+  const LIFT = 1336 /* round 6: a quick grab-and-lift right before the throw */, THROW = 1351, lift = smooth01((f - LIFT) / 12), thr = f >= THROW, kt = thr ? Math.min(1, (f - THROW) / 7) : 0;
   const rx = -0.5 + 0.75 * kj - 0.1 * flinch, mad = f >= 1292;
   // the rancher
   const rexpr: Expr = f >= LIFT ? "stern" : f >= 1248 ? (mad ? "stern" : "pained") : f >= SH[0] ? "pained" : jump && !back ? "pained" : "stern";
-  const up = f >= 1124 && !jump;
+  const up = f >= 1106 && !jump;
   P(c, "rancher", RANCHER, 2, rx, Zr, stand(rexpr, { facing: f >= 1093 ? 1 : 0, look: f >= 1093 ? 1 : 0, wave: f >= LIFT + 4 ? 1 : up ? 0 : undefined, waveL: f >= LIFT + 4 ? -1 : up ? 0 : undefined, tilt: q(28 * kj * (1 - back) - 7 * flinch + (thr ? 8 : 0), 2), headTilt: f >= 1248 && f < LIFT ? (mad ? -4 : 3) : 0, blink: lidAt(f, 21, [1292]) }), { s: 1.14, y: 0.55 * Math.sin(Math.PI * Math.min(1, kj * 0.8)) * (1 - back), boost: 1.3 });
   // his wife: brought in with him, watches, then walks over with the rock
   const wk = smooth01((f - 1368) / 20), sw = f >= 1423, wx = -3.9 + 2.9 * eIn + 2.25 * wk;
@@ -243,7 +243,7 @@ const fightTake = (c: Ctx) => {
   if (f >= 1425 && f < 1433) { const u = q((f - 1425) / 8, 8); card(c, `bonk${u}`, 500, 500, (p) => fxBurst(p, u), 2.0, 0.62, 9.7, 1.0); }
   if (f >= 1427) { const u = q(((f - 1427) / 30) % 1, 30); card(c, `stars${u}`, 420, 210, (p) => fxStars(p, u), 2.0, 0.95, 9.75, 0.9); }
   // the pilot: walks them in at gunpoint, is jumped, fires three times, is lifted and thrown at the wall
-  if (f >= 1102 && kt < 1) {
+  if (f >= 1078 && kt < 1) {
     const px0 = 0.72 + 3.6 * (1 - eIn) + 0.33 * back;
     if (f < LIFT) P(c, "pilot", PILOT_O, 4, px0, 9.45, stand(jump && hitI < 0 ? "shock" : "stern", { facing: 1, prop: "pistol", scarfDir: -1, tilt: q(-8 * kj * (1 - back), 2) }), { s: 1.12, mirror: true, y: walk });
     else P(c, "pilot", PILOT_O, 4, thr ? rx - 0.6 + 2.9 * kt : px0 + (rx - 0.6 - px0) * lift, 9.45, { mode: "fall", expr: "shock", scarfDir: -1 }, { s: 1.0 + 0.12 * (1 - lift), y: 2.55 * lift - 0.9 * kt * kt, roll: (-Math.PI / 2) * lift - 1.2 * kt, noBlob: true });
@@ -253,7 +253,7 @@ const fightTake = (c: Ctx) => {
   if (f >= 1357 && f < 1365) { const u = q((f - 1357) / 8, 8); card(c, `bigbang${u}`, 500, 500, (p) => fxBurst(p, u), 2.3, 1.1, 9.6, 1.6); }
   if (f >= 1359 && f < 1400) { const u = q(((f - 1359) / 30) % 1, 30); card(c, `stars${u}`, 420, 210, (p) => fxStars(p, u), 2.25, 1.75, 9.7, 1.1); }
   // the helper: comes in behind the pilot, bolts when the fight starts
-  if (f >= 1102 && f < 1200) { const run = smooth01((f - 1176) / 18); P(c, "helper", HELPER, 9, 1.32 + 3.6 * (1 - eIn) + 3.6 * run, 9.95, stand(jump ? "shock" : "nervous", { facing: -1, look: run > 0 ? 1 : -1, prop: "shotgun" }), { mirror: run === 0, y: walk + (run > 0 ? 0.08 * Math.abs(Math.sin(f * 0.9)) : 0) }); }
+  if (f >= 1078 && f < 1200) { const run = smooth01((f - 1176) / 18); P(c, "helper", HELPER, 9, 1.32 + 3.6 * (1 - eIn) + 3.6 * run, 9.95, stand(jump ? "shock" : "nervous", { facing: -1, look: run > 0 ? 1 : -1, prop: "shotgun" }), { mirror: run === 0, y: walk + (run > 0 ? 0.08 * Math.abs(Math.sin(f * 0.9)) : 0) }); }
 };
 // ---- never empty: the ranch in the sun, then the gate: the sign, the family, the sheep ----
 const privateTake = (c: Ctx) => {

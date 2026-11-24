@@ -43,7 +43,7 @@ save("premix0.wav",mix)
 # master: gain to -14 LUFS into a peak limiter at -2.2 dBFS (true peak lands about -1.9 dBTP); two passes on the gain
 g=-14.0-float(lufs("premix0.wav")["input_i"])
 for _ in range(3):
-    subprocess.run(["ffmpeg","-v","error","-y","-i","premix0.wav","-af",f"volume={g:.2f}dB,alimiter=limit=0.78:attack=2:release=80:level=false","-ar","48000","master6.wav"],check=True)
+    subprocess.run(["ffmpeg","-v","error","-y","-i","premix0.wav","-af",f"volume={g:.2f}dB,alimiter=limit=0.74:attack=2:release=80:level=false","-ar","48000","master6.wav"],check=True)
     li=float(lufs("master6.wav")["input_i"]); 
     if abs(li+14)<0.1: break
     g+=-14.0-li

@@ -14,9 +14,9 @@ Each licence was confirmed on the source page before download (found through Ope
 
 | Used for | Frames | Title | Creator | Source | Licence |
 |---|---|---|---|---|---|
-| music, opening/day block 0:00-0:28.9 | | Where is the enemy?! | code_box | https://freesound.org/people/code_box/sounds/521374 | CC0 1.0 |
-| music, night/fire block 0:30.8-0:59.0 | | Suspenseful Increasing Dramatic | tyops | https://freesound.org/people/tyops/sounds/440524 | CC BY 4.0 |
-| music, ending block 0:59.6-1:16.5 | | Night in street - atmo orchestral - sad mood.wav | szegvari | https://freesound.org/people/szegvari/sounds/591008 | CC0 1.0 |
+| music, opening/day block 0:00-0:24.3 | | Where is the enemy?! | code_box | https://freesound.org/people/code_box/sounds/521374 | CC0 1.0 |
+| music, night/fire block 0:25.8-0:49.4 | | Suspenseful Increasing Dramatic | tyops | https://freesound.org/people/tyops/sounds/440524 | CC BY 4.0 |
+| music, ending block 0:49.8-1:03.9 | | Night in street - atmo orchestral - sad mood.wav | szegvari | https://freesound.org/people/szegvari/sounds/591008 | CC0 1.0 |
 | bed propeller | 0 | Propeller Plane | cliftonmcarlson | https://freesound.org/people/cliftonmcarlson/sounds/251971 | CC0 1.0 |
 | bed machinegun | 3 | Machine Gun Burst | qubodup | https://freesound.org/people/qubodup/sounds/482121 | CC0 1.0 |
 | bed explosion | 8 | S18-07 Medium distant explosions; cluster.wav | craigsmith | https://freesound.org/people/craigsmith/sounds/674900 | CC0 1.0 |
@@ -48,7 +48,7 @@ Each licence was confirmed on the source page before download (found through Ope
 ## Other credits
 
 - **Story, script, design, animation:** original for this film; three.js inside Remotion on the "cartoon-3d-short" kit (MIT).
-- **Voice:** Liam, ElevenLabs via vidIQ (21 line files, natural pace, no speed change).
+- **Voice:** Liam, ElevenLabs via vidIQ (21 line files; the assembled track sped up 1.2x with pitch kept, as approved by the client).
 - **Tools:** Openverse (search), Real SFX by Clipwing (MIT; placement and mix of the effects), earshot (MIT; ranking and critique), ffmpeg (master).
 - Nothing synthesized is in the mix. No paid or credit-based service, no vidIQ. The synthesized music and effects of rounds 1-3 and the round-1 Kevin MacLeod candidates are not used.
 - Unused audition candidates stay logged in `audition/LICENSES.csv`.

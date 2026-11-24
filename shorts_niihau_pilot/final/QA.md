@@ -1,4 +1,44 @@
-# QA record: niihau_pilot_short.mp4 (round 5)
+# QA record: niihau_pilot_short.mp4 (round 6: voice 1.2x)
+
+## File
+1080x1920, 30 fps, 1916 frames, 63.87 s, h264 two-pass 5.6 Mb/s (preset slow, faststart) + AAC 192k 48 kHz, 46.0 MB.
+Burned captions (captions_r6.ass, 103 groups of 1-3 words from the new word timings).
+
+## Voice
+The round-5 Liam assembly (natural pace) through ffmpeg atempo=1.2, pitch kept: the client-approved file
+(voice_preview/liam_voice_1.2x.mp3, 63.74 s). One change: the pause before "In a fence." scaled to 0.75 s, too short for
+the whole fence crash, so it is back to its old 0.90 s (+0.15 s of silence). Voice track 63.85 s.
+The picture plays at normal speed: the time warp pins it to the new words; shots got shorter by losing hold frames.
+
+## Whisper check (faster-whisper small.en on the final mp4)
+All 21 lines present and in order (snd/mix6/whisper_final_r6.txt). Niihau is heard as "Mi'ihau" twice (understandable).
+
+## Loudness (ffmpeg ebur128 on the final mp4)
+-14.1 LUFS integrated, LRA 5.1 LU, true peak -1.7 dBTP. Accents each set to 6-7.5 dB under the voice peak (second
+touchdown, the throw whoosh and the engine about 9 dB under); music -15 dB re voice under speech, -9 dB between lines;
+beds -20 / -15 dB. Fence crash 10.79-11.64 s, "In a fence" starts 11.70 s.
+
+## Frame scan (all 1916 frames of the final mp4)
+Black 0, white 0, no frozen runs (longest run of near-identical frames: 2). Hard cuts; whip-pans at 779 and 811.
+
+## Checked at full size
+Hook first frame (wide, whole plane over the 3D harbour), the three shots (pistol in hand, muzzle flash at the muzzle),
+the torch (separate from the shotgun), the "You see" section (ranch, gate sign, the owners' room, lamp lit on "no
+power"), the medal, the helmet and submarine, the museum end (whole banner, whole plane). Contact sheets:
+sheets/takes_r6_1.jpg, takes_r6_2.jpg.
+
+## Fight at the faster pace
+The capture now happens while "One rancher does not" is spoken: the pilot and helper walk the wife in at normal walking
+speed (24 frames) instead of a separate capture beat. The lift before the throw is a short grab (12 frames) on "He
+throws". The hands-up hold between "does not" and "jumps" passes in about 7 output frames (a held pose, so it does not
+look sped up).
+
+## Still weak
+- The first shot flashes on "The pilot", about 0.15 s before "shoots".
+- Some captions stay up 0.1-0.3 s into the next take ("them all" on the calendar, "never came" on the museum).
+- The owners' room is lit flat and its rug is busy; the battleships are simple block models.
+
+## Previous rounds
 
 ## File
 1080x1920, 30 fps, 2293 frames, 76.46 s, h264 two-pass 4.6 Mb/s (preset slow, faststart) + AAC 192k 48 kHz, 45.6 MB.
@@ -249,3 +289,5 @@ Final file: 49.3 MB, 1935 frames, 64.5 s, -13.9 LUFS integrated, peak -1.7 dBFS 
   voice (34-39 s: -51.4 vs -22.1 dB mean). The block's integrated effects figure stays near -23 LUFS because it is
   set by the gunshots, the wall hit and the rock, which were not lowered (locked picks, on their frames).
 - Not re-run: speech recognition (not available here) and the earshot critique.
+
+- Round 6b: caption ends clipped to shot cuts (9 captions, clipcap.py -> captions_r6.ass), re-encoded; -14.1 LUFS, 63.87 s.

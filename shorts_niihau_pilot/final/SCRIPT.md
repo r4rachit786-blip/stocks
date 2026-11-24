@@ -26,7 +26,7 @@ Not shown or named: no real person's name appears on screen or in the narration;
 
 Sources: https://en.wikipedia.org/wiki/Niihau_incident · https://www.historynet.com/niihau-incident/ · https://www.huapala.org/T/They_Couldnt_Take_Niihau.html
 
-## Final script, round 5 (212 words, 76.5 s, voice "Liam" at natural pace)
+## Final script, round 6 (voice 1.2x; 212 words, 63.9 s, voice "Liam" sped up 1.2x, pitch kept; picture at normal speed)
 Spoken "Nee-ee-how" for Niihau; captions spell Niihau. Delivery tags in the line files are not spoken or captioned.
 
 0. A Pearl Harbor pilot was told to crash on an empty island.
@@ -54,35 +54,37 @@ Spoken "Nee-ee-how" for Niihau; captions spell Niihau. Delivery tags in the line
 Removed from the round-4 script: "His navy's plan for damaged planes", "caught, with his wife", "picks the pilot up",
 "A house with the curtains drawn" (that take is no longer in the film).
 
-Voice build (film/assemble6.py): 21 line files, no speed change; leading/trailing silence trimmed; pauses inside a line
-longer than 0.35 s shortened to 0.30 s (cut in silence, 10 ms crossfades; 4.2 s removed in total); lines joined with
-0.10 s gaps, 0.30 s before lines 8, 11 and 18, and 0.90 s before line 4 so the whole fence crash plays between
-"So he lands." and "In a fence." Total 76.46 s (2294 frames).
+Voice build: film/assemble6.py (21 line files, no speed change; leading/trailing silence trimmed; inner pauses over
+0.35 s cut to 0.30 s; 0.10 s gaps, 0.30 s before lines 8, 11, 18, 0.90 s before line 4), then film/tempo12.py:
+ffmpeg atempo=1.2 on the whole track (the file the client approved, voice_preview/liam_voice_1.2x.mp3), and the pause
+before "In a fence." put back from 0.75 s to its old 0.90 s so the whole fence crash fits in it. Total 63.85 s (1916 frames).
 
-## Take list, round 5 (frames at 30 fps on the final film)
+## Take list, round 6 (frames at 30 fps on the final film)
 
-The picture choreography is written on the round-4 timeline ("story frames") and mapped onto the new voice by a time
-warp (film/warp6.py -> warp6.json -> WARP in story.ts): every line start and key word of the new narration is pinned
-to the story frame of the same word, so cuts and actions land on the words. A new voice only needs warp6.py re-run.
-Hard cuts between takes; two blurred whip-pans (929 and 961). No dissolves.
+The picture plays at normal speed. Its choreography is written on the round-4 timeline ("story frames") and pinned to
+the new narration by a time warp (film/warp6.py -> warp6.json -> WARP in story.ts): every line start and key word maps
+to the story frame of the same word, so cuts and actions land on the words; shots got shorter by cutting their holds.
+Two actions that no longer had time were simplified instead of being played fast: the pilot and helper now walk the
+rancher's wife in while "One rancher does not" is spoken (no separate capture beat), and the lift before the throw is a
+quick grab right on "He throws". Hard cuts between takes; two blurred whip-pans (779 and 811). No dissolves.
 
 | Take | Frames | Place | What happens |
 |---|---|---|---|
-| 1 Hook | 0-115 | over Pearl Harbor, morning, 150 m up | Wide: the whole Zero with the pilot in the cockpit, below and behind it the 3D harbour: Ford Island with airfield and hangars, Battleship Row (six different battleships, two destroyers), cranes, oil tanks, town, green hills; fires and thick smoke columns, flak, other aircraft. Hit and holes; slow travel up to the thought bubble, EMPTY stamp on "empty". |
-| 2 Census | 116-211 | the ranch field | Crane dive through cloud to the board: NIIHAU POPULATION 136, three waving islanders. |
-| 3 Over the sea | 212-347 | low over the sea | The damaged Zero, orbit to behind the tail, island ahead ("land on tiny Niihau"), tilt down to the waiting submarine. |
-| 4 Crash field | 348-724 | the ranch field | Landing: touchdown on "lands", the fence crash in the beat before "In a fence" (~394), dazed pilot (medium), pulled out, pistol and papers, asks back, "No luck", crane over to the islanders. |
-| 5 Party | 725-781 | the yard, dusk | The party table, the guest eating. |
-| 6 Radio | 782-928 | the yard, night | Radio insert, news, pull back to the frozen party (the frozen pilot is one of the two close beats). |
-| 7 Prisoner | 929-960 | the yard, night | Whip in: the pilot tied on a crate, guard with the pistol, lantern. |
-| 8 No boats | 961-1070 | the bluff, night | Whip in: NO BOATS board, chained canoe, empty moonlit sea. |
-| 9 Calendar | 1071-1133 | wall insert | Pages 7 to 12. |
-| 10 Helper, burning house | 1134-1261 | the yard, night | Medium-wide two-shot, shotgun up; the pilot's torch (wooden handle, wrapped head, round flame with glow) held apart from the shotgun; swing to the house as it catches, papers fly. |
-| 11 Burning plane | 1262-1304 | the field, night | The wreck burning, the two men beside it. |
-| 12 Caves | 1305-1364 | sea cave | Villagers round one kerosene lantern. |
-| 13 The fight | 1365-1788 | the field by the burning plane | The rancher alone ("One rancher does not"); the pilot and helper walk him and his wife in at gunpoint (fast); "He jumps the pilot"; three shots, the pistol in the pilot's hand with a small muzzle flash on each; push in on "mad" (the second close beat); the throw into the stone wall; the wife and the rock. |
-| 14 Private | 1789-1898 | the ranch, high key | Wide ranch: house, windmill, sheep, people; travel down to the PRIVATE ISLAND sign at the gate with the family. |
-| 15 The owners' house | 1899-2019 | inside the ranch house, day | One lateral travel along a board wall with real furniture: the family portrait over the sideboard ("one family"), the owner holding a conch to his ear by the NO TELEPHONE notice ("no phones"), his wife striking a match and lighting the kerosene lamp on the table ("no power"), the kid by the door pointing at the boat-day calendar ("one boat a week"). |
-| 16 Medal | 2020-2062 | the field, day | Medium-wide ceremony: bunting, 48-star flag, villagers, the officer pins the medal, glint. |
-| 17 Submarine | 2063-2104 | the bluff, sunset | The pilot's empty flying helmet on the bluff, smooth dusk sea with soft glints and foam, the submarine leaving. |
-| 18 Museum | 2105-2293 | museum, present day | The whole PACIFIC WAR GALLERY / HAWAII 1941 banner; the whole plane on its plinth; plaque (banner still whole); back out to the whole room: rope barrier, propeller and uniform exhibits, visitors. |
+| 1 Hook | 0-96 | over Pearl Harbor, morning, 150 m up | Wide: the whole Zero with the pilot, the 3D harbour below (Ford Island, airfield, hangars, six battleships, two destroyers, cranes, tanks, town, hills), fires, smoke columns, flak, other aircraft. Hit; travel up to the thought bubble, EMPTY stamp on "empty". |
+| 2 Census | 97-175 | the ranch field | Crane dive through cloud to the board NIIHAU POPULATION 136 and three islanders. |
+| 3 Over the sea | 176-288 | low over the sea | The damaged Zero, the island ahead ("land on tiny Niihau"), the waiting submarine. |
+| 4 Crash field | 289-607 | the ranch field | Touchdown on "lands"; the fence crash (329) in the 0.9 s beat before "In a fence"; dazed pilot; pulled out; pistol and papers; asks back; "No luck"; the islanders. |
+| 5 Party | 608-655 | the yard, dusk | The party table, the guest eating. |
+| 6 Radio | 656-778 | the yard, night | Radio insert, news, the frozen party (close beat). |
+| 7 Prisoner | 779-810 | the yard, night | Whip in: tied on a crate, guarded. |
+| 8 No boats | 811-885 | the bluff, night | Whip in: NO BOATS board, chained canoe. |
+| 9 Calendar | 886-945 | wall insert | Pages 7 to 12. |
+| 10 Helper, burning house | 946-1059 | the yard, night | Shotgun up; the torch held apart from it; the house catches, papers fly. |
+| 11 Burning plane | 1060-1091 | the field, night | The wreck burning. |
+| 12 Caves | 1092-1141 | sea cave | Villagers round one kerosene lantern. |
+| 13 The fight | 1142-1494 | by the burning plane | Rancher alone; pilot and helper walk his wife in at gunpoint during "One rancher does not"; the jump on "jumps"; three shots (1223, 1236, 1246) with the pistol and a small muzzle flash; push in on "mad" (close beat); grab, throw into the wall; the wife and the rock. |
+| 14 Private | 1495-1585 | the ranch, high key | Ranch wide with people and sheep, down to the PRIVATE ISLAND sign at the gate. |
+| 15 The owners' house | 1586-1687 | inside the ranch house | One lateral travel: portrait, owner with the conch, wife lighting the kerosene lamp, kid at the boat-day calendar. |
+| 16 Medal | 1688-1722 | the field, day | Ceremony: bunting, flag, villagers, the officer pins the medal. |
+| 17 Submarine | 1723-1757 | the bluff, sunset | The empty helmet on the bluff, the submarine leaving. |
+| 18 Museum | 1758-1915 | museum, present day | The whole banner, the whole plane, plaque, the whole room. |
