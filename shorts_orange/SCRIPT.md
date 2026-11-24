@@ -4,7 +4,7 @@ Reference idea: "How did the orange get its name?" (Remember This, youtube.com/s
 
 Voice: vidIQ Liam, [tags] for delivery, played at 1.2x like the Niihau Short. Target about 60-64 s.
 
-## Lines
+## Lines (v1, rejected: not fun enough)
 00 [curious] Before oranges, English had no word for orange.
 01 [amused] None. The colour was just... "yellow-red."
 02 [deadpan] That's why a robin has a red breast. A fox is a red fox. And ginger hair is "red."
@@ -18,6 +18,20 @@ Voice: vidIQ Liam, [tags] for delivery, played at 1.2x like the Niihau Short. Ta
 10 [deadpan] So the fruit isn't named after the colour. The colour is named after the fruit.
 11 [warm] And in Greece, an orange is still a "portokali"... after the Portuguese ships that brought the sweet ones.
 12 [amused] All that... for a word that lost its N.
+
+## Lines (v2: punchier)
+00 [excited] The colour orange exists because someone in Italy talked too fast.
+01 [amused] Rewind. England, a thousand years ago. There is no word for orange. None.
+02 [deadpan] A pumpkin? Yellow-red. The sunset? Yellow-red. Your ginger cousin? [pause] Red.
+03 [playful] That's why a robin has a "red" breast, and a fox is a "red" fox. They're clearly orange. Nobody fixed it.
+04 [curious] So where did "orange" come from? A fruit... on a very long road trip.
+05 India: "naranga." [excited] Persia: "narang!" Arabia: "naranj!" Spain: "naranja!"
+06 Then Italy. "Una narancia." [fast] Unanarancia, unanarancia... [deadpan] "un'arancia."
+07 [amused] The N fell off the fruit... and got stuck on the "una."
+08 [playful] Then France made it fancy, like "or"... gold. "Orenge."
+09 [excited] England finally tastes one... and goes: wait. THAT's the colour!
+10 [deadpan] So the fruit came first. The colour is named after a snack.
+11 [ominous] And the plot twist? [pause] In hot countries, a ripe orange is often... [deadpan] green.
 
 ## Picture idea (2D characters in a 3D world, one travelling camera)
 - Hook: a Tudor painter stares at a fruit bowl, holding a pot labelled YELLOW-RED.
@@ -36,3 +50,4 @@ Voice: vidIQ Liam, [tags] for delivery, played at 1.2x like the Niihau Short. Ta
 - English used "geoluhread" (yellow-red) in Old English. Robin redbreast, red fox and red hair keep the older usage.
 - Colour name: commonly cited first record about 1502 (cloth bought for Margaret Tudor). The fruit word is earlier (14th century).
 - Greek portokali, also Romanian portocală and Arabic burtuqal, after the Portuguese, who brought sweet oranges in the 1500s.
+- Correction for v2: the lost n most likely happened in Italian (una narancia > un'arancia), then French orenge, possibly shaped by "or". Ripe oranges in the tropics often stay green: the peel only turns orange after cool nights.
