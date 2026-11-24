@@ -1,3 +1,36 @@
+# History of the orange (fruit): script v3
+
+Reference idea: "How did the orange get its name?" (Remember This, youtube.com/shorts/iF8LEcaaFEA). Relicly version: the story of the fruit itself.
+
+## Lines (v3)
+00 [excited] Nature never made the orange. Humans did.
+01 [amused] It's a mash-up: a giant sour pomelo... crossed with a tiny mandarin. In ancient China.
+02 [playful] Then the orange went on tour.
+03 Arab traders carried it west, all the way to Spain. [deadpan] It was so bitter, people mostly sniffed it.
+04 [excited] Then Portuguese ships came back from Asia with the sweet one, and Europe lost its mind.
+05 [amused] So much that in Greek, Turkish and Arabic, the word for orange is basically... "Portugal."
+06 [playful] Kings went crazy. The French king kept over a thousand orange trees... some in solid silver pots.
+07 Columbus packed the seeds for the Americas. Sailors found out oranges stopped scurvy.
+08 [warm] And for centuries, one orange at Christmas was a big present.
+09 [deadpan] Oh, and the colour? Named after the fruit. The fruit came first.
+10 [ominous] Now the twist. [pause] In hot countries, a ripe orange is often... [deadpan] green.
+11 [amused] Some even get dyed orange before they hit the shop. [deadpan] Humans made the orange... and we still had to paint it.
+
+## Facts
+- Sweet orange = pomelo x mandarin hybrid, from southern China / north-east India / Myanmar (Wu et al., Nature 2018).
+- Bitter (Seville) orange brought to Spain by the Arabs/Moors around the 10th century; mostly perfume, medicine and marmalade, not eating.
+- Portuguese brought sweet oranges from Asia in the 1500s. Greek portokali, Turkish portakal, Arabic burtuqal.
+- Louis XIV: over 1,000 orange trees at the Versailles Orangerie; silver orange-tree tubs in the Hall of Mirrors (melted down in 1689).
+- Columbus brought citrus seeds to Hispaniola on his second voyage (1493).
+- Citrus against scurvy: James Lind's 1747 trial.
+- Oranges as rare Christmas treats in Europe and America.
+- Tropical oranges stay green when ripe: the peel needs cool nights to lose its chlorophyll. Some Florida oranges get Citrus Red No. 2 on the peel (FDA-permitted).
+
+
+---
+
+# Earlier drafts (about the word / colour)
+
 # History of the orange: draft script (Relicly animated Short)
 
 Reference idea: "How did the orange get its name?" (Remember This, youtube.com/shorts/iF8LEcaaFEA). Our version keeps the idea, not the video.
