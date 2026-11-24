@@ -146,3 +146,40 @@ from `audition/index.html` first. So the -14 LUFS / -2 dB target is open until t
 - Cue list for Real SFX prepared (`src/sound_audition/cues.json`, 35 cues). The mix is still not rendered.
 - "In a fence" caption moved down to the normal caption line so it no longer sits on the dazed pilot's chin
   (`sheets/fence_caption.jpg`). File re-encoded, 49.1 MB, picture otherwise identical.
+
+## Final sound mix (after the picks)
+
+**File.** niihau_pilot_short.mp4: picture stream unchanged (crf 23), new audio, 64.5 s video and audio.
+
+**Loudness (ffmpeg ebur128 on the final mp4).** I: -14.0 LUFS  Peak: -1.6 dBFS (sample peak; earshot measures true peak -1.6 dBTP on the decoded AAC). Target -14 LUFS, -1 to -2 dBTP: met.
+
+**How it was built.**
+- Music in three blocks at a fixed level (no ducking, so no pump): "Where is the enemy?!" 0:00-0:22.9 (3 dB lower
+  under the party), fade out 0.6 s into the radio news; silence over the news and the frozen party (only the night
+  insects); "Suspenseful Increasing Dramatic" 0:24.7 (the prisoner) to 0:47.5, stopped with a 0.25 s fade on the
+  rock; "Night in street" 0:48.0 to the end, covering the mechanism block and the ending, 1.5 s fade out.
+  The mechanism block (0:48-0:56) had no pick of its own, so the ending track starts there.
+- Effects: 34 cues placed by Real SFX `mix.py` from an explicit cue sheet (`src/sound_audition/realsfx_sheet.json`,
+  every cue names its file and frame; word-locked cues were not moved), `--voice-safe --voice-depth light`.
+- Master: voice + music + Real SFX track summed, ffmpeg loudnorm to -14 LUFS.
+
+**earshot critique** (`src/sound_audition/earshot_critique.json`): VERDICT launch-grade, 23 of 23 scored metrics in
+range, 0 critical, 0 major. Realness 0.96 (no window leans synthesized). Tips, not fixed: 7 of 25 picture events
+have no sound of their own (0:11.2 the dazed close-up, 0:28.4 calendar, 0:51.4 and 0:54.7 wall, 0:56.3 and 0:57.5
+medal cut), and a general note to keep effects out of 1-4 kHz under the voice.
+
+**Fix rounds: 1.** The first Real SFX pass put the effects track at -16.9 LUFS, above the voice (-18.7); it was
+re-run with the effects 8 dB lower (-24.8 LUFS). Section levels after that (LUFS, voice / music / effects):
+opening -18.9 / -29.2 / -29.5; radio silence -18.1 / none / -53; night -19.0 / -28.2 / -23.2; ending -18.3 / -27.7 / -41.
+
+**Music check.** earshot's tagger finds no singing or speech in any of the three tracks (top labels: timpani,
+music, theme music, scary music, ambient). No swap was needed. A recognisable theme cannot be ruled out by a tool,
+and nobody listened to the tracks or the mix: that check is the client's.
+
+**Weak points.**
+- Real SFX warned that two picked recordings are very quiet in their source and were raised a lot (radio static
+  +19 dB, the rock +16 dB), so their noise floor comes up with them.
+- Three picks are used three times each (gunshot, whoosh, body fall for both touchdowns and the wall).
+- In the night block the effects sit only about 4 dB under the voice (fire bed, insects, gunshots).
+- Block changes are fades, not cuts on a beat; no beat analysis was done.
+- "No luck" (0:16.7) has no sound of its own.

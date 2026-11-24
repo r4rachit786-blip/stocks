@@ -1,44 +1,53 @@
 # Credits
 
-## Lines to paste into the video description
+## Paste this line into the YouTube description (required)
 
-None yet. The film currently carries the narration only. When the client has picked the music from
-`audition/index.html`, the line for each chosen Kevin MacLeod track goes here, in this form:
+> Music: "Suspenseful Increasing Dramatic" by tyops (https://freesound.org/people/tyops/sounds/440524), licensed under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
 
-> "TRACK TITLE" Kevin MacLeod (incompetech.com). Licensed under Creative Commons: By Attribution 4.0 License. http://creativecommons.org/licenses/by/4.0/
+That is the only credit the licences require. Everything else in the mix is CC0 (no credit needed); optional courtesy line:
 
-Sound effects are CC0 and need no credit line.
+> Other music and sound effects: CC0 recordings from freesound.org (code_box, szegvari, craigsmith, simone_ds, vabadus, worthahep88, 5ro4, Kinoton and others).
 
-## Round 4 status
+## Licence log: every file in the final mix
 
-- **Voice:** unchanged (free Edge TTS, `en-GB-RyanNeural`, +28 %).
-- **Music and effects:** the synthesized music and effects of rounds 1-3 are removed from the film. Candidates for
-  the new mix are in `audition/`: 26 real-recording accent options (7 cues) and 13 bed recordings, all CC0, found
-  through Openverse with the licence confirmed on each freesound.org page, logged in `audition/LICENSES.csv` and
-  `audition/sfx_log.json`; 7 Kevin MacLeod tracks (CC BY 4.0, incompetech.com) logged in `audition/music_log.json`.
-- Nothing from a paid or credit-based service. No vidIQ.
+Each licence was confirmed on the source page before download (found through Openverse).
 
-## Rounds 1-3 (superseded sound, kept for the record)
+| Used for | Frames | Title | Creator | Source | Licence |
+|---|---|---|---|---|---|
+| music, opening/day block 0:00-0:22.9 | | Where is the enemy?! | code_box | https://freesound.org/people/code_box/sounds/521374 | CC0 1.0 |
+| music, night/fire block 0:24.7-0:47.5 | | Suspenseful Increasing Dramatic | tyops | https://freesound.org/people/tyops/sounds/440524 | CC BY 4.0 |
+| music, mechanism and ending 0:48.0-1:04.5 | | Night in street - atmo orchestral - sad mood.wav | szegvari | https://freesound.org/people/szegvari/sounds/591008 | CC0 1.0 |
+| bed propeller | 0 | Propeller Plane | cliftonmcarlson | https://freesound.org/people/cliftonmcarlson/sounds/251971 | CC0 1.0 |
+| bed machinegun | 3 | Machine Gun Burst | qubodup | https://freesound.org/people/qubodup/sounds/482121 | CC0 1.0 |
+| bed explosion | 8 | S18-07 Medium distant explosions; cluster.wav | craigsmith | https://freesound.org/people/craigsmith/sounds/674900 | CC0 1.0 |
+| bed machinegun | 20 | Machine Gun 001 - triple shot.ogg | pgi | https://freesound.org/people/pgi/sounds/212600 | CC0 1.0 |
+| bed wind | 83 | Wind Gust | crashoverride6 | https://freesound.org/people/crashoverride6/sounds/146932 | CC0 1.0 |
+| bed crowd | 124, 576 | Short Crowd Cheer 2.flac | qubodup | https://freesound.org/people/qubodup/sounds/182572 | CC0 1.0 |
+| bed propeller | 150 | Propeller plane | Breviceps | https://freesound.org/people/Breviceps/sounds/515293 | CC0 1.0 |
+| bed sea | 150, 1726 | Waves of Hawaii | florianreichelt | https://freesound.org/people/florianreichelt/sounds/450755 | CC0 1.0 |
+| bed propeller | 283 | Airplane propeller | MrVasLuk | https://freesound.org/people/MrVasLuk/sounds/333203 | CC0 1.0 |
+| bed sheep | 289 | Sheep bleating | zachrau | https://freesound.org/people/zachrau/sounds/362283 | CC0 1.0 |
+| wall throw | 298, 306, 1357 | Body fall_04.wav | deleted_user_2104797 | https://freesound.org/people/deleted_user_2104797/sounds/346692 | CC0 1.0 |
+| fence crash | 320 | R09-40-Breaking a Wooden Door.wav | craigsmith | https://freesound.org/people/craigsmith/sounds/483214 | CC0 1.0 |
+| bed crowd | 535 | BerlinGameScene.com Crowd Cheer 2 | BerlinGameScene | https://freesound.org/people/BerlinGameScene/sounds/267248 | CC0 1.0 |
+| bed ukulele | 576 | Ukulele short chorded melody | el_boss | https://freesound.org/people/el_boss/sounds/643566 | CC0 1.0 |
+| bed insects | 633 | crickets night field diverse +distant village voices Putti, Uganda1 MS.wav | kyles | https://freesound.org/people/kyles/sounds/450994 | CC0 1.0 |
+| radio news | 633 | radio static.wav | simone_ds | https://freesound.org/people/simone_ds/sounds/366082 | CC0 1.0 |
+| whoosh | 737, 770, 1351 | Whoosh #1 | Kinoton | https://freesound.org/people/Kinoton/sounds/427823 | CC0 1.0 |
+| bed sea | 776 | Ocean Noise - Surf | amholma | https://freesound.org/people/amholma/sounds/372181 | CC0 1.0 |
+| bed torch | 938 | fire-whoosh.wav | hnhnh | https://freesound.org/people/hnhnh/sounds/244926 | CC0 1.0 |
+| bed fire | 945 | Roaring House Fire Wall Fall In.wav | 7778 | https://freesound.org/people/7778/sounds/196619 | CC0 1.0 |
+| bed fire | 998 | fire roar and crackle.flac | laptaper | https://freesound.org/people/laptaper/sounds/386560 | CC0 1.0 |
+| gunshot | 1204, 1216, 1226 | Beretta M9 Shot | vabadus | https://freesound.org/people/vabadus/sounds/151065 | CC0 1.0 |
+| rock | 1425 | Single Rock hit dirt 2.wav | worthahep88 | https://freesound.org/people/worthahep88/sounds/319229 | CC0 1.0 |
+| bed sheep | 1439 | sheep bleat sound | Garuda1982 | https://freesound.org/people/Garuda1982/sounds/428103 | CC0 1.0 |
+| medal glint | 1707 | bell ding 1.wav | 5ro4 | https://freesound.org/people/5ro4/sounds/611113 | CC0 1.0 |
+| bed museum | 1767 | Museum Gallery 8 | ecfike | https://freesound.org/people/ecfike/sounds/478364 | CC0 1.0 |
 
-- **Story, script, design, animation:** original for this film; rendered with three.js inside Remotion on the "cartoon-3d-short" kit (MIT).
-- **Voice:** Microsoft Edge online text-to-speech, voice `en-GB-RyanNeural`, rate +28 %, via the free `edge-tts` Python package (no paid service).
-- **Music:** original, generated from code for this film (`src/audio/audio.py`): plucked-string "ukulele" pattern (C, Am, F, G) for the day, marimba pulse in A minor with a drone for the night, marimba in F for the explanation, ukulele reprise and final chord. No samples, no third-party recordings.
-- **Sound effects:** all synthesized from code in the same file (noise and sine models). No third-party recordings, so there are no licences to log.
+## Other credits
 
-| Cue (frame) | Sound | Source | Licence |
-|---|---|---|---|
-| 2, 54 | chart paper, stamp | synthesized (audio.py) | own work |
-| 98, 104 | chalk taps | synthesized | own work |
-| 246, 264, 1730, 1748 | sonar pings | synthesized | own work |
-| 283-325 | crash thud, fence cracks | synthesized | own work |
-| 398-418, 500 | pistol / papers handling, "no luck" boing | synthesized | own work |
-| 633-703 | radio static, switch click | synthesized | own work |
-| 741-790 | lock, surf | synthesized | own work |
-| 855-887 | calendar pages | synthesized | own work |
-| 922, 927 | shotgun action | synthesized | own work |
-| 945-1437 | fire crackle | synthesized | own work |
-| 1160-1430 | jump whoosh, three shots, impact, wall, rock, star chimes | synthesized | own work |
-| 1515-1646 | sign thunk, pictogram toks, curtain | synthesized | own work |
-| 1710 | medal bell | synthesized | own work |
-
-**SFX sourcing note.** The client's `video-sfx-pipeline` skill (Openverse -> Real SFX -> earshot) could not be run here: api.openverse.org answered HTTP 500 from this sandbox, and Real SFX / earshot need GitHub clones and about 1.1 GB of model downloads. The Mixkit files in `pipeline/sfx_mixkit` have numeric names and no licence log, so they were not used. Fallback, as the brief allows: synthesized effects. To replace them with real recordings, run the skill on a machine with open internet against `src/audio/cues` (frames above) and keep the word-locked frames.
+- **Story, script, design, animation:** original for this film; three.js inside Remotion on the "cartoon-3d-short" kit (MIT).
+- **Voice:** Microsoft Edge online text-to-speech, `en-GB-RyanNeural`, rate +28 %, via the free `edge-tts` package.
+- **Tools:** Openverse (search), Real SFX by Clipwing (MIT; placement and mix of the effects), earshot (MIT; ranking and critique), ffmpeg (master).
+- Nothing synthesized is in the mix. No paid or credit-based service, no vidIQ. The synthesized music and effects of rounds 1-3 and the round-1 Kevin MacLeod candidates are not used.
+- Unused audition candidates stay logged in `audition/LICENSES.csv`.

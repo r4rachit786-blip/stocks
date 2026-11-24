@@ -1,0 +1,353 @@
+{
+ "video": "/home/user/stocks/shorts_niihau_pilot/final/niihau_pilot_short.mp4",
+ "keep_audio": "no",
+ "base_audio": [
+  "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/mixw/voice.wav",
+  "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/mixw/music.wav"
+ ],
+ "cues": [
+  {
+   "t": 0.0,
+   "label": "zero engine dive",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/bed_propeller__f6a39df1.wav",
+   "role": "ambience",
+   "gain_db": -2,
+   "anchor": "start",
+   "max_dur": 2.75,
+   "fade_in": 0.05,
+   "fade_out": 0.15
+  },
+  {
+   "t": 0.1,
+   "label": "cowl guns",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/bed_machinegun__47380227.wav",
+   "role": "hit",
+   "gain_db": -7,
+   "anchor": "start",
+   "max_dur": 0.6
+  },
+  {
+   "t": 0.267,
+   "label": "harbour explosions",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/bed_explosion__f6575711.wav",
+   "role": "hit",
+   "gain_db": -9,
+   "anchor": "start",
+   "max_dur": 2.2,
+   "fade_out": 0.6
+  },
+  {
+   "t": 0.667,
+   "label": "the hit",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/bed_machinegun__afe2ca37.wav",
+   "role": "hit",
+   "gain_db": -4,
+   "anchor": "start",
+   "max_dur": 0.5
+  },
+  {
+   "t": 2.767,
+   "label": "dive through cloud",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/bed_wind__0346629e.wav",
+   "role": "whoosh",
+   "gain_db": -4,
+   "anchor": "start",
+   "max_dur": 1.6,
+   "fade_out": 0.5
+  },
+  {
+   "t": 4.133,
+   "label": "islanders",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/bed_crowd__bfb7ab87.wav",
+   "role": "ambience",
+   "gain_db": -6,
+   "anchor": "start",
+   "max_dur": 0.85,
+   "fade_in": 0.1,
+   "fade_out": 0.3
+  },
+  {
+   "t": 5.0,
+   "label": "limping engine",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/bed_propeller__0cd4e904.wav",
+   "role": "ambience",
+   "gain_db": -5,
+   "anchor": "start",
+   "max_dur": 4.43,
+   "fade_in": 0.1,
+   "fade_out": 0.15
+  },
+  {
+   "t": 5.0,
+   "label": "sea below",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/bed_sea__6044b489.wav",
+   "role": "ambience",
+   "gain_db": -12,
+   "anchor": "start",
+   "max_dur": 4.43,
+   "fade_in": 0.2,
+   "fade_out": 0.15
+  },
+  {
+   "t": 9.433,
+   "label": "approach",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/bed_propeller__10b67f50.wav",
+   "role": "ambience",
+   "gain_db": -4,
+   "anchor": "start",
+   "max_dur": 1.25,
+   "fade_in": 0.05,
+   "fade_out": 0.2
+  },
+  {
+   "t": 9.633,
+   "label": "sheep scatter",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/bed_sheep__cc3ae599.wav",
+   "role": "ambience",
+   "gain_db": -6,
+   "anchor": "start",
+   "max_dur": 1.0,
+   "fade_out": 0.3
+  },
+  {
+   "t": 9.933,
+   "label": "touchdown",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/wall_throw__80894069.wav",
+   "role": "hit",
+   "gain_db": -5,
+   "anchor": "arrive",
+   "max_dur": 0.6
+  },
+  {
+   "t": 10.2,
+   "label": "second touchdown",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/wall_throw__80894069.wav",
+   "role": "hit",
+   "gain_db": -8,
+   "anchor": "arrive",
+   "max_dur": 0.6,
+   "pitch": -2
+  },
+  {
+   "t": 10.667,
+   "label": "PICK fence crash A",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/fence_crash__e8fc9a76.wav",
+   "role": "hit",
+   "gain_db": 1,
+   "anchor": "arrive",
+   "max_dur": 2.6,
+   "fade_out": 0.6
+  },
+  {
+   "t": 17.833,
+   "label": "islanders cheer",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/bed_crowd__c5ff6b85.wav",
+   "role": "ambience",
+   "gain_db": -6,
+   "anchor": "start",
+   "max_dur": 1.35,
+   "fade_in": 0.1,
+   "fade_out": 0.3
+  },
+  {
+   "t": 19.2,
+   "label": "party ukulele",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/bed_ukulele__cef99e6a.wav",
+   "role": "ambience",
+   "gain_db": -6,
+   "anchor": "start",
+   "max_dur": 1.9,
+   "fade_in": 0.1,
+   "fade_out": 0.25
+  },
+  {
+   "t": 19.2,
+   "label": "party murmur",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/bed_crowd__bfb7ab87.wav",
+   "role": "ambience",
+   "gain_db": -12,
+   "anchor": "start",
+   "max_dur": 1.9,
+   "fade_in": 0.2,
+   "fade_out": 0.25
+  },
+  {
+   "t": 21.1,
+   "label": "night insects",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/bed_insects__e587e0a4.wav",
+   "role": "ambience",
+   "gain_db": -14,
+   "anchor": "start",
+   "max_dur": 26.8,
+   "fade_in": 0.4,
+   "fade_out": 0.4
+  },
+  {
+   "t": 21.1,
+   "label": "PICK radio A",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/radio_news__204b98ca.wav",
+   "role": "ambience",
+   "gain_db": -5,
+   "anchor": "start",
+   "max_dur": 2.4,
+   "fade_in": 0.05,
+   "fade_out": 0.03
+  },
+  {
+   "t": 24.567,
+   "label": "PICK whoosh C",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/whoosh__34ba7605.wav",
+   "role": "whoosh",
+   "gain_db": -2,
+   "anchor": "start",
+   "max_dur": 0.9
+  },
+  {
+   "t": 25.667,
+   "label": "PICK whoosh C",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/whoosh__34ba7605.wav",
+   "role": "whoosh",
+   "gain_db": -2,
+   "anchor": "start",
+   "max_dur": 0.9
+  },
+  {
+   "t": 25.867,
+   "label": "surf at the bluff",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/bed_sea__42a94c71.wav",
+   "role": "ambience",
+   "gain_db": -9,
+   "anchor": "start",
+   "max_dur": 2.55,
+   "fade_in": 0.3,
+   "fade_out": 0.3
+  },
+  {
+   "t": 31.267,
+   "label": "torch",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/bed_torch__5c19a506.wav",
+   "role": "whoosh",
+   "gain_db": -5,
+   "anchor": "start",
+   "max_dur": 1.2
+  },
+  {
+   "t": 31.5,
+   "label": "house fire",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/bed_fire__f9b9cc31.wav",
+   "role": "ambience",
+   "gain_db": -4,
+   "anchor": "start",
+   "max_dur": 1.77,
+   "fade_in": 0.4,
+   "fade_out": 0.15
+  },
+  {
+   "t": 33.267,
+   "label": "plane fire",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/bed_fire__ba5faf16.wav",
+   "role": "ambience",
+   "gain_db": -9,
+   "anchor": "start",
+   "max_dur": 14.7,
+   "fade_in": 0.1,
+   "fade_out": 0.5
+  },
+  {
+   "t": 40.133,
+   "label": "PICK gunshot C 1",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/gunshot__4b52a755.wav",
+   "role": "hit",
+   "gain_db": 0,
+   "anchor": "arrive",
+   "max_dur": 1.2
+  },
+  {
+   "t": 40.533,
+   "label": "PICK gunshot C 2",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/gunshot__4b52a755.wav",
+   "role": "hit",
+   "gain_db": 0,
+   "anchor": "arrive",
+   "max_dur": 1.2
+  },
+  {
+   "t": 40.867,
+   "label": "PICK gunshot C 3",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/gunshot__4b52a755.wav",
+   "role": "hit",
+   "gain_db": 0,
+   "anchor": "arrive",
+   "max_dur": 1.2
+  },
+  {
+   "t": 45.033,
+   "label": "the throw",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/whoosh__34ba7605.wav",
+   "role": "whoosh",
+   "gain_db": -6,
+   "anchor": "start",
+   "max_dur": 0.5
+  },
+  {
+   "t": 45.233,
+   "label": "PICK wall A",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/wall_throw__80894069.wav",
+   "role": "hit",
+   "gain_db": 1,
+   "anchor": "arrive",
+   "max_dur": 1.5
+  },
+  {
+   "t": 47.5,
+   "label": "PICK rock A",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/rock__7938c07d.wav",
+   "role": "hit",
+   "gain_db": 1,
+   "anchor": "arrive",
+   "max_dur": 0.9
+  },
+  {
+   "t": 47.967,
+   "label": "ranch sheep",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/bed_sheep__74f89a7c.wav",
+   "role": "ambience",
+   "gain_db": -10,
+   "anchor": "start",
+   "max_dur": 2.5,
+   "fade_in": 0.2,
+   "fade_out": 0.5
+  },
+  {
+   "t": 56.9,
+   "label": "PICK medal A",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/medal_glint__252fc88e.wav",
+   "role": "chime",
+   "gain_db": -3,
+   "anchor": "arrive",
+   "max_dur": 1.8
+  },
+  {
+   "t": 57.533,
+   "label": "submarine sea",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/bed_sea__6044b489.wav",
+   "role": "ambience",
+   "gain_db": -10,
+   "anchor": "start",
+   "max_dur": 1.37,
+   "fade_in": 0.2,
+   "fade_out": 0.2
+  },
+  {
+   "t": 58.9,
+   "label": "museum room",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/bed_museum__e4b965f1.wav",
+   "role": "ambience",
+   "gain_db": -12,
+   "anchor": "start",
+   "max_dur": 5.58,
+   "fade_in": 0.4,
+   "fade_out": 1.0
+  }
+ ]
+}
