@@ -89,3 +89,38 @@ neighbouring sheet frames show. Numbers are the reports' measurements; "seen" li
 4. Moves: one ~40 f symmetric glide with a few degrees of roll, pushes on every hold, one hard cut on the big jump.
 5. Dressing: checked cloth, woven mat, wood grain, labelled battery, numbered dial, "ALOHA" sign, food, bottles, ukulele.
 6. Acting: frozen figures, single beats (grin -> shock, heads turn, eyes dart), blinks; no perpetual waving (v2's mistake).
+
+## Camera travel between subjects (round 4 re-study: motion.md 2, 5.1, 5.4; sheets short03, short08, short14)
+
+1. One location = one take. short03 stays in the dome plaza for the first 11 pictures: two-shot at the button, crane
+   back and up to the whole town, drop to the guard, then up the ladder. short14 holds the bridge for 9 pictures and
+   only then cranes away over the river. short08 goes customer -> counter -> ticket -> clerk without leaving the shop.
+2. Travel types seen: lateral truck or pan between two people standing side by side (short08 clerk/fisherman,
+   short14 king/smith), crane up-and-back to reveal the place (short03 "town is around it", short14 "each finally"),
+   tilt or dive down onto a prop lying flat (short08 ticket on the counter, short14 map and blueprint), and a push
+   that ends as a close-up (short03 button glass, short08 clerk face).
+3. Size of a move: mostly small, about a seventh of the frame (median 101 px at 720p, zoom 23 %). The big reveals are
+   cranes, which take much longer: about 45 f speeding up and 60 f slowing down (short03 51 s).
+4. Duration and ease: symmetric ease-in-out, attack 10 f, release 10 f, typical length about 23 f; peak 14 px/f median,
+   25 px/f at p75 (720p; about 21 and 37 px/f at 1080p). The speed half-width is over 20 f, so nothing snaps.
+5. Between moves the camera never stops: a slow dolly push (0.14 %/f median, 0.34 %/f p75) runs through every hold,
+   and about 0.6 %/f for a second on the punch word.
+6. Mid-move both subjects are in frame. In the sheets the subject being left slides to the edge while the new one
+   enters (short08 "shrugs": the clerk's back of head stays as foreground while the fisherman lands). The move is
+   never through empty set.
+7. Landing: the new subject arrives on or just before its word, large and centred in the upper two thirds, with
+   the caption band clear of the face. The move starts roughly half its length before the word, then the push takes
+   over, which reads as a small settle. Focus is on the landing subject, never racked mid-travel.
+8. Acting covers the travel: the person being left freezes in a held pose, the person being reached starts an action
+   on landing (short14: the king's spear thrust lands as the camera does).
+9. Location change: a hard cut on the sentence onset (short08 shop -> yacht -> truck -> prize office are all
+   cuts), or a rare whip, 45-93 px/f at 720p for 7-25 f with a 2-3 f ramp and always smeared (0.45 per minute).
+   The references also use a few light washes (short03 night -> morning, short14 forge flash); the client has ruled
+   out every blended frame, so we use cuts and at most two blurred whips.
+10. Inserts (map, blueprint, ticket) are props inside the set, reached by a tilt from the people who use them,
+    not separate pictures on a desk.
+11. What ours did wrong: 31 locked pictures, each with its own cast, joined by 8-frame dissolves; the same place
+    was re-framed by cuts (crash field 5 times, fight 6 times, wall 4 times), and the opening was a paper chart.
+12. Applied in round 4: a key-track camera (kit `run()` blend with `glide`, push holds), one cast function per take
+    so every subject of the take stands in the set from its first frame, moves of 20-45 f that start about half
+    their length before the word, crane arcs over heads for the reveals, DOF keyed on the landing, no dissolves.
