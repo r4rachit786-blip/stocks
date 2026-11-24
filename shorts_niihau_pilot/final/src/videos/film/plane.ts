@@ -4,6 +4,8 @@
 // a 0.65 m wide flat head sits in it comfortably. Local axes: +x nose, +y up, +z the pilot's right (the near wing).
 import * as THREE from "three";
 import { lam } from "./build";
+import { NOINK } from "./ink";
+import { ctex } from "./paint";
 import { twoTone } from "./shade";
 import { V, rad, loft, ringX, limb, mergeNI, quadUV } from "./geo";
 import { zeroFuselage, zeroWing, zeroTail, engineFace, propBlade, glassTex } from "./paintx";
@@ -13,6 +15,12 @@ const X_TAIL = -3.8, X_FIRE = 1.45, LEN = X_FIRE - X_TAIL;
 const CK_A = 0.62, CK_B = -0.52; // cockpit opening, front and back
 const HALF = 3.6;                // half span
 
+const discTex = () => ctex("propDisc", 256, 256, (g) => {
+  g.clearRect(0, 0, 256, 256);
+  const gr = g.createRadialGradient(128, 128, 8, 128, 128, 126); gr.addColorStop(0, "rgba(60,60,70,0.55)"); gr.addColorStop(0.25, "rgba(70,70,82,0.2)"); gr.addColorStop(0.86, "rgba(90,90,104,0.24)"); gr.addColorStop(0.93, "rgba(240,200,60,0.6)"); gr.addColorStop(1, "rgba(240,200,60,0.0)");
+  g.fillStyle = gr; g.beginPath(); g.arc(128, 128, 126, 0, 7); g.fill();
+  g.fillStyle = "rgba(40,40,50,0.3)"; for (let i = 0; i < 3; i++) { g.save(); g.translate(128, 128); g.rotate((i * Math.PI * 2) / 3); g.beginPath(); g.moveTo(0, 0); g.arc(0, 0, 118, -0.32, 0.32); g.closePath(); g.fill(); g.restore(); }
+});
 const swapUV = (g: THREE.BufferGeometry) => { const uv = g.attributes.uv as THREE.BufferAttribute; for (let i = 0; i < uv.count; i++) uv.setXY(i, uv.getY(i), uv.getX(i)); return g; };
 const mesh = (g: THREE.BufferGeometry, m: THREE.Material, cast = true) => { const o = new THREE.Mesh(g, m); o.castShadow = cast; o.receiveShadow = true; return o; };
 
@@ -35,8 +43,9 @@ const foil = (secs: Sec[], us: number[], tdir: THREE.Vector3, bend?: (p: THREE.V
   return loft(rings, us, { capA: true, capB: true });
 };
 
-export function buildPlane() {
-  const G = new THREE.Group();
+/** fly: the same aircraft before the crash (straight wing, spinning prop disc, gear group "gear"), no baked pose */
+export function buildPlane(o: { fly?: boolean } = {}) {
+  const G = new THREE.Group(), fly = !!o.fly;
   G.position.set(0, PLANE_Y, 0);
   G.rotation.set(rad(PLANE_ROLL), rad(PLANE_YAW), rad(PLANE_PITCH), "YZX");
 
@@ -114,7 +123,12 @@ export function buildPlane() {
     g.rotateX(ang);
     return mesh(g, M.prop);
   };
-  G.add(blade(rad(-22), 58, 1.38), blade(rad(98), 34, 1.38), blade(rad(218), 80, 1.3));
+  if (!fly) G.add(blade(rad(-22), 58, 1.38), blade(rad(98), 34, 1.38), blade(rad(218), 80, 1.3));
+  else { // spinning: a translucent disc with a yellow tip ring, plus one ghost blade so it never reads as a plate
+    const dg = new THREE.CircleGeometry(1.5, 40); dg.rotateY(Math.PI / 2); dg.translate(2.5, 0, 0);
+    const disc = new THREE.Mesh(dg, new THREE.MeshBasicMaterial({ map: discTex(), transparent: true, depthWrite: false, side: THREE.DoubleSide, opacity: 0.9 }));
+    disc.name = "disc"; disc.layers.set(NOINK); disc.renderOrder = 3; G.add(disc);
+  }
 
   // ---- wings ----
   function chord(s: number) { const c = 1.82 - 0.86 * (s / HALF); return s > 3.15 ? c * Math.sqrt(Math.max(0.02, 1 - ((s - 3.15) / 0.46) ** 2)) : c; }
@@ -126,7 +140,7 @@ export function buildPlane() {
   }
   const hinge = V(0, -0.37 + 2.45 * Math.tan(rad(5.5)), -2.45);
   G.add(mesh(foil(secs, wu, V(0, 1, 0), (p) => { // far wing: outer panel folded up and twisted by the fence
-    if (p.z > -2.45) return;
+    if (fly || p.z > -2.45) return;
     const k = Math.min(1, (-2.45 - p.z) / 0.5), a = rad(46) * k, dz = p.z - hinge.z, dy = p.y - hinge.y;
     p.z = hinge.z + dz * Math.cos(a) + dy * Math.sin(a); p.y = hinge.y - dz * Math.sin(a) + dy * Math.cos(a) + 0.1 * k * (p.x - 0.4);
   }), M.wing));
@@ -160,12 +174,23 @@ export function buildPlane() {
   G.add(tube(h1), tube(h2), tube(h3), tube([h1[6], h2[6], h3[6]]), tube([h1[3], h2[3], h3[3]]), tube([h1[9], h2[9], h3[9]]), glassStrip(h1, h2), glassStrip(h2, h3));
   G.add(mesh(limb([V(-1.55, 0.5, 0), V(-1.62, 0.95, 0.02), V(-1.5, 1.32, 0.1)], [0.03, 0.022, 0.014], 6), M.frame)); // bent aerial mast
 
+  if (fly) { // main gear down: two legs, wheels, doors
+    const gear = new THREE.Group(); gear.name = "gear";
+    for (const z of [-1.3, 1.3]) {
+      gear.add(mesh(limb([V(0.7, -0.4, z), V(0.82, -1.3, z)], [0.055, 0.045], 7), M.metal));
+      const w = new THREE.Group(); w.add(mesh(new THREE.TorusGeometry(0.2, 0.095, 10, 20), M.tyre), mesh(new THREE.CylinderGeometry(0.13, 0.13, 0.1, 14).rotateX(Math.PI / 2), M.metal));
+      w.position.set(0.82, -1.32, z + Math.sign(z) * -0.12); gear.add(w);
+      gear.add(mesh(new THREE.BoxGeometry(0.34, 0.8, 0.03).translate(0.76, -0.85, z + Math.sign(z) * 0.1), M.wing));
+    }
+    G.add(gear);
+  } else {
   // ---- collapsed near leg folded under the wing: strut, wheel, door ----
-  G.add(mesh(limb([V(0.75, -0.42, 1.25), V(0.2, -0.56, 1.55)], [0.05, 0.045], 7), M.metal));
-  const wheel = new THREE.Group();
-  wheel.add(mesh(new THREE.TorusGeometry(0.2, 0.095, 10, 20), M.tyre), mesh(new THREE.CylinderGeometry(0.13, 0.13, 0.1, 14).rotateX(Math.PI / 2), M.metal));
-  wheel.position.set(0.12, -0.52, 1.62); wheel.rotation.set(rad(68), rad(20), 0);
-  G.add(wheel);
+    G.add(mesh(limb([V(0.75, -0.42, 1.25), V(0.2, -0.56, 1.55)], [0.05, 0.045], 7), M.metal));
+    const wheel = new THREE.Group();
+    wheel.add(mesh(new THREE.TorusGeometry(0.2, 0.095, 10, 20), M.tyre), mesh(new THREE.CylinderGeometry(0.13, 0.13, 0.1, 14).rotateX(Math.PI / 2), M.metal));
+    wheel.position.set(0.12, -0.52, 1.62); wheel.rotation.set(rad(68), rad(20), 0);
+    G.add(wheel);
+  }
 
   G.traverse((o) => { o.frustumCulled = false; });
   return G;

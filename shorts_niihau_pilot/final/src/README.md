@@ -26,3 +26,11 @@ story.ts (31 shots: frames, set, look, camera) · cast.ts (staging and acting pe
 light sources) · art2d.ts (map, chalkboard, calendar, signs, cave, pictograms, submarine, plaque, fire) · props.ts (party
 set) · set.ts / plane.ts / geo.ts / paintx.ts / paint3.ts (sets and textures) · night.ts (two-tone + point lights) ·
 toon.ts / cards.ts (characters) · kit modules unchanged: shade.ts, ink.ts, lensblur.ts, grade.ts, paint.ts, cardshade.ts, build.ts, lights.ts.
+
+## Round 4
+
+- `videos/film/story.ts`: beats table (set and look per clause) plus `TRACKS`, the key-track camera (glide + push), the flight and landing functions, whips and impact shake.
+- `videos/film/cast.ts`: one cast function per take (`hook`, `census`, `overSea`, `fieldTake`, `nightParty`, `helperTake`, `fightTake`, `privateTake`, `wallTake`, `museumTake`).
+- `videos/film/world.ts`: new `air` set (scrolling sea, far island), the flying Zero (`buildPlane({ fly: true })`), crash debris and furrow shown only after frame 320.
+- `audio/post4.py`: post without dissolves (whip smear only). `scripts/scan.py`, `scripts/strip.py`: frame scan and take strips.
+- `sound_audition/`: Openverse search (`ov.py`), licence check and download (`fetch.py`), audition page builder (`audition.py`).

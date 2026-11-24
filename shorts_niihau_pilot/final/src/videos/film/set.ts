@@ -75,8 +75,10 @@ export function buildGround(R: THREE.Object3D, M: Mats) {
   // furrow: from far behind the tail up to the nose, along the fuselage axis
   const ya = rad(PLANE_YAW), nx = Math.cos(ya), nz = -Math.sin(ya), px = -nz, pz = nx;
   const F = (t: number, w: number) => V(nx * t + px * w, 0.035, nz * t + pz * w);
-  d.add(quadUV(F(-24, 2.1), F(2.6, 2.1), F(2.6, -2.1), F(-24, -2.1), 0, 0, 1, 1, V(0, 1, 0)), decal("furrow", furrowTex()));
   d.build(R, false);
+  const d2 = new Batch(), fg = new THREE.Group(); fg.name = "furrow"; R.add(fg); // only there once the plane is down
+  d2.add(quadUV(F(-24, 2.1), F(2.6, 2.1), F(2.6, -2.1), F(-24, -2.1), 0, 0, 1, 1, V(0, 1, 0)), decal("furrow", furrowTex()));
+  d2.build(fg, false);
   return { n: V(nx, 0, nz), p: V(px, 0, pz) };
 }
 
@@ -131,7 +133,8 @@ export function stoneWall(b: Batch, M: Mats, A: [number, number], B: [number, nu
 }
 
 // ---------------- fence: posts + two rails; the Zero went through it ----------------
-export function buildFence(b: Batch, M: Mats, n: THREE.Vector3, p: THREE.Vector3) {
+/** wb takes everything the crash made (hanging rails, wreckage); gb the bays that stood in the gap before it */
+export function buildFence(b: Batch, M: Mats, n: THREE.Vector3, p: THREE.Vector3, wb: Batch = b, gb?: Batch) {
   const r = rng(5);
   // the line crosses the flight path 4.6 m behind the cockpit; bays of 2.4 m; a 6 m gap where the plane came through
   const C = V(n.x * -4.6, 0, n.z * -4.6), d = V(p.x * 0.96 + n.x * 0.28, 0, p.z * 0.96 + n.z * 0.28).normalize();
@@ -141,7 +144,7 @@ export function buildFence(b: Batch, M: Mats, n: THREE.Vector3, p: THREE.Vector3
     b.add(beamGeo(base.clone().add(V(0, -0.1, 0)), top, 0.15, 0.15, 1, U(r, -0.2, 0.2)), M.wood);
     return top;
   };
-  const rail = (a: THREE.Vector3, c: THREE.Vector3) => b.add(beamGeo(a, c, 0.13, 0.045, 1), M.wood);
+  const rail = (a: THREE.Vector3, c: THREE.Vector3, to: Batch = b) => to.add(beamGeo(a, c, 0.13, 0.045, 1), M.wood);
   for (const side of [-1, 1]) {
     let prev: THREE.Vector3 | null = null;
     for (let k = 0; k < 16; k++) {
@@ -155,14 +158,18 @@ export function buildFence(b: Batch, M: Mats, n: THREE.Vector3, p: THREE.Vector3
     }
     // the broken bay: rails still nailed to the leaning end post, snapped and hanging toward the gap
     const e = P(side * 3.0);
-    rail(e.clone().add(V(0, 0.95, 0)), e.clone().addScaledVector(d, -side * 1.5).addScaledVector(n, 0.5).add(V(0, 0.16, 0)));
-    rail(e.clone().add(V(0, 0.5, 0)), e.clone().addScaledVector(d, -side * 1.2).addScaledVector(n, 0.9).add(V(0, 0.05, 0)));
+    rail(e.clone().add(V(0, 0.95, 0)), e.clone().addScaledVector(d, -side * 1.5).addScaledVector(n, 0.5).add(V(0, 0.16, 0)), wb);
+    rail(e.clone().add(V(0, 0.5, 0)), e.clone().addScaledVector(d, -side * 1.2).addScaledVector(n, 0.9).add(V(0, 0.05, 0)), wb);
   }
   // wreckage dragged along with the plane: posts and rails on the ground, one rail over the near wing, splinters
   const lay = (x: number, z: number, len: number, yaw: number, y = 0.05, pitch = 0, w = 0.13, h = 0.045) => {
     const dir = V(Math.cos(yaw) * Math.cos(pitch), Math.sin(pitch), Math.sin(yaw) * Math.cos(pitch)), a = V(x, y, z);
-    b.add(beamGeo(a, a.clone().addScaledVector(dir, len), w, h, 1, U(r, -0.3, 0.3)), M.wood);
+    wb.add(beamGeo(a, a.clone().addScaledVector(dir, len), w, h, 1, U(r, -0.3, 0.3)), M.wood);
   };
+  if (gb) { // the intact bays across the gap
+    for (const s of [-0.6, 1.8]) gb.add(beamGeo(P(s, -0.1), P(s, 1.3), 0.15, 0.15, 1, 0.1), M.wood);
+    for (const hgt of [0.52, 0.98]) for (const [a, c] of [[-3, -0.6], [-0.6, 1.8], [1.8, 3]]) gb.add(beamGeo(P(a - 0.1, hgt), P(c + 0.1, hgt), 0.13, 0.045, 1), M.wood);
+  }
   lay(-1.9, 3.3, 2.3, 0.5, 0.07); lay(0.6, 4.3, 1.9, -0.35, 0.05); lay(2.5, 3.6, 2.1, 2.2, 0.06);
   lay(-0.4, 2.4, 2.4, 0.9, 0.2, 0.42);                      // rail propped on the near wing
   lay(3.3, 1.9, 1.5, 1.2, 0.05, 0.75, 0.15, 0.15);          // post speared into the earth by the nose
@@ -318,3 +325,9 @@ export function buildWindmill(R: THREE.Object3D, M: Mats, x: number, z: number) 
   R.add(G);
 }
 export const spinWindmill = (f: number) => { if (FAN) { FAN.rotation.x = f * 0.085; FAN.updateMatrixWorld(true); } };
+
+/** a point on the fence line: s metres from where the plane crossed it (toward the lens = positive) */
+export const fenceP = (s: number, y = 0): [number, number, number] => {
+  const ya = rad(PLANE_YAW), nx = Math.cos(ya), nz = -Math.sin(ya), px = -nz, pz = nx, dl = Math.hypot(px * 0.96 + nx * 0.28, pz * 0.96 + nz * 0.28);
+  return [nx * -4.6 + ((px * 0.96 + nx * 0.28) / dl) * s, y, nz * -4.6 + ((pz * 0.96 + nz * 0.28) / dl) * s];
+};

@@ -1,0 +1,60 @@
+{
+ "music": [
+  {
+   "block": "day",
+   "title": "Sneaky Snitch",
+   "artist": "Kevin MacLeod",
+   "source": "https://incompetech.com",
+   "licence": "CC BY 4.0",
+   "attribution": "\"Sneaky Snitch\" Kevin MacLeod (incompetech.com). Licensed under Creative Commons: By Attribution 4.0 License. http://creativecommons.org/licenses/by/4.0/"
+  },
+  {
+   "block": "day",
+   "title": "Scheming Weasel (faster version)",
+   "artist": "Kevin MacLeod",
+   "source": "https://incompetech.com",
+   "licence": "CC BY 4.0",
+   "attribution": "\"Scheming Weasel (faster version)\" Kevin MacLeod (incompetech.com). Licensed under Creative Commons: By Attribution 4.0 License. http://creativecommons.org/licenses/by/4.0/"
+  },
+  {
+   "block": "day",
+   "title": "Monkeys Spinning Monkeys",
+   "artist": "Kevin MacLeod",
+   "source": "https://incompetech.com",
+   "licence": "CC BY 4.0",
+   "attribution": "\"Monkeys Spinning Monkeys\" Kevin MacLeod (incompetech.com). Licensed under Creative Commons: By Attribution 4.0 License. http://creativecommons.org/licenses/by/4.0/"
+  },
+  {
+   "block": "day",
+   "title": "Sneaky Adventure",
+   "artist": "Kevin MacLeod",
+   "source": "https://incompetech.com",
+   "licence": "CC BY 4.0",
+   "attribution": "\"Sneaky Adventure\" Kevin MacLeod (incompetech.com). Licensed under Creative Commons: By Attribution 4.0 License. http://creativecommons.org/licenses/by/4.0/"
+  },
+  {
+   "block": "night",
+   "title": "Hidden Agenda",
+   "artist": "Kevin MacLeod",
+   "source": "https://incompetech.com",
+   "licence": "CC BY 4.0",
+   "attribution": "\"Hidden Agenda\" Kevin MacLeod (incompetech.com). Licensed under Creative Commons: By Attribution 4.0 License. http://creativecommons.org/licenses/by/4.0/"
+  },
+  {
+   "block": "night",
+   "title": "Investigations",
+   "artist": "Kevin MacLeod",
+   "source": "https://incompetech.com",
+   "licence": "CC BY 4.0",
+   "attribution": "\"Investigations\" Kevin MacLeod (incompetech.com). Licensed under Creative Commons: By Attribution 4.0 License. http://creativecommons.org/licenses/by/4.0/"
+  },
+  {
+   "block": "night",
+   "title": "Marty Gots a Plan",
+   "artist": "Kevin MacLeod",
+   "source": "https://incompetech.com",
+   "licence": "CC BY 4.0",
+   "attribution": "\"Marty Gots a Plan\" Kevin MacLeod (incompetech.com). Licensed under Creative Commons: By Attribution 4.0 License. http://creativecommons.org/licenses/by/4.0/"
+  }
+ ]
+}

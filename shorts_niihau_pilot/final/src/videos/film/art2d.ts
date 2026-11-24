@@ -267,3 +267,89 @@ export const noticeCard = (p: Pen) => {
   text(p, "Send word", 260, 430, 46, "#2f4f93"); text(p, "by the boat", 260, 494, 46, "#2f4f93");
   p.g.restore();
 };
+
+// ================= round 4: the new opening (Pearl Harbor hook, the flight) and the PRIVATE sign =================
+/** thought bubble, 900 x 820: the briefing as he remembers it. A pointer on a tiny island; st 1 adds the EMPTY stamp */
+export const thought = (p: Pen, st: number) => {
+  const g = p.g;
+  for (const [x, y, r] of [[800, 770, 22], [735, 700, 34]]) { g.beginPath(); g.arc(x, y, r, 0, 7); g.fillStyle = "#fffdf6"; g.fill(); g.lineWidth = 9; g.strokeStyle = INK; g.stroke(); }
+  const lobes: [number, number, number][] = [[230, 200, 150], [430, 150, 140], [640, 200, 150], [720, 360, 140], [640, 500, 140], [430, 540, 140], [230, 500, 140], [150, 350, 130], [440, 350, 240]];
+  g.fillStyle = INK; g.beginPath(); for (const [x, y, r] of lobes) { g.moveTo(x + r + 10, y); g.arc(x, y, r + 10, 0, 7); } g.fill();
+  g.fillStyle = "#fffdf6"; g.beginPath(); for (const [x, y, r] of lobes) { g.moveTo(x + r, y); g.arc(x, y, r, 0, 7); } g.fill();
+  // the chart inside: sea, the island, the pointer
+  rrect(p, 190, 150, 500, 400, 26, "#bfe0ee", 9);
+  g.save(); g.beginPath(); g.rect(196, 156, 488, 388); g.clip();
+  g.strokeStyle = "rgba(60,120,160,0.4)"; g.lineWidth = 5; for (let i = 0; i < 14; i++) { const x = 215 + ((i * 173) % 440), y = 180 + ((i * 97) % 340); g.beginPath(); g.arc(x, y, 13, Math.PI, 0); g.arc(x + 26, y, 13, Math.PI, 0); g.stroke(); }
+  blob(p, [[360, 300], [450, 270], [510, 320], [500, 420], [420, 450], [350, 400]], "#cdd68f", 9);
+  p.stroke([[392, 372], [402, 350], [414, 372]], 6, "#7d8a4a"); p.stroke([[440, 352], [452, 326], [466, 352]], 6, "#7d8a4a");
+  g.strokeStyle = "#c2352c"; g.lineWidth = 9; g.setLineDash([22, 16]); g.beginPath(); g.moveTo(690, 190); g.quadraticCurveTo(600, 230, 500, 310); g.stroke(); g.setLineDash([]);
+  g.restore();
+  text(p, "NIIHAU", 440, 500, 50, "#7a2a22");
+  // the officer's pointer and cuff coming in from the lower left
+  g.lineCap = "round"; g.strokeStyle = INK; g.lineWidth = 26; g.beginPath(); g.moveTo(150, 640); g.lineTo(418, 372); g.stroke();
+  g.strokeStyle = "#b9824a"; g.lineWidth = 14; g.beginPath(); g.moveTo(150, 640); g.lineTo(418, 372); g.stroke();
+  blob(p, [[60, 640], [150, 590], [200, 650], [150, 730], [70, 720]], "#f4efe4", 9); rrect(p, 20, 660, 110, 110, 14, "#2d3a5c", 9);
+  if (st >= 1) { g.save(); g.translate(470, 250); g.rotate(-0.2); g.strokeStyle = "#c2352c"; g.lineWidth = 13; g.fillStyle = "rgba(255,253,246,0.82)"; g.fillRect(-170, -58, 340, 116); g.strokeRect(-170, -58, 340, 116); text(p, "EMPTY", 0, 6, 88, "#c2352c"); g.restore(); }
+};
+/** the harbour from the air, 1600 x 1600, laid flat: shore, the loch, the island in the middle, piers, oil on the water */
+export const harbour = (p: Pen) => {
+  const g = p.g;
+  g.fillStyle = "#3f8fc6"; g.fillRect(0, 0, 1600, 1600);
+  blob(p, [[-80, -80], [1680, -80], [1680, 420], [1300, 360], [1000, 250], [600, 300], [250, 420], [-80, 380]], "#a9c27c", 12);        // far shore
+  blob(p, [[-80, 520], [180, 560], [330, 800], [300, 1150], [120, 1420], [-80, 1500]], "#b5c886", 12);                              // left shore
+  blob(p, [[1680, 560], [1420, 640], [1330, 900], [1400, 1250], [1680, 1400]], "#b5c886", 12);                                       // right shore
+  blob(p, [[620, 640], [900, 590], [1090, 690], [1110, 900], [960, 1040], [700, 1020], [560, 860]], "#c3cf94", 12);                  // the island
+  g.fillStyle = "#d8cfa8"; g.save(); g.translate(830, 820); g.rotate(-0.25); g.fillRect(-190, -26, 380, 52); g.strokeStyle = INK; g.lineWidth = 6; g.strokeRect(-190, -26, 380, 52); g.restore(); // airstrip
+  for (let i = 0; i < 6; i++) rrect(p, 660 + i * 62, 930 - i * 14, 44, 30, 4, i % 2 ? "#c9b98a" : "#e6dcc0", 5);                      // hangars
+  for (const [x, y, w, h] of [[340, 620, 26, 150], [420, 1180, 150, 26], [1280, 760, 120, 24], [1180, 1160, 24, 140], [250, 980, 120, 24]]) rrect(p, x, y, w, h, 4, "#8a6a48", 5); // piers
+  for (const [x, y, rx, ry] of [[1130, 1010, 150, 60], [980, 1150, 190, 70], [760, 1130, 150, 54], [1210, 860, 90, 44]]) { g.fillStyle = "rgba(34,40,66,0.42)"; g.beginPath(); g.ellipse(x, y, rx, ry, -0.3, 0, 7); g.fill(); } // oil
+  for (let i = 0; i < 40; i++) { const x = (i * 397) % 1600, y = (i * 211) % 1600; g.strokeStyle = "rgba(240,250,255,0.5)"; g.lineWidth = 4; g.beginPath(); g.moveTo(x, y); g.lineTo(x + 24, y - 3); g.stroke(); }
+  for (let i = 0; i < 22; i++) { const x = 60 + ((i * 331) % 1500), y = 20 + ((i * 97) % 300); g.fillStyle = i % 3 ? "#7fa860" : "#93b56e"; g.beginPath(); g.arc(x, y, 16 + (i % 4) * 6, 0, 7); g.fill(); }
+};
+/** grey battleship from the side, 1200 x 440 (water line at y = 400). v 1: down by the bow, listing */
+export const battleship = (p: Pen, v: number) => {
+  const g = p.g;
+  g.save(); if (v === 1) { g.translate(600, 400); g.rotate(0.07); g.translate(-600, -372); }
+  blob(p, [[20, 300], [120, 396], [1080, 396], [1180, 300], [1100, 286], [100, 286]], "#8f98a8", 10);
+  g.fillStyle = "#6f7888"; g.fillRect(110, 350, 980, 40);
+  rrect(p, 420, 200, 330, 90, 8, "#a3acbb", 9); rrect(p, 480, 130, 190, 74, 8, "#a3acbb", 9); rrect(p, 520, 76, 90, 58, 6, "#b3bcc9", 8);
+  rrect(p, 690, 120, 70, 170, 10, "#7d8696", 9);                                                         // funnel
+  p.stroke([[565, 76], [565, 10]], 9); p.stroke([[530, 34], [600, 34]], 7); p.stroke([[850, 286], [850, 90]], 9); p.stroke([[820, 130], [880, 130]], 7); // masts
+  for (const [x, d] of [[250, 1], [350, 1], [860, -1], [960, -1]] as const) { rrect(p, x - 44, 236 - (x === 350 || x === 860 ? 34 : 0), 88, 52, 12, "#9aa3b3", 8); p.stroke([[x + d * 40, 258 - (x === 350 || x === 860 ? 34 : 0)], [x + d * 120, 244 - (x === 350 || x === 860 ? 34 : 0)]], 10); }
+  for (let i = 0; i < 9; i++) p.dot(180 + i * 105, 322, 6, "#4f5868");
+  g.restore();
+  g.fillStyle = "rgba(240,250,255,0.9)"; g.beginPath(); g.ellipse(600, 404, 590, 16, 0, 0, 7); g.fill();
+};
+/** a far aircraft in the raid, 300 x 200, dark shape with the red disc. v 0 from the side, 1 banking (top view) */
+export const farPlane = (p: Pen, v: number) => {
+  if (v === 0) { blob(p, [[20, 100], [70, 84], [230, 88], [280, 104], [230, 118], [70, 116]], "#6f7f6a", 7); blob(p, [[30, 96], [20, 50], [64, 88]], "#6f7f6a", 6); blob(p, [[110, 104], [150, 150], [200, 106]], "#5d6c58", 6); p.dot(120, 100, 10, "#c8342c"); p.ell(170, 82, 26, 12, "#bfe0ee", 5); }
+  else { blob(p, [[130, 20], [170, 20], [176, 180], [124, 180]], "#6f7f6a", 7); blob(p, [[10, 96], [150, 66], [290, 96], [290, 122], [150, 112], [10, 122]], "#6f7f6a", 7); blob(p, [[100, 160], [150, 150], [200, 160], [200, 180], [100, 180]], "#6f7f6a", 6); p.dot(50, 106, 12, "#c8342c"); p.dot(250, 106, 12, "#c8342c"); }
+};
+/** tracer round, 300 x 40 */
+export const tracer = (p: Pen) => { const g = p.g, gr = g.createLinearGradient(0, 0, 300, 0); gr.addColorStop(0, "rgba(255,210,80,0)"); gr.addColorStop(0.7, "rgba(255,226,110,1)"); gr.addColorStop(1, "rgba(255,255,240,1)"); g.strokeStyle = gr; g.lineWidth = 14; g.lineCap = "round"; g.beginPath(); g.moveTo(14, 20); g.lineTo(284, 20); g.stroke(); };
+/** one bullet hole, 120 x 120: torn dark hole, bright bent rim */
+export const hole = (p: Pen) => { const pts: [number, number][] = []; for (let i = 0; i < 9; i++) { const a = (i / 9) * Math.PI * 2, r = i % 2 ? 46 : 30; pts.push([60 + r * Math.cos(a), 60 + r * Math.sin(a)]); } p.poly(pts, "#d9dde2", 7); p.dot(60, 60, 22, "#1a1420"); };
+/** fuel / vapour puff, 200 x 200, soft */
+export const vapour = (p: Pen, col = "255,248,225") => { const g = p.g, gr = g.createRadialGradient(100, 100, 6, 100, 100, 96); gr.addColorStop(0, `rgba(${col},0.95)`); gr.addColorStop(0.5, `rgba(${col},0.55)`); gr.addColorStop(1, `rgba(${col},0)`); g.fillStyle = gr; g.fillRect(0, 0, 200, 200); };
+/** soft white cloud, 600 x 400 */
+export const cloudPuff = (p: Pen) => { const g = p.g; for (const [x, y, r] of [[190, 215, 100], [300, 185, 120], [410, 215, 105], [300, 235, 125], [130, 240, 75], [480, 245, 75]]) { const gr = g.createRadialGradient(x, y, r * 0.2, x, y, r); gr.addColorStop(0, "rgba(255,255,255,0.95)"); gr.addColorStop(1, "rgba(255,255,255,0)"); g.fillStyle = gr; g.fillRect(x - r, y - r, 2 * r, 2 * r); } };
+/** the submarine seen from the air, 1200 x 360, laid flat on the sea: dark hull awash, conning tower, foam */
+export const subTop = (p: Pen) => {
+  const g = p.g;
+  g.fillStyle = "rgba(235,248,255,0.55)"; g.beginPath(); g.ellipse(600, 180, 590, 150, 0, 0, 7); g.fill();
+  g.fillStyle = "rgba(24,70,120,0.55)"; g.beginPath(); g.ellipse(600, 180, 540, 110, 0, 0, 7); g.fill();
+  blob(p, [[60, 180], [260, 128], [900, 124], [1140, 180], [900, 236], [260, 232]], "#39445f", 11);
+  p.stroke([[150, 180], [1060, 180]], 6, "#566289"); rrect(p, 520, 140, 190, 80, 30, "#2b3550", 10); p.dot(590, 180, 16, "#566289"); p.stroke([[420, 150], [420, 210]], 7, "#566289"); p.stroke([[800, 150], [800, 210]], 7, "#566289");
+};
+/** the sign on the ranch fence, 700 x 760: weathered board, hand-painted */
+export const privateSign = (p: Pen) => {
+  const g = p.g;
+  rrect(p, 300, 380, 100, 380, 8, "#8a5f3a", 10);
+  g.save(); g.translate(350, 230); g.rotate(-0.04);
+  rrect(p, -320, -190, 640, 380, 16, "#efe6cf", 13); g.strokeStyle = "rgba(120,96,60,0.35)"; g.lineWidth = 4; for (const y of [-64, 62]) { g.beginPath(); g.moveTo(-312, y); g.lineTo(312, y + 6); g.stroke(); }
+  text(p, "PRIVATE", 0, -62, 132, "#b2271f"); text(p, "ISLAND", 0, 52, 92, "#2a2440"); text(p, "no visitors", 0, 138, 54, "#2a2440");
+  for (const [x, y] of [[-290, -160], [290, -160], [-290, 160], [290, 160]]) p.dot(x, y, 9, "#5a4a3a");
+  g.restore();
+};
+/** water column from a near miss, 300 x 600 */
+export const splash = (p: Pen) => { blob(p, [[150, 20], [200, 200], [250, 420], [290, 590], [10, 590], [50, 420], [100, 200]], "#f4fbff", 9); p.stroke([[150, 120], [150, 520]], 8, "#bcd9ea"); p.stroke([[100, 300], [90, 560]], 6, "#bcd9ea"); p.stroke([[205, 300], [215, 560]], 6, "#bcd9ea"); };

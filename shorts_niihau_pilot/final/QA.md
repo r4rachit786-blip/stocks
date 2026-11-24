@@ -90,3 +90,49 @@ per-look brightness targets were not re-measured.
 Checks on this final: frame scan black 0, white 0, frozen 0; jumps off cuts are the same six intended ones. Loudness -13.9 LUFS, peak -1.9 dBFS.
 Full-size (1080x1920) frames looked at from the final mp4: f325 (shot 5), f389 (shot 6), f1590 (shot 26), f1650 (shot 27); shots 7 and 13 were checked on the reduced strip only.
 Side effect to know: removing the eave lanterns changes the lanai set, but the party shots were not re-rendered, so those shots still show them.
+
+## Review round 4 (continuous takes, no dissolves, new opening, sound audition)
+
+**File.** niihau_pilot_short.mp4, 1080x1920, 30 fps, 1935 frames, 64.5 s, H.264 crf 23 preset slow, +faststart, 49.1 MB.
+crf 20 as asked came out at 69.6 MB, over the 50 MB aim, so the size limit won; crf 20 can be re-encoded in a minute.
+
+**Sound in this file is the narration only** (-18.7 LUFS integrated, peak -1.0 dBFS: the voice stem at its old level).
+The synthesized music and effects are removed. The new mix is not built: the client picks accents and music by ear
+from `audition/index.html` first. So the -14 LUFS / -2 dB target is open until then.
+
+**Picture.**
+- No dissolves. `src/audio/post4.py` links every rendered frame unchanged; the only frames it rewrites are the 20
+  whip-pan frames (736-745, 769-778), which get a horizontal smear of 14-130 px.
+- Frame scan (`qa_scan_r4.json`, all 1935 frames after post): black 0, white 0, blend suspects 0 (test: a frame equal
+  to the mean of its neighbours while the neighbours differ strongly). Frozen: 1 (frame 84 repeats 83, the first
+  frame of the crane dive).
+- Takes: 19, of which 9 have travel inside them (see SCRIPT.md). Strips of every travelling take are in `strips/`
+  and were looked at: both subjects stay in frame through each move except where noted below.
+- Captions: same timings. Two captions ("empty", "island", 1.96-2.86 s) were raised to y 1165 so they sit between the
+  thought bubble and the pilot's goggles instead of on his face. Checked on `sheets/captions_check.jpg`.
+- Staging check: Zero with red discs on wings and fuselage and the two blue fuselage bands; the harbour is a daylight
+  scene; no named people; no casualties, no blood; ships burn and smoke, nothing more. Island scenes: no electric
+  light added (nothing changed in the night sets).
+
+**Deviations and weak points.**
+- Goggles are up on the brow, not down: with them down the eyes, which carry the acting, would be hidden.
+- His own gunfire in the hook (tracers and muzzle flashes of the cowl guns) is off the right edge of the frame at
+  this framing; the strafing reads from the dive, the flak and the other aircraft only.
+- The harbour is a painted ground card with upright ship cards; the ships are the same two drawings.
+- Wall take (1543-1641): four pictures in 99 frames forces about 35-42 px/frame of lateral travel, above the
+  29 px/frame guide. The crane moves (84-124, 513-557) and the landing zoom are also faster than a normal glide.
+- Landing: the dust is modest; the pilot's leap out of the cockpit (358-372) is a cartoon hop of 5.6 m.
+- The wide of the fight (1104-1187) and the last crane of the crash field look over the low stone wall in the
+  foreground, as the old shots did.
+- Museum: the banner is notched by the light cone at the first frame.
+- Not measured this round: per-move peak speed in px/frame from the rendered frames (strips were judged by eye).
+- No independent reviewer watched the film in motion; review was on stills and strips.
+
+**Sound pipeline status (client's video-sfx-pipeline skill).**
+- Openverse: reachable now. 39 CC0 recordings fetched after confirming the licence on each source page. One
+  candidate labelled CC0 by Openverse was CC BY on its source page and was rejected (EXT_Rocks_Impact_Short).
+- Real SFX (Clipwing): cloned, `setup.py check` passes, uisfx bundle initialised. Not used yet: placement waits for
+  the picks.
+- earshot: installed with the listening models; used to rank the audition options per cue (shown on the page).
+  The mix critique waits for the mix.
+- Mixkit files downloaded earlier in this round are not used anywhere and are not in the repo.

@@ -1,7 +1,27 @@
 # Credits
 
+## Lines to paste into the video description
+
+None yet. The film currently carries the narration only. When the client has picked the music from
+`audition/index.html`, the line for each chosen Kevin MacLeod track goes here, in this form:
+
+> "TRACK TITLE" Kevin MacLeod (incompetech.com). Licensed under Creative Commons: By Attribution 4.0 License. http://creativecommons.org/licenses/by/4.0/
+
+Sound effects are CC0 and need no credit line.
+
+## Round 4 status
+
+- **Voice:** unchanged (free Edge TTS, `en-GB-RyanNeural`, +28 %).
+- **Music and effects:** the synthesized music and effects of rounds 1-3 are removed from the film. Candidates for
+  the new mix are in `audition/`: 26 real-recording accent options (7 cues) and 13 bed recordings, all CC0, found
+  through Openverse with the licence confirmed on each freesound.org page, logged in `audition/LICENSES.csv` and
+  `audition/sfx_log.json`; 7 Kevin MacLeod tracks (CC BY 4.0, incompetech.com) logged in `audition/music_log.json`.
+- Nothing from a paid or credit-based service. No vidIQ.
+
+## Rounds 1-3 (superseded sound, kept for the record)
+
 - **Story, script, design, animation:** original for this film; rendered with three.js inside Remotion on the "cartoon-3d-short" kit (MIT).
-- **Voice:** Microsoft Edge online text-to-speech, voice `en-GB-RyanNeural`, rate +28 %, via the free `edge-tts` Python package (no paid service). Chosen by measurement from three candidates: Ryan f0 median 128 Hz, spread 12.3 semitones; Andrew (US) 118 Hz, 10.5; Brian (US) 122 Hz, 7.4. Check Microsoft's terms for the Edge read-aloud voices before commercial publication.
+- **Voice:** Microsoft Edge online text-to-speech, voice `en-GB-RyanNeural`, rate +28 %, via the free `edge-tts` Python package (no paid service).
 - **Music:** original, generated from code for this film (`src/audio/audio.py`): plucked-string "ukulele" pattern (C, Am, F, G) for the day, marimba pulse in A minor with a drone for the night, marimba in F for the explanation, ukulele reprise and final chord. No samples, no third-party recordings.
 - **Sound effects:** all synthesized from code in the same file (noise and sine models). No third-party recordings, so there are no licences to log.
 

@@ -20,3 +20,9 @@
 - fix5 merged into all/
 - round 3 final encoded, scan + sheets done. Next: full-size look at 6 frames, QA.md, src copy, handback.
 - DONE round 3: final mp4 re-encoded, sheets + QA.md updated, src copied.
+- round 4 (client: camera travel between subjects in one take, no dissolves): starting
+- round 4: STUDY.md section 'Camera travel between subjects' written (12 points). New brief folded in: A new opening (Pearl Harbor hook, flight, landing), B real-recording sound, C takes.
+- round 4: story/cast/world/plane/art rewritten for takes + new opening; test stills a,b,c ok (hook, dive, sea flight, landing). Sound: incompetech music + 56 mixkit files downloaded to /tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd (index mk_index.json).
+- round 4: full render running (out/film/r4, go.sh; chunks .ok). Sound plan changed by coordinator: Openverse CC0/PDM only for sfx, audition page in final/audition, no final mix until client picks. Openverse picks fetched into /tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib (sfx_log.json, LICENSES.csv); Real SFX + earshot installed in /tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/tools.
+- round 4: audition page built in final/audition (index.html, sfx/, music/, LICENSES.csv, sfx_log.json, music_log.json). Sound paused until client picks.
+- round 4: picture done and delivered (crf 23, 49.1 MB, voice-only audio). Docs updated (SCRIPT take list, QA round 4, CREDITS). Waiting on client sound picks (audition/index.html) to build the mix: then fetch remaining beds (fire, sea, sheep, insects, wind, room tone, torch) from Openverse CC0, place with Real SFX from_cues, earshot critique, -14 LUFS.

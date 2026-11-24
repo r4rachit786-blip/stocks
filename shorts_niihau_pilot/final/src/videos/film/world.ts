@@ -9,7 +9,7 @@ import { TONE, CHAR, untone } from "./shade";
 import { NOINK } from "./ink";
 import { Pool, Actor, Fx } from "./cards";
 import { stage } from "./cast";
-import { camAt, inShot, MOON, HOUSE, LookName, SetName, TABLE } from "./story";
+import { camAt, inShot, MOON, HOUSE, LookName, SetName, TABLE, flyAt, wreckAt, altAt, flownAt, fireK, CRASH, NX, NZ } from "./story";
 import { V, rng, quadUV, limb, rock } from "./geo";
 import { islandTex, dryGroundHD } from "./paintx";
 import { seaNight, glitterTex, starsTex, flameTex, grainWood, windowGlow } from "./paint3";
@@ -31,6 +31,8 @@ export const LOOKS: Record<LookName, Look> = {
   night: { lit: [0.26, 0.34, 0.92], shade: [0.095, 0.125, 0.47], lift: [0.018, 0.022, 0.09], sat: 0.5, ptK: 1, sky: ["#8a84e2", "#5d68d8", "#3848bc", "#252f98", "#161c6a"], e: [0, 2.5, 8, 18, 45], fog: "#5a62cc", fogNear: 16, fogFar: 190, az: 0, el: 0, night: true, cloud: 1, sea: [0.62, 0.62, 0.7], vig: 0.3 },
   // warm high key for the "you see" block
   high: { lit: [1.75, 1.6, 1.3], shade: [0.62, 0.52, 0.46], lift: [0.08, 0.07, 0.07], sat: 1.0, ptK: 0, sky: ["#fde9c4", "#f6dfb8", "#d9d8d0", "#a9c6e4", "#7aa6da"], e: [0, 3, 9, 20, 45], fog: "#f6dfb8", fogNear: 30, fogFar: 260, az: -60, el: 52, night: false, cloud: 1.15, sea: [1.2, 1.3, 1.5], vig: 0.16 },
+  // in the air: the day look with the haze pushed out to the horizon
+  air: { lit: [1.58, 1.5, 1.33], shade: [0.34, 0.33, 0.42], lift: [0.05, 0.06, 0.11], sat: 1.08, ptK: 0, sky: ["#c6daf0", "#9cbfea", "#6a9fe0", "#4f8cdb", "#3373cc"], e: [0, 1.6, 4.5, 9, 22], fog: "#c0d6ee", fogNear: 260, fogFar: 1500, az: -100, el: 40, night: false, cloud: 1.1, sea: [1, 1, 1], vig: 0.22 },
   museum: { lit: [1.2, 1.12, 1.0], shade: [0.42, 0.4, 0.5], lift: [0.05, 0.05, 0.08], sat: 0.95, ptK: 0.8, sky: ["#2a2440", "#2a2440", "#2a2440", "#2a2440", "#2a2440"], e: [0, 3, 9, 20, 45], fog: "#2a2440", fogNear: 60, fogFar: 400, az: -40, el: 70, night: false, cloud: 0, sea: [1, 1, 1], vig: 0.3 },
 };
 const moonTex = () => ctex("moonN", 256, 256, (g) => {
@@ -40,6 +42,13 @@ const moonTex = () => ctex("moonN", 256, 256, (g) => {
   g.fillStyle = "rgba(170,184,236,0.5)"; for (const [x, y, r] of [[90, 100, 26], [160, 84, 16], [150, 160, 30], [84, 168, 14], [188, 132, 12]]) { g.beginPath(); g.arc(x, y, r, 0, 7); g.fill(); }
 });
 const coneTex = () => ctex("coneN", 64, 256, (g) => { const gr = g.createLinearGradient(0, 0, 0, 256); gr.addColorStop(0, "rgba(255,255,255,0.9)"); gr.addColorStop(1, "rgba(255,255,255,0.15)"); g.fillStyle = gr; g.fillRect(0, 0, 64, 256); const m = g.createLinearGradient(0, 0, 64, 0); m.addColorStop(0, "rgba(0,0,0,0)"); m.addColorStop(0.5, "rgba(0,0,0,1)"); m.addColorStop(1, "rgba(0,0,0,0)"); g.globalCompositeOperation = "destination-in"; g.fillStyle = m; g.fillRect(0, 0, 64, 256); });
+/** open sea seen from the air: tiling blue with soft swell bands and small white caps */
+const seaDay = () => ctex("seaDayAir", 512, 512, (g, r) => {
+  g.fillStyle = "#2f7fc4"; g.fillRect(0, 0, 512, 512);
+  for (let i = 0; i < 26; i++) { const y = r() * 512, h = 10 + r() * 26; g.fillStyle = `rgba(${r() < 0.5 ? "20,84,150" : "86,160,214"},${0.1 + 0.14 * r()})`; for (const dy of [-512, 0, 512]) { g.beginPath(); g.ellipse(r() * 512, y + dy, 150 + r() * 160, h, 0, 0, 7); g.fill(); } }
+  g.strokeStyle = "rgba(240,250,255,0.75)"; g.lineCap = "round";
+  for (let i = 0; i < 46; i++) { const x = r() * 512, y = r() * 512, w = 8 + r() * 22; g.lineWidth = 2 + r() * 2.5; for (const [dx, dy] of [[0, 0], [-512, 0], [512, 0], [0, -512], [0, 512]]) { g.beginPath(); g.moveTo(x + dx - w, y + dy); g.quadraticCurveTo(x + dx, y + dy - 5, x + dx + w, y + dy + 1); g.stroke(); } }
+});
 const checker = () => ctex("museumFloor", 512, 512, (g) => { for (let i = 0; i < 4; i++) for (let j = 0; j < 4; j++) { g.fillStyle = (i + j) % 2 ? "#d9d2c0" : "#8a93a8"; g.fillRect(i * 128, j * 128, 128, 128); g.strokeStyle = "rgba(40,36,60,0.35)"; g.lineWidth = 3; g.strokeRect(i * 128, j * 128, 128, 128); } });
 
 export class World {
@@ -58,6 +67,9 @@ export class World {
   private lamps: THREE.Object3D[] = []; private curt: THREE.Object3D[] = [];
   private sea!: THREE.MeshBasicMaterial; private glitter!: THREE.Mesh;
   private fireF: THREE.PointLight; private fireL: THREE.PointLight; private fireHF: THREE.Sprite; private fireHL: THREE.Sprite;
+  private wreck!: THREE.Group; private flyP!: THREE.Group; private gear!: THREE.Object3D; private disc!: THREE.Object3D;
+  private crashG = new THREE.Group(); private preG = new THREE.Group(); private furrow!: THREE.Object3D;
+  private airSea!: THREE.Mesh; private airG!: THREE.Group;
   private frustum = new THREE.Frustum();
   private m4 = new THREE.Matrix4(); private v = new THREE.Vector3(); private sph = new THREE.Sphere();
 
@@ -98,17 +110,19 @@ export class World {
     // ================= FIELD (v2 crash site) =================
     {
       const G = group("field"), { n, p } = buildGround(G, M), b = new Batch();
-      buildEarth(b, M, n, p); buildRocks(b, M);
+      const cb = new Batch(), gb = new Batch();
+      buildEarth(cb, M, n, p); buildRocks(b, M);
       stoneWall(b, M, [-5.6, 12.15], [4.6, 11.2], 0.92, 3, { tumble: 9 });
-      stoneWall(b, M, [2.25, 8.4], [2.75, 10.9], 1.25, 17, { big: 1.15, tumble: 3 }); // the wall the pilot meets
+      stoneWall(b, M, [2.32, 9.0], [2.75, 10.9], 1.25, 17, { big: 1.15, tumble: 3 }); // the wall the pilot meets
       stoneWall(b, M, [-34, -24], [-3.5, -27.5], 1.0, 7, { big: 1.45, tumble: 6 });
       stoneWall(b, M, [2.5, -28], [40, -33], 1.0, 9, { big: 1.45, tumble: 6 });
-      buildFence(b, M, n, p);
+      buildFence(b, M, n, p, cb, gb);
+      G.add(this.crashG, this.preG); cb.build(this.crashG); gb.build(this.preG); this.furrow = G.getObjectByName("furrow")!;
       palm(b, M, -12.2, -38, 8.6, [1.5, 0.6], 21); palm(b, M, -14.6, -44, 7.4, [-1.3, 0.3], 22); palm(b, M, 7.4, -36, 8.4, [-1.6, 0.8], 23); palm(b, M, 10.6, -41, 7.2, [1.3, 0.2], 24); palm(b, M, -1.5, -64, 8.2, [0.9, 0], 25);
       kiawe(b, M, -17, -30, 1.0, 32); kiawe(b, M, 14.5, -55, 1.5, 33);
       b.build(G);
       buildHouse(G, M, -5.2, -43, 0.2); buildWindmill(G, M, 5.6, -50);
-      G.add(buildPlane());
+      this.wreck = buildPlane(); G.add(this.wreck);
       const tr = rng(55), tufts: [number, number, number][] = [];
       for (let i = 0; i < 46; i++) { const t = tr(); tufts.push([-5.6 + 10.2 * t + (tr() - 0.5) * 0.3, 12.15 - 0.95 * t + (tr() < 0.5 ? 0.42 : -0.42), 0.3 + tr() * 0.34]); }
       for (let i = 0; i < 40; i++) tufts.push([(tr() - 0.5) * 9, 12.6 + tr() * 2.6, 0.3 + tr() * 0.35]);
@@ -193,6 +207,17 @@ export class World {
       this.src.push({ light: pl, base: 7, seed: 95, flame: undefined, halo: halo(G, V(0.3, 0.45, 1.05), 1.7, "#ffd9a0", 0.7),
         pool: [patch(G, poolTex(), V(-1.6, 0.03, 2.6), V(2.2, 0.03, 2.6), V(2.2, 0.03, -0.6), V(-1.6, 0.03, -0.6), "#ff9a3c", 0.6)] });
     }
+    // ================= AIR (the hook over the harbour, the flight to the island): the plane stays, the sea scrolls =================
+    {
+      const G = group("air"); this.airG = G;
+      const t = seaDay(); t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(110, 110); t.anisotropy = 16; t.needsUpdate = true;
+      const g = new THREE.PlaneGeometry(6600, 6600); g.rotateX(-Math.PI / 2);
+      this.airSea = new THREE.Mesh(g, new THREE.MeshBasicMaterial({ map: t, color: new THREE.Color(0.95, 1.0, 1.08) })); this.airSea.layers.set(NOINK); G.add(this.airSea);
+      const isl = new THREE.Mesh(new THREE.PlaneGeometry(330, 62), new THREE.MeshBasicMaterial({ map: islandTex(), transparent: true, depthWrite: false, fog: false }));
+      isl.position.set(NX * 760 - NZ * 40, 27, NZ * 760 + NX * 40); isl.lookAt(0, 27, 0); isl.layers.set(NOINK); isl.name = "niihau"; G.add(isl);
+    }
+    this.flyP = buildPlane({ fly: true }); R.add(this.flyP);
+    this.gear = this.flyP.getObjectByName("gear")!; this.disc = this.flyP.getObjectByName("disc")!;
     nightAll(R);
   }
 
@@ -202,13 +227,25 @@ export class World {
   update(f: number, cam: THREE.PerspectiveCamera, scene: THREE.Scene) {
     const { s } = inShot(f), L = LOOKS[s.look], c = camAt(f), D2R = Math.PI / 180;
     for (const k of Object.keys(this.sets) as SetName[]) this.sets[k].visible = k === s.set;
+    // ---- the plane: flying (air set, the approach) or wrecked (from the fence on) ----
+    const fp = flyAt(f), wp = wreckAt(f), R2 = Math.PI / 180;
+    this.flyP.visible = fp.vis && (s.set === "air" || s.set === "field");
+    this.flyP.position.set(...fp.pos); this.flyP.rotation.set(fp.roll * R2, fp.yaw * R2, fp.pitch * R2, "YZX");
+    this.gear.visible = fp.gear; this.disc.rotation.x = f * 2.1;
+    this.wreck.visible = wp.vis; this.wreck.position.set(...wp.pos); this.wreck.rotation.set(wp.roll * R2, wp.yaw * R2, wp.pitch * R2, "YZX");
+    this.crashG.visible = this.furrow.visible = f >= CRASH; this.preG.visible = f < CRASH;
+    if (s.set === "air") {
+      const d = flownAt(f), tex = (this.airSea.material as THREE.MeshBasicMaterial).map!;
+      this.airG.position.y = -altAt(f); tex.offset.set((NX * d) / 60, (-NZ * d) / 60);
+      this.airG.getObjectByName("niihau")!.visible = f >= 150;
+    }
     cam.position.set(...c.pos); cam.up.set(0, 1, 0); cam.lookAt(...c.look); cam.rotateZ(c.roll);
     cam.fov = c.fov; cam.near = 0.1; cam.far = 2400; cam.updateProjectionMatrix(); cam.updateMatrixWorld();
     cam.layers.enable(NOINK);
     // key light direction: the moon at night, else the look's sun (azimuth from the -z view axis toward +x)
     const az = (L.night ? MOON.az : L.az) * D2R, el = (L.night ? MOON.el : L.el) * D2R;
     const sunDir = L.night ? V(Math.sin(az) * Math.cos(el), Math.sin(el), -Math.cos(az) * Math.cos(el)) : V(Math.sin(az) * Math.cos(el), Math.sin(el), -Math.cos(az) * Math.cos(el));
-    const centre = V(c.look[0], 0.5, c.look[2] + (s.set === "field" && c.look[2] < 2 ? 4 : 0)), Rr = s.set === "field" ? 14 : 12;
+    const centre = s.set === "air" ? V(0, 0.5, 0) : s.set === "field" && f >= 283 && f < 340 ? V(fp.vis ? fp.pos[0] : wp.pos[0], 0.5, (fp.vis ? fp.pos[2] : wp.pos[2]) + 2) : V(c.look[0], 0.5, c.look[2] + (s.set === "field" && c.look[2] < 2 ? 4 : 0)), Rr = s.set === "field" ? 14 : 12;
     centre.x = Math.round(centre.x); centre.z = Math.round(centre.z); // snapped so the shadow map does not swim with the push
     this.sun.position.copy(centre).addScaledVector(sunDir, 120); this.sun.target.position.copy(centre);
     const sc = this.sun.shadow.camera; sc.left = -Rr; sc.right = Rr; sc.top = Rr; sc.bottom = -Rr; sc.near = 20; sc.far = 260; sc.updateProjectionMatrix();
@@ -222,8 +259,8 @@ export class World {
     const e = L.e.map((d) => d * D2R); su.e.value.set(e[1], e[2], e[3], e[4]);
     this.sky.position.copy(cam.position);
     untone(L.fog, this.fog.color); this.fog.near = L.fogNear; this.fog.far = L.fogFar; scene.fog = this.fog; scene.background = null;
-    const outdoors = s.set === "field" || s.set === "lanai";
-    for (const o of this.far) { o.position.copy(o.userData.p as THREE.Vector3).add(cam.position); o.visible = outdoors && (o.userData.isl ? true : this.nightFar.includes(o) ? L.night : !L.night); if ((o as THREE.Mesh).isMesh && !(o as THREE.Sprite).isSprite) o.lookAt(cam.position.x, o.position.y, cam.position.z); }
+    const outdoors = s.set === "field" || s.set === "lanai" || s.set === "air";
+    for (const o of this.far) { o.position.copy(o.userData.p as THREE.Vector3).add(cam.position); o.visible = outdoors && (o.userData.isl ? !(s.set === "air" && f >= 150) : this.nightFar.includes(o) ? L.night : !L.night); if ((o as THREE.Mesh).isMesh && !(o as THREE.Sprite).isSprite) o.lookAt(cam.position.x, o.position.y, cam.position.z); }
     for (const m of this.dayClouds) (m.material as THREE.MeshBasicMaterial).color.setRGB(L.cloud * (s.look === "dusk" ? 1.15 : 1), L.cloud * (s.look === "dusk" ? 0.82 : 1), L.cloud * (s.look === "dusk" ? 0.74 : 1));
     this.sea.color.setRGB(...L.sea); this.glitter.visible = L.night || s.look === "dusk"; (this.glitter.material as THREE.MeshBasicMaterial).color.setRGB(...(L.night ? [1.05, 1.14, 1.3] : [1.3, 0.95, 0.6]) as [number, number, number]);
     for (const o of this.far) if (o.userData.isl) ((o as THREE.Mesh).material as THREE.MeshBasicMaterial).color.setRGB(...(L.night ? [0.2, 0.25, 0.72] : s.look === "dusk" ? [0.9, 0.62, 0.7] : [1, 1, 1]) as [number, number, number]);
@@ -240,7 +277,7 @@ export class World {
     }
     const ff = 1 + 0.14 * Math.sin(f * 1.7) + 0.08 * Math.sin(f * 3.3);
     this.fireF.intensity = s.fire === 2 ? 70 * ff : 0; this.fireHF.visible = s.fire === 2; this.fireHF.scale.setScalar(9 * (0.95 + 0.05 * ff));
-    this.fireL.intensity = s.fire === 1 ? 90 * ff : 0; this.fireHL.visible = s.fire === 1; this.fireHL.scale.setScalar(16 * (0.95 + 0.05 * ff));
+    const fk = fireK(f); this.fireL.intensity = s.fire === 1 ? 90 * ff * fk : 0; this.fireHL.visible = s.fire === 1; this.fireHL.scale.setScalar(16 * (0.95 + 0.05 * ff) * (0.2 + 0.8 * fk));
     spinWindmill(f);
     this.vig = L.vig;
     // ---- cast + effects ----
