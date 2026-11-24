@@ -29,3 +29,4 @@
 - round 4 follow-up: effects locked (client picks), music round 2 audition built (audition/music2, top of index.html), beds fetched, cues.json prepared, fence caption moved + re-encode. STOP: waiting for round-2 music pick; then build mix (Real SFX from_cues with snd/lib as main library, earshot critique, -14 LUFS), update CREDITS.
 - final mix: music stem built (/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/mixw/music.wav: day 0-22.87, silence, night 24.7-47.55, ending 47.97-64.5), Real SFX sheet /tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/mixw/sheet.json (34 cues, explicit files), mix1 done (sfx too loud: redo with trim).
 - FINAL MIX DONE: master_a (voice+music+RealSFX track trim -8, loudnorm -14) muxed into final mp4; earshot launch-grade; CREDITS + QA updated.
+- mix fix: fence crash shortened/lowpassed, music dip at 28-29.5 s, night beds -3 dB; master_b muxed; QA updated.

@@ -3,7 +3,7 @@
  "keep_audio": "no",
  "base_audio": [
   "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/mixw/voice.wav",
-  "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/mixw/music.wav"
+  "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/mixw/music3.wav"
  ],
  "cues": [
   {
@@ -123,7 +123,7 @@
    "label": "second touchdown",
    "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/wall_throw__80894069.wav",
    "role": "hit",
-   "gain_db": -8,
+   "gain_db": -10,
    "anchor": "arrive",
    "max_dur": 0.6,
    "pitch": -2
@@ -131,12 +131,12 @@
   {
    "t": 10.667,
    "label": "PICK fence crash A",
-   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/fence_crash__e8fc9a76.wav",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/mixw/crash_short.wav",
    "role": "hit",
-   "gain_db": 1,
-   "anchor": "arrive",
-   "max_dur": 2.6,
-   "fade_out": 0.6
+   "gain_db": -4,
+   "anchor": "start",
+   "max_dur": 0.45,
+   "fade_out": 0.3
   },
   {
    "t": 17.833,
@@ -176,7 +176,7 @@
    "label": "night insects",
    "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/bed_insects__e587e0a4.wav",
    "role": "ambience",
-   "gain_db": -14,
+   "gain_db": -17,
    "anchor": "start",
    "max_dur": 26.8,
    "fade_in": 0.4,
@@ -216,7 +216,7 @@
    "label": "surf at the bluff",
    "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/bed_sea__42a94c71.wav",
    "role": "ambience",
-   "gain_db": -9,
+   "gain_db": -12,
    "anchor": "start",
    "max_dur": 2.55,
    "fade_in": 0.3,
@@ -236,7 +236,7 @@
    "label": "house fire",
    "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/bed_fire__f9b9cc31.wav",
    "role": "ambience",
-   "gain_db": -4,
+   "gain_db": -7,
    "anchor": "start",
    "max_dur": 1.77,
    "fade_in": 0.4,
@@ -247,7 +247,7 @@
    "label": "plane fire",
    "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/bed_fire__ba5faf16.wav",
    "role": "ambience",
-   "gain_db": -9,
+   "gain_db": -12,
    "anchor": "start",
    "max_dur": 14.7,
    "fade_in": 0.1,

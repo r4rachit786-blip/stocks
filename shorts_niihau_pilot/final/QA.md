@@ -183,3 +183,17 @@ and nobody listened to the tracks or the mix: that check is the client's.
 - In the night block the effects sit only about 4 dB under the voice (fire bed, insects, gunshots).
 - Block changes are fades, not cuts on a beat; no beat analysis was done.
 - "No luck" (0:16.7) has no sound of its own.
+
+## Mix fix after the transcription check (audio only, picture stream untouched)
+
+Final file: 49.3 MB, 1935 frames, 64.5 s, -13.9 LUFS integrated, peak -1.7 dBFS (ffmpeg ebur128 on the mp4).
+- **"In a fence" (10.7-11.4 s) was masked by the fence crash.** The crash is now only its first 0.45 s, low-passed at
+  900 Hz and faded from 0.12 s, still starting on frame 320. Measured over 10.67-11.37 s: effects 13.6 dB under the
+  voice full band (-36.6 vs -23.0 dB mean) and 17.4 dB under it in 1-4 kHz (-51.9 vs -34.5). The cost: the crash is
+  now a short thud, not a long splintering.
+- **"Then," (28.4-29.0 s).** Nothing but the night music and the insects plays there. The music is dipped 4.7 dB
+  from 28.0 to 29.5 s (0.25 s in, 0.35 s out); in that window it sits 12.6 dB under the voice, the effects 50 dB under.
+- **Night beds 3 dB lower** (insects, house fire, plane fire, surf). Between hits the bed is now about 29 dB under the
+  voice (34-39 s: -51.4 vs -22.1 dB mean). The block's integrated effects figure stays near -23 LUFS because it is
+  set by the gunshots, the wall hit and the rock, which were not lowered (locked picks, on their frames).
+- Not re-run: speech recognition (not available here) and the earshot critique.
