@@ -79,3 +79,15 @@ Numbers: final/preview/flicker_numbers.md.
 ## v8 stills + flicker test (no full render)
 - 0 of 14 key signs cut (sheets/signs_v8.md). Luma over 48 stills: p2 0.110 / p50 0.329 / p98 0.863.
 - Flicker test clips and numbers: preview/flicker_v8/ (flicker_numbers.md).
+
+## FINAL v8 (rendered 2026-11-25)
+- Files: orange_santra_short.mp4 (43.5 MB, 7.4 Mb/s two-pass) and orange_santra_short_HQ_upload.mp4 (71.9 MB, 12 Mb/s). 1080x1920, 30 fps, 1411 frames on ones, 47.03 s, AAC 48 kHz.
+- Picture chain: every frame rendered at 1440x2560, lanczos to 1080x1920, no unsharp; whip smear on the 3 whip-pans (post.py); captions burned (captions.ass, standard band only).
+- Black/freeze scan (blackdetect 0.1 s, freezedetect 0.4 s): 0 events.
+- Loudness: -16.04 LUFS integrated, true peak -3.26 dBTP, LRA 1.9 (approved mix masterq.wav, unchanged).
+- Whisper re-transcription of the final matches the locked v11 script line for line (ASR spellings "Larenja", "a Narang" are the known model spellings of laranja / a narange).
+- Sign check over the whole render (14 key signs, every non-whip frame of every take): 0 cut. sheets/signs_final_v8.md.
+- Luma of the final mp4 (every 3rd frame): p2 0.122, p50 0.322, p98 0.863 (refs 0.084 / 0.333 / 0.917).
+- Flicker: preview/flicker_v8/ (before/after clips, numbers, maps); slowed-camera aliasing <= 0.3 % on static sets.
+- Sheets: sheets/spot_final_v8.jpg (3 frames per take from the final mp4), sheets/final_v8_every6.jpg (every 6th frame), sheets/stills_v8.jpg.
+- v8b blockers cleared before render: Goa duplicate sailor (restyled docker, moved 4 m away), floating "hexagon" (the caravel stern lantern now sits on a post; Goa stall lanterns hang from the sign beam on cords), second moon (a night cloud lobe; clouds off at night), Goa grey slabs (sails furled at the quay).

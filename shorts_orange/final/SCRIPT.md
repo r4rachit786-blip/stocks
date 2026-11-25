@@ -48,3 +48,10 @@ Voice: the 12 locked Liam lines (o00-o11), trimmed, pauses tightened, atempo 1.2
 
 Final take frames (story.ts): hook 0, dunes 50, deck 82, scholar 159, serai 224, souk 335, Lisbon 464, square 513, sailing 685, China 742, Sintra 834, Dutch 955, Goa 1029, stall 1116, ending 1341, end 1411.
 CUs (client max 2): the bite (f774-801) and the whisper creep (f1176-1245). DOF only on the bite CU and the Sintra farmer MS (no text in either).
+
+## v8 staging notes (picture only; script and voice unchanged)
+- T01 the NARANGA board hangs over the merchant's head from a crook. T02 the staff stands on the rider's far side.
+- T03/T10 open on the whole caravel on the water (day / moonlit night), then push to the merchant (deck sign flips NARANGA -> ... -> ?) and to the captain (deck sign LARANJA).
+- T04 NARANGA is on the scholar's board from the first frame. T07 the G pops from his mouth in a speech bubble, then twists into the J.
+- T12 the farmer ends centred with two of the rushing crowd beside him. T14 canals in front and behind the stall.
+- T15 the sailor carries the LARANJA DE SINTRA crate on his head past a whitewashed church across the water. T16-18 four separate "Sintra" bubbles, then the big lit SANTRA board.

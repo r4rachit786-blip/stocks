@@ -31,3 +31,6 @@ All sounds are real recordings, CC0 1.0 (public domain dedication); every licenc
 
 Trims made by us: camel_grunt_cut.wav = 1.0-2.6 s of "G12-05-Camel Grunt.wav" (craigsmith); chalk_cut.wav = 0.9-2.4 s of "blackboard1.wav" (lezaarth).
 Font in captions/signs: DejaVu Serif/Sans (free licence); caption style from the Niihau film (Inter, client-approved).
+
+## v8 final (2026-11-25)
+Sound unchanged from the approved mix (all CC0 1.0, licences above, log in scratchpad orange2/snd/sfx_log_o2.json). Picture rebuilt in our own three.js/Remotion code (v8: proportional sign lettering, sculpted dunes, terraced Sintra groves, China harbour skyline, Goa church, Dutch canals). No third-party images or fonts beyond DejaVu (free licence) and Inter (captions, OFL).
