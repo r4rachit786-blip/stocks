@@ -49,3 +49,19 @@ The whisper-CU captions (39.3-41.4 s) are lifted off the LARANJA DE SINTRA crate
 ## Known soft points
 - The tween between the trader and the dyer (f283-300) and between the stall WS and the sailor (f1080-1095) are camera travels with no face for ~15 f.
 - The square bubbles sit over the top of the A NARANGE sign for ~0.8 s each (both readable).
+
+## v5 flicker investigation (client: souk rugs/banners, serai cloth + bricks)
+Method: 10 consecutive full-res frames per set (bazaar, serai, souk, square, China, Goa) through the final post chain (MSAA + ink + bloom),
+(a) camera locked, (b) a slow real camera move (12 % speed, sub-pixel drift, so true motion cannot fake flicker), each run with the
+pre-fix build (props `v4`) and the fixed build. A pixel "flickers" if its luma jumps >12/255 with an alternating sign >= 3 times in 10 frames.
+Causes found, in order of size:
+1. Z-fighting: the souk's hanging rugs were coplanar with the arcade wall face (z -4.30 = wall front); the serai's sat inside the wall.
+   Fix: rugs 6 cm (souk) / 7 cm (serai) proud of the wall. Souk wall band: 11.08 % -> 0.04 % of pixels.
+2. The v4 motion preview was rendered with MSAA OFF, so every thin edge (brick courses, cloth hems, bunting) crawled. The v5 preview
+   and the final use MSAA 4 (the ink pass edges are then stable).
+3. Ink pass toggling on sub-1 % depth steps (litter decals, far detail): ink now starts at a 2 % depth jump and fades out 60-170 m;
+   ground litter is off the ink layer.
+4. Shadow-map shimmer: the sun's shadow camera followed the moving camera; it is now fixed per take.
+All world textures are mipmapped with anisotropy 16 (A/B showed no change: they already had mipmaps).
+After the fixes the remaining "flicker" pixels in the locked runs are animated characters (walk cycles, blinks, the camels' legs).
+Numbers: final/preview/flicker_numbers.md.
