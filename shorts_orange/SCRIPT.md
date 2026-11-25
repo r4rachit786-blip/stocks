@@ -1,3 +1,21 @@
+# Script v7 (global audience)
+
+[excited] The word "orange" is missing a letter. [pause] And the fruit has a different name in every country.
+[amused] Each name is a clue to where it travelled.
+[curious] It starts in India, in Sanskrit: "naranga."
+[playful] Persia: "narang." Arabia: "naranj." Spain: "naranja."
+[deadpan] Then Italy and France got lazy. "A narange"... "an orange." [amused] The N just fell off.
+[excited] Plot twist! Portuguese sailors bring home a sweeter one, and Europe goes nuts.
+[amused] So nuts that in Greece, it's "portokali." In Turkey, "portakal." [deadpan] Basically... "Portugal."
+[playful] Germans and Dutch call it "China's apple."
+[warm] And in India, it came home as "santra"... named after Sintra, a town in Portugal.
+[deadpan] Oh, and the colour? Named after the fruit.
+[excited] One fruit... named after India, Portugal, and China.
+[curious] So... what's it called where you live?
+
+
+---
+
 # Script v6b (hookier, under 1000 characters = 28 credits)
 
 [excited] Every time you say "santra"... you're saying the name of a town in Portugal.
