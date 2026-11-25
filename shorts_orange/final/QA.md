@@ -65,3 +65,8 @@ Causes found, in order of size:
 All world textures are mipmapped with anisotropy 16 (A/B showed no change: they already had mipmaps).
 After the fixes the remaining "flicker" pixels in the locked runs are animated characters (walk cycles, blinks, the camels' legs).
 Numbers: final/preview/flicker_numbers.md.
+
+## v6 stills gate (no full render)
+- Per-take luma (47 stills, final post chain): see scratchpad qa/luma_v6.txt. Hook p50 0.42, end 0.39, China 0.27, sail 0.22; all others 0.37-0.52.
+- Hero table: qa/camera_table_v6.md (deck 22 % -> 51 %, sail 23 % -> 50 %).
+- Supersample 1440x2560 measured at 1.0-1.2x the 1080 render cost -> adopted; lanczos + unsharp 5:5:0.6 in encode.
