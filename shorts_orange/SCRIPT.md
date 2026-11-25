@@ -1,3 +1,21 @@
+# SCRIPT v9: client favourite, adapted for US/Canada (proposed)
+
+[excited] The word "orange" started in India... travelled the whole world... and changed its name everywhere it went.
+[curious] In Sanskrit, it was "naranga."
+Persian traders took it home as "narang"... and named the color after it too.
+[amused] Arabic had no "g" sound. So "narang" became "naranj." Then in Portugal: "laranja."
+[playful] In Europe, "a narange" slowly turned into "an orange"... [deadpan] the N just fell off.
+[excited] Then the Portuguese sailed east... and brought back a sweeter one you could actually eat.
+A little town called Sintra became famous for them... and Europe went crazy for it.
+[amused] The Dutch and Germans still call it "China's apple."
+[warm] In the 1500s, Portuguese ships took it all the way to India... as the orange of Sintra.
+[deadpan] "Sintra"... [pause] "Santra."
+[excited] Yes! In India, the orange is named after a town in Portugal.
+[curious] So... what's it called in your family's language?
+
+
+---
+
 # SCRIPT v8b: global framing, Italy step bridged (proposed)
 
 [excited] This fruit's name went around the whole world... and every country changed it.
