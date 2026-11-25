@@ -1,3 +1,21 @@
+# SCRIPT v11: delivery tags reworked, Sintra/Santra reveal rebuilt (proposed)
+
+[mischievously] This fruit left India... travelled the whole world... and got a new name everywhere it went.
+In Sanskrit, it was "naranga."
+Persian traders took it home as "narang"... and named the color after it too.
+[chuckles] Arabic had no "g" sound. So "narang" became "naranj." Then in Portugal: "laranja."
+[amused] In Europe, "a narange" slowly turned into "an orange"... [deadpan] the N just fell off.
+[excited] Then the Portuguese sailed to China... and found a sweeter one, sweet enough to eat like candy.
+[impressed] They grew it in a little town called Sintra... and Europe went crazy for it.
+[chuckles] The Dutch still call it "China's apple."
+[curious] In the 1500s, Portuguese ships brought it to India... as the orange from Sintra.
+[whispers] Now say "Sintra" ten times fast...
+[excited] Santra! [pause] That's still the Hindi word for orange today.
+[warm] So... what do you call it?
+
+
+---
+
 # SCRIPT v10: client favourite, minimal edits (proposed)
 
 [excited] This fruit left India... travelled the whole world... and got a new name everywhere it went.
