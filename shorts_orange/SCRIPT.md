@@ -1,3 +1,33 @@
+# Orange / santra Short: script v5, from the reference video's story
+
+## Reference (youtube.com/shorts/iF8LEcaaFEA, Hindi, about 70 s), translated summary
+The fruit left India and came back with a new name. Sanskrit "nagaranga" > Persians "narang" (the colour was named after it too, which came back to India as "narangi") > France "norange"; its colour looked like gold ("or"), so the n went: "orange" > English orange. Meanwhile Arabia: no "g" sound, so "naranj" > Portugal "laranja". The Portuguese found a sweeter, loose-peeled fruit in China and grew it in Sintra; it spread across Europe (Germans and Dutch call it China's apple: Apfelsine, sinaasappel). In the 16th century the Portuguese brought it to Goa as "laranja de Sintra" > "Sintra" > "santra". It ends: "What do you call it where you live?"
+
+## Lines (v5)
+00 [excited] This fruit left India... travelled the whole world... and came back with a brand new name.
+01 [curious] In Sanskrit, it was "naranga."
+02 Persian traders took it home as "narang"... and named the colour after it too.
+03 [amused] Arabic had no "g" sound. So "narang" became "naranj." Then in Portugal: "laranja."
+04 [playful] In Europe, "a narange" slowly turned into "an orange"... and the French loved it, because "or" means gold.
+05 [excited] Then the Portuguese sailed to China... and found a sweeter one, with a peel that slips right off.
+06 They planted it in a little town called Sintra... and Europe went crazy for it.
+07 [amused] The Dutch and Germans still call it "China's apple."
+08 [warm] In the 1500s, Portuguese ships brought it to Goa... as the orange of Sintra.
+09 [deadpan] "Sintra"... [pause] "Santra."
+10 [excited] Yes! The santra is named after a town in Portugal.
+11 [curious] So... what do you call it?
+
+## Title ideas (Onoda style)
+- The santra is named after a town in Portugal #history #facts #shorts
+- This fruit came back to India with a new name #history #shorts
+
+## Fact notes
+- Sanskrit naranga (also written nagaranga) > Persian narang > Arabic naranj (Arabic has no hard g) > Portuguese laranja. The n was lost in Europe ("a narange" > "an orange", first in Italian); French orenge was likely shaped by "or" (gold).
+- Sweet orange taken by the Portuguese from Asia in the 1500s. German Apfelsine and Dutch sinaasappel mean "China's apple".
+- Santra from Sintra, near Lisbon: the popular and widely repeated derivation (also in older Anglo-Indian glossaries), so it is told as the story, not as settled fact.
+
+---
+
 # History of the orange: script v4 (tight, about 40 s at 1.2x)
 
 ## Lines (v4)
