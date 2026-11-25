@@ -1,0 +1,83 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 2
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: W,Inter,96,&H00FFFFFF,&H00FFFFFF,&H00000000,&H64000000,-1,0,0,0,100,100,0,0,1,7,2,2,60,60,350,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.07,0:00:00.64,W,,0,0,0,,This fruit
+Dialogue: 0,0:00:00.64,0:00:01.72,W,,0,0,0,,left India
+Dialogue: 0,0:00:01.72,0:00:02.00,W,,0,0,0,,travelled
+Dialogue: 0,0:00:02.00,0:00:02.54,W,,0,0,0,,the whole
+Dialogue: 0,0:00:02.54,0:00:03.22,W,,0,0,0,,world
+Dialogue: 0,0:00:03.22,0:00:03.68,W,,0,0,0,,and got a
+Dialogue: 0,0:00:03.68,0:00:04.06,W,,0,0,0,,new name
+Dialogue: 0,0:00:04.06,0:00:04.52,W,,0,0,0,,everywhere
+Dialogue: 0,0:00:04.52,0:00:05.32,W,,0,0,0,,it went
+Dialogue: 0,0:00:05.32,0:00:05.95,W,,0,0,0,,In Sanskrit
+Dialogue: 0,0:00:06.20,0:00:06.58,W,,0,0,0,,it was
+Dialogue: 0,0:00:06.58,0:00:07.44,W,,0,0,0,,naranga
+Dialogue: 0,0:00:07.44,0:00:07.72,W,,0,0,0,,Persian
+Dialogue: 0,0:00:07.72,0:00:08.32,W,,0,0,0,,traders took
+Dialogue: 0,0:00:08.32,0:00:08.98,W,,0,0,0,,it home as
+Dialogue: 0,0:00:08.98,0:00:09.42,W,,0,0,0,,narang
+Dialogue: 0,0:00:09.42,0:00:09.88,W,,0,0,0,,and named
+Dialogue: 0,0:00:09.88,0:00:10.26,W,,0,0,0,,the color
+Dialogue: 0,0:00:10.26,0:00:11.13,W,,0,0,0,,after it too
+Dialogue: 0,0:00:11.78,0:00:12.16,W,,0,0,0,,Arabic had
+Dialogue: 0,0:00:12.16,0:00:13.22,W,,0,0,0,,no g sound
+Dialogue: 0,0:00:13.22,0:00:14.08,W,,0,0,0,,So narang
+Dialogue: 0,0:00:14.08,0:00:15.46,W,,0,0,0,,became naranj
+Dialogue: 0,0:00:15.46,0:00:15.82,W,,0,0,0,,Then in
+Dialogue: 0,0:00:15.82,0:00:16.31,W,,0,0,0,,Portugal
+Dialogue: 0,0:00:16.60,0:00:17.24,W,,0,0,0,,laranja
+Dialogue: 0,0:00:17.24,0:00:17.97,W,,0,0,0,,In Europe
+Dialogue: 0,0:00:18.34,0:00:18.70,W,,0,0,0,,a narange
+Dialogue: 0,0:00:18.70,0:00:19.64,W,,0,0,0,,slowly turned
+Dialogue: 0,0:00:19.64,0:00:20.50,W,,0,0,0,,into an
+Dialogue: 0,0:00:20.50,0:00:21.03,W,,0,0,0,,orange
+Dialogue: 0,0:00:21.30,0:00:22.00,W,,0,0,0,,the N just
+Dialogue: 0,0:00:22.00,0:00:22.92,W,,0,0,0,,fell off
+Dialogue: 0,0:00:22.92,0:00:23.22,W,,0,0,0,,Then the
+Dialogue: 0,0:00:23.22,0:00:23.54,W,,0,0,0,,Portuguese
+Dialogue: 0,0:00:23.54,0:00:24.04,W,,0,0,0,,sailed to
+Dialogue: 0,0:00:24.04,0:00:24.32,W,,0,0,0,,China
+Dialogue: 0,0:00:24.32,0:00:25.00,W,,0,0,0,,and found
+Dialogue: 0,0:00:25.00,0:00:25.60,W,,0,0,0,,a sweeter
+Dialogue: 0,0:00:25.60,0:00:26.08,W,,0,0,0,,one
+Dialogue: 0,0:00:26.08,0:00:26.54,W,,0,0,0,,sweet enough
+Dialogue: 0,0:00:26.54,0:00:27.12,W,,0,0,0,,to eat like
+Dialogue: 0,0:00:27.12,0:00:27.76,W,,0,0,0,,candy
+Dialogue: 0,0:00:27.76,0:00:28.20,W,,0,0,0,,They grew
+Dialogue: 0,0:00:28.20,0:00:28.52,W,,0,0,0,,it in a
+Dialogue: 0,0:00:28.52,0:00:28.94,W,,0,0,0,,little town
+Dialogue: 0,0:00:28.94,0:00:30.06,W,,0,0,0,,called Sintra
+Dialogue: 0,0:00:30.06,0:00:30.36,W,,0,0,0,,and Europe
+Dialogue: 0,0:00:30.36,0:00:31.14,W,,0,0,0,,went crazy
+Dialogue: 0,0:00:31.14,0:00:31.91,W,,0,0,0,,for it
+Dialogue: 0,0:00:32.34,0:00:32.68,W,,0,0,0,,The Dutch
+Dialogue: 0,0:00:32.68,0:00:33.16,W,,0,0,0,,still call
+Dialogue: 0,0:00:33.16,0:00:33.86,W,,0,0,0,,it China's
+Dialogue: 0,0:00:33.86,0:00:34.32,W,,0,0,0,,apple
+Dialogue: 0,0:00:34.32,0:00:35.74,W,,0,0,0,,In the 1500s
+Dialogue: 0,0:00:35.74,0:00:35.98,W,,0,0,0,,Portuguese
+Dialogue: 0,0:00:35.98,0:00:36.64,W,,0,0,0,,ships brought
+Dialogue: 0,0:00:36.64,0:00:37.26,W,,0,0,0,,it to India
+Dialogue: 0,0:00:37.26,0:00:38.14,W,,0,0,0,,as the orange
+Dialogue: 0,0:00:38.14,0:00:39.03,W,,0,0,0,,from Sintra
+Dialogue: 0,0:00:39.30,0:00:39.68,W,,0,0,0,,Now say
+Dialogue: 0,0:00:39.68,0:00:40.52,W,,0,0,0,,Sintra ten
+Dialogue: 0,0:00:40.52,0:00:41.39,W,,0,0,0,,times fast
+Dialogue: 0,0:00:41.72,0:00:42.29,W,,0,0,0,,Santra
+Dialogue: 0,0:00:42.56,0:00:43.14,W,,0,0,0,,That's still
+Dialogue: 0,0:00:43.14,0:00:43.42,W,,0,0,0,,the Hindi
+Dialogue: 0,0:00:43.42,0:00:43.84,W,,0,0,0,,word for
+Dialogue: 0,0:00:43.84,0:00:44.76,W,,0,0,0,,orange today
+Dialogue: 0,0:00:44.76,0:00:45.16,W,,0,0,0,,So
+Dialogue: 0,0:00:45.16,0:00:46.04,W,,0,0,0,,what do you
+Dialogue: 0,0:00:46.04,0:00:46.42,W,,0,0,0,,call it
