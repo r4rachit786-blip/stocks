@@ -1,3 +1,21 @@
+# SCRIPT v8: global framing, same story (proposed)
+
+[excited] This fruit's name went around the whole world... and every country changed it.
+[curious] It started in India, in Sanskrit: "naranga."
+Persian traders took it home as "narang"... and named the colour after it too.
+[amused] Arabic had no "g" sound. So "narang" became "naranj." Then in Portugal: "laranja."
+[playful] In Italy and France, "a narancia" slowly turned into "an orange"... [deadpan] the N just fell off.
+[excited] Then Portuguese sailors brought back a sweeter one from the East... and Europe went crazy for it.
+[amused] The Dutch and Germans still call it "China's apple."
+In Portugal, one town got famous for its oranges: Sintra.
+[warm] In the 1500s, Portuguese ships carried that name all the way to India...
+[deadpan] "Sintra"... [pause] "Santra."
+[excited] Yes! In India, the orange is named after a town in Portugal.
+[curious] So... what do you call it?
+
+
+---
+
 # FACT-CHECKED SCRIPT (proposed, client approval pending)
 
 [excited] This fruit's name left India... travelled the whole world... and came back brand new.
