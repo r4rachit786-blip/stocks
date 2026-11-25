@@ -75,3 +75,7 @@ Numbers: final/preview/flicker_numbers.md.
 - Key-sign safe-area check (every non-whip frame, corners projected through the real camera): 0 of 14 signs cut. Table: scratchpad orange2/qa/signs_v7.md.
 - Luma over the 48 v7 stills: p2 0.110, p50 0.337, p98 0.863 (references 0.091 / 0.333 / 0.905).
 - Post chain: 1440x2560 render -> lanczos 1080x1920 -> captions. Unsharp removed (edge energy already ~2x the references).
+
+## v8 stills + flicker test (no full render)
+- 0 of 14 key signs cut (sheets/signs_v8.md). Luma over 48 stills: p2 0.110 / p50 0.329 / p98 0.863.
+- Flicker test clips and numbers: preview/flicker_v8/ (flicker_numbers.md).
