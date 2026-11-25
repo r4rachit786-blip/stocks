@@ -70,3 +70,8 @@ Numbers: final/preview/flicker_numbers.md.
 - Per-take luma (47 stills, final post chain): see scratchpad qa/luma_v6.txt. Hook p50 0.42, end 0.39, China 0.27, sail 0.22; all others 0.37-0.52.
 - Hero table: qa/camera_table_v6.md (deck 22 % -> 51 %, sail 23 % -> 50 %).
 - Supersample 1440x2560 measured at 1.0-1.2x the 1080 render cost -> adopted; lanczos + unsharp 5:5:0.6 in encode.
+
+## v7 stills gate (no full render)
+- Key-sign safe-area check (every non-whip frame, corners projected through the real camera): 0 of 14 signs cut. Table: scratchpad orange2/qa/signs_v7.md.
+- Luma over the 48 v7 stills: p2 0.110, p50 0.337, p98 0.863 (references 0.091 / 0.333 / 0.905).
+- Post chain: 1440x2560 render -> lanczos 1080x1920 -> captions. Unsharp removed (edge energy already ~2x the references).
