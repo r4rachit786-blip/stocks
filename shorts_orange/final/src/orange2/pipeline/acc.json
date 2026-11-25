@@ -1,0 +1,314 @@
+{
+ "duration": 47.033,
+ "keep_audio": "no",
+ "cues": [
+  {
+   "t": 0.067,
+   "label": "the glowing orange: ding",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/medal_glint__252fc88e.wav",
+   "role": "chime",
+   "gain_db": -8,
+   "anchor": "arrive",
+   "max_dur": 0.9
+  },
+  {
+   "t": 1.5,
+   "label": "whip to the dunes",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/whoosh__34ba7605.wav",
+   "role": "whoosh",
+   "gain_db": -3,
+   "anchor": "start",
+   "max_dur": 0.55
+  },
+  {
+   "t": 2.567,
+   "label": "whip to the ship",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/whoosh__416a411f.wav",
+   "role": "whoosh",
+   "gain_db": -3,
+   "anchor": "start",
+   "max_dur": 0.55
+  },
+  {
+   "t": 15.3,
+   "label": "whip to Lisbon",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/whoosh__b7ae7822.wav",
+   "role": "whoosh",
+   "gain_db": -3,
+   "anchor": "start",
+   "max_dur": 0.6
+  },
+  {
+   "t": 1.867,
+   "label": "camel grunt",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/orange2/snd/dl/camel_grunt_cut.wav",
+   "role": "hit",
+   "gain_db": -6,
+   "anchor": "start",
+   "max_dur": 1.5
+  },
+  {
+   "t": 3.667,
+   "label": "sign flip 0",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/orange2/snd/dl/flip__43e2d82b.wav",
+   "role": "hit",
+   "gain_db": -6,
+   "anchor": "arrive",
+   "max_dur": 0.4,
+   "pitch": 0
+  },
+  {
+   "t": 3.933,
+   "label": "sign flip 1",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/orange2/snd/dl/flip__43e2d82b.wav",
+   "role": "hit",
+   "gain_db": -6,
+   "anchor": "arrive",
+   "max_dur": 0.4,
+   "pitch": 2
+  },
+  {
+   "t": 4.2,
+   "label": "sign flip 2",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/orange2/snd/dl/flip__43e2d82b.wav",
+   "role": "hit",
+   "gain_db": -6,
+   "anchor": "arrive",
+   "max_dur": 0.4,
+   "pitch": -1
+  },
+  {
+   "t": 4.467,
+   "label": "sign flip 3",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/orange2/snd/dl/flip__43e2d82b.wav",
+   "role": "hit",
+   "gain_db": -6,
+   "anchor": "arrive",
+   "max_dur": 0.4,
+   "pitch": 3
+  },
+  {
+   "t": 4.667,
+   "label": "sign flip 4",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/orange2/snd/dl/flip__43e2d82b.wav",
+   "role": "hit",
+   "gain_db": -6,
+   "anchor": "arrive",
+   "max_dur": 0.4,
+   "pitch": 1
+  },
+  {
+   "t": 4.933,
+   "label": "sign flip 5",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/orange2/snd/dl/flip__43e2d82b.wav",
+   "role": "hit",
+   "gain_db": -6,
+   "anchor": "arrive",
+   "max_dur": 0.4,
+   "pitch": -2
+  },
+  {
+   "t": 6.567,
+   "label": "NARANGA appears",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/medal_glint__9e30b7a2.wav",
+   "role": "chime",
+   "gain_db": -6,
+   "anchor": "arrive",
+   "max_dur": 1.0
+  },
+  {
+   "t": 8.867,
+   "label": "the A wiped off",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/orange2/snd/dl/flip__43e2d82b.wav",
+   "role": "hit",
+   "gain_db": -8,
+   "anchor": "arrive",
+   "max_dur": 0.4,
+   "pitch": -4
+  },
+  {
+   "t": 10.067,
+   "label": "the cloth comes out orange",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/medal_glint__bf1dabbe.wav",
+   "role": "chime",
+   "gain_db": -8,
+   "anchor": "arrive",
+   "max_dur": 0.9
+  },
+  {
+   "t": 12.367,
+   "label": "the G sticks",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/pop__b3cd53c9.wav",
+   "role": "hit",
+   "gain_db": -8,
+   "anchor": "arrive",
+   "max_dur": 0.5,
+   "pitch": -6
+  },
+  {
+   "t": 14.133,
+   "label": "G twists into J",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/whoosh__f1dc6045.wav",
+   "role": "whoosh",
+   "gain_db": -8,
+   "anchor": "start",
+   "max_dur": 0.4
+  },
+  {
+   "t": 14.533,
+   "label": "NARANJ pop",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/pop__b3cd53c9.wav",
+   "role": "hit",
+   "gain_db": -3,
+   "anchor": "arrive",
+   "max_dur": 0.6
+  },
+  {
+   "t": 16.267,
+   "label": "chalk",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/orange2/snd/dl/chalk_cut.wav",
+   "role": "hit",
+   "gain_db": -8,
+   "anchor": "start",
+   "max_dur": 1.2
+  },
+  {
+   "t": 16.6,
+   "label": "LARANJA ding",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/medal_glint__252fc88e.wav",
+   "role": "chime",
+   "gain_db": -8,
+   "anchor": "arrive",
+   "max_dur": 0.8
+  },
+  {
+   "t": 21.467,
+   "label": "the N pops loose",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/pop__b3cd53c9.wav",
+   "role": "hit",
+   "gain_db": -6,
+   "anchor": "arrive",
+   "max_dur": 0.5,
+   "pitch": 3
+  },
+  {
+   "t": 22.433,
+   "label": "the N lands: clink",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/clink__31235964.wav",
+   "role": "hit",
+   "gain_db": 0,
+   "anchor": "arrive",
+   "max_dur": 1.0
+  },
+  {
+   "t": 24.033,
+   "label": "gull",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/orange2/snd/dl/gull__dc618b97.wav",
+   "role": "hit",
+   "gain_db": -10,
+   "anchor": "arrive",
+   "max_dur": 0.5
+  },
+  {
+   "t": 26.067,
+   "label": "bite",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/orange2/snd/dl/bite__463c95bb.wav",
+   "role": "hit",
+   "gain_db": -4,
+   "anchor": "arrive",
+   "max_dur": 0.8
+  },
+  {
+   "t": 26.733,
+   "label": "sweet sparkle",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/medal_glint__9e30b7a2.wav",
+   "role": "chime",
+   "gain_db": -6,
+   "anchor": "arrive",
+   "max_dur": 1.0
+  },
+  {
+   "t": 27.133,
+   "label": "candy pop",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/pop__b3cd53c9.wav",
+   "role": "hit",
+   "gain_db": -8,
+   "anchor": "arrive",
+   "max_dur": 0.5,
+   "pitch": 4
+  },
+  {
+   "t": 29.2,
+   "label": "Sintra ding",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/medal_glint__bf1dabbe.wav",
+   "role": "chime",
+   "gain_db": -10,
+   "anchor": "arrive",
+   "max_dur": 0.9
+  },
+  {
+   "t": 33.267,
+   "label": "sign splits",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/orange2/snd/dl/flip__43e2d82b.wav",
+   "role": "hit",
+   "gain_db": -4,
+   "anchor": "arrive",
+   "max_dur": 0.4
+  },
+  {
+   "t": 33.867,
+   "label": "apple pop",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/pop__b3cd53c9.wav",
+   "role": "hit",
+   "gain_db": -8,
+   "anchor": "arrive",
+   "max_dur": 0.5,
+   "pitch": 2
+  },
+  {
+   "t": 36.9,
+   "label": "crate thump",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/rock__a0a48bdd.wav",
+   "role": "hit",
+   "gain_db": -6,
+   "anchor": "arrive",
+   "max_dur": 0.5
+  },
+  {
+   "t": 37.267,
+   "label": "crate lands on the stall",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/rock__48bc5870.wav",
+   "role": "hit",
+   "gain_db": -6,
+   "anchor": "arrive",
+   "max_dur": 0.5
+  },
+  {
+   "t": 41.733,
+   "label": "SANTRA pop",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/pop__b3cd53c9.wav",
+   "role": "hit",
+   "gain_db": 0,
+   "anchor": "arrive",
+   "max_dur": 0.8
+  },
+  {
+   "t": 41.767,
+   "label": "SANTRA sparkle",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/medal_glint__252fc88e.wav",
+   "role": "chime",
+   "gain_db": -3,
+   "anchor": "arrive",
+   "max_dur": 1.3
+  },
+  {
+   "t": 46.033,
+   "label": "last ding",
+   "file": "/tmp/claude-0/-home-user-stocks/898ea701-1503-5cc7-b811-4df21447c708/scratchpad/snd/lib/medal_glint__9e30b7a2.wav",
+   "role": "chime",
+   "gain_db": -10,
+   "anchor": "arrive",
+   "max_dur": 1.2
+  }
+ ]
+}
