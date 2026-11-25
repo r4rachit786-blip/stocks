@@ -1,3 +1,21 @@
+# FINAL SCRIPT: v6b (hooky santra version, chosen by the client)
+
+[excited] Every time you say "santra"... you're saying the name of a town in Portugal.
+[amused] This is how a fruit left India... and came home with a foreign passport.
+[curious] It starts in Sanskrit: "naranga."
+[playful] Persian traders loved it so much, they called it "narang"... and named a whole colour after it.
+[deadpan] Arabic had no "g" sound. So: "naranj." Portugal: "laranja." [amused] This name gets mugged at every border.
+[playful] In Europe, "a narange" became "an orange"... and the French kept it, because "or" means gold.
+[excited] Plot twist! The Portuguese sail to China... and find a sweeter one. Easy peel.
+They plant it in a tiny town called Sintra... and Europe goes nuts.
+[amused] Germans and Dutch still call it "China's apple."
+[warm] Then in the 1500s, Portuguese ships carry it to Goa... as the orange of Sintra.
+[whispers] Sintra... Sintra... [excited] SANTRA!
+[amused] So yes. Your santra has a Portuguese passport.
+[curious] Now tell me... what do you call it?
+
+---
+
 # Script v7 (global audience)
 
 [excited] The word "orange" is missing a letter. [pause] And the fruit has a different name in every country.
