@@ -1,3 +1,31 @@
+# History of the orange: script v4 (tight, about 40 s at 1.2x)
+
+## Lines (v4)
+00 [excited] Nature never made the orange. [pause] Humans did.
+01 [amused] It's a mash-up: a giant sour pomelo... plus a tiny mandarin. In ancient China.
+02 [playful] Then it went on tour. Arab traders carried it to Spain... [deadpan] but it was so bitter, people mostly just sniffed it.
+03 [excited] Then Portuguese ships brought home the sweet one, and Europe lost its mind.
+04 [amused] Kings built whole buildings just for orange trees. The French king kept over a thousand.
+05 [deadpan] In Greek, Turkish and Arabic, the word for orange is still basically... "Portugal."
+06 [ominous] But here's the twist. [pause] In hot countries, a ripe orange is often... [deadpan] green.
+07 [amused] The peel only turns orange when the nights get cold. [deadpan] So humans made the orange... and it still isn't always orange.
+
+## Title ideas (Onoda style: plain and shocking)
+- Humans invented the orange #history #facts #shorts
+- Oranges aren't natural #history #facts #shorts
+
+## Picture beats
+1. A giant pomelo and a tiny mandarin bump together: POP, the first orange, in an ancient Chinese orchard. (0-6 s)
+2. A camel caravan; a Spanish noble sniffs a bitter orange and winces. (6-14 s)
+3. A Portuguese ship unloads; crowds go wild. (14-19 s)
+4. Versailles orangerie: rows of trees in tubs, and the king hugging one. (19-25 s)
+5. Dock signs: PORTOKALI, PORTAKAL, BURTUQAL. (25-30 s)
+6. A hot-country market piled with green oranges; a tourist does a double take. (30-36 s)
+7. A cold night falls, and one orange blushes orange. End on the green pile. (36-42 s)
+
+
+---
+
 # History of the orange (fruit): script v3
 
 Reference idea: "How did the orange get its name?" (Remember This, youtube.com/shorts/iF8LEcaaFEA). Relicly version: the story of the fruit itself.
