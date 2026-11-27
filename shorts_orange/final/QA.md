@@ -91,3 +91,8 @@ Numbers: final/preview/flicker_numbers.md.
 - Flicker: preview/flicker_v8/ (before/after clips, numbers, maps); slowed-camera aliasing <= 0.3 % on static sets.
 - Sheets: sheets/spot_final_v8.jpg (3 frames per take from the final mp4), sheets/final_v8_every6.jpg (every 6th frame), sheets/stills_v8.jpg.
 - v8b blockers cleared before render: Goa duplicate sailor (restyled docker, moved 4 m away), floating "hexagon" (the caravel stern lantern now sits on a post; Goa stall lanterns hang from the sign beam on cords), second moon (a night cloud lobe; clouds off at night), Goa grey slabs (sails furled at the quay).
+
+## FINAL v9 (client fixes: plain orange, dark-ink legs, Goa ship + carried crate, deck sign, serai cloth/NARENJI, Sintra cheer, Dutch icons, one-column name tree, tighter lantern bloom)
+- Full re-render (1440 -> lanczos 1080, no unsharp), same audio/captions. orange_santra_short.mp4 43.5 MB 7.4 Mb/s; HQ 12 Mb/s. 1411 frames, 47.03 s.
+- Black/freeze: 0. Loudness -16.04 LUFS, TP -3.26 dBTP. Whisper matches the script. Sign check: 0 of 14 cut (sheets/signs_final_v9.md).
+- Sheets: sheets/final_v9_every6.jpg, sheets/spot_final_v9.jpg.
